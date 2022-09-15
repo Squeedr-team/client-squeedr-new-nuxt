@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <div>
+    <div class="container">
+      <the-hero />
+    </div>
+  </div>
 </template>
 
 <script>
