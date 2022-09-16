@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div class="container">
-      <template v-for="section in pageData">
-        <component
-          :is="section.component_name"
-          v-if="section.component"
-          :key="section.id"
-          :section-data="section.content"
-        />
-      </template>
-    </div>
+    <template v-for="section in pageData">
+      <component
+        :is="section.component_name"
+        v-if="section.component"
+        :key="section.id"
+        :section-data="section.content"
+      />
+    </template>
   </div>
 </template>
 
