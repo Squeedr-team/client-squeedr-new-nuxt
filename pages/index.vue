@@ -126,7 +126,7 @@ export default {
           component: true,
           component_name: 'the-app-carousel',
           content: {
-            ref: 'allkinds',
+            ref: 'unforgettable',
             settings: {
               dots: false,
               dotsClass: 'slick-dots custom-dot-class',

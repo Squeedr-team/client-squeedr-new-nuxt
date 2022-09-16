@@ -4,37 +4,30 @@
       Your Next <span> Baby shower</span> <br />
       starts here
     </h1>
-    <form class="flex flex-col lg:flex-row my-6">
+    <form>
       <input
         v-model="search.what"
         type="text"
         placeholder="what are you planing?"
-        class="mb-4 lg:mb-0 p-4 rounded lg:mr-2 text-xl"
       />
-      <input
-        v-model="search.where"
-        type="text"
-        placeholder="where?"
-        class="mb-4 lg:mb-0 p-4 rounded lg:mr-2 text-xl"
-      />
-      <input
+      <input v-model="search.where" type="text" placeholder="where?" />
+      <date-picker
         v-model="search.when"
-        type="text"
-        placeholder="when?"
-        class="mb-4 lg:mb-0 p-4 rounded lg:mr-2 text-xl"
-      />
-      <button
-        type="submit"
-        class="bg-appLight text-white p-4 rounded text-2xl font-medium lg:px-10 xl:px-16"
-      >
-        Search
-      </button>
+        valueType="format"
+        placeholder="When?"
+      ></date-picker>
+
+      <button type="submit">Search</button>
     </form>
   </div>
 </template>
 
 <script>
+import DatePicker from 'vue2-datepicker'
+import 'vue2-datepicker/index.css'
 export default {
+  components: { DatePicker },
+
   data() {
     return {
       search: {

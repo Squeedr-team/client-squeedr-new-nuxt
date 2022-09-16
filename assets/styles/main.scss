@@ -37,7 +37,7 @@ section {
   .listing-card {
     height: 300px;
     padding: 0.5rem;
-    img{
+    img {
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -81,6 +81,53 @@ section {
       svg {
         fill: #37465f;
         width: 0.75rem;
+      }
+    }
+  }
+}
+
+.hero-search {
+  .mx-datepicker {
+    height: 100% !important;
+    width: auto !important;
+    input {
+      width: 100% !important;
+    }
+  }
+  input {
+    padding: 0.5rem !important;
+    height: unset !important;
+    border-radius: unset !important;
+    font-size: 14px !important;
+    line-height: unset !important;
+    width: unset !important;
+    box-shadow: unset !important;
+    border: unset !important;
+  }
+  form {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input {
+      border-radius: 0.25rem !important;
+    }
+    button {
+      background-color: #29bdef;
+      padding: 0.5rem;
+      border-radius: 0.25rem !important;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.15rem;
+      button {
+        padding: 0.5rem 3rem;
       }
     }
   }

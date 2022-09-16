@@ -118,3 +118,65 @@ section {
     width: 0.75rem;
   }
 }
+
+.hero-search .mx-datepicker {
+  height: 100% !important;
+  width: auto !important;
+}
+
+.hero-search .mx-datepicker input {
+  width: 100% !important;
+}
+
+.hero-search input {
+  padding: 0.5rem !important;
+  height: unset !important;
+  border-radius: unset !important;
+  font-size: 14px !important;
+  line-height: unset !important;
+  width: unset !important;
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+  border: unset !important;
+}
+
+.hero-search form {
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hero-search form input {
+  border-radius: 0.25rem !important;
+}
+
+.hero-search form button {
+  background-color: #29bdef;
+  padding: 0.5rem;
+  border-radius: 0.25rem !important;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (min-width: 1024px) {
+  .hero-search form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 0.15rem;
+  }
+  .hero-search form button {
+    padding: 0.5rem 3rem;
+  }
+}
