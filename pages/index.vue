@@ -34,6 +34,14 @@ export default {
             h1: 'Hello World 2',
           },
         },
+        {
+          id: 3,
+          component: true,
+          component_name: 'why-us',
+          content: {
+            h1: 'Hello World 2',
+          },
+        },
       ],
     }
   },

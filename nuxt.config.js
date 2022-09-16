@@ -9,7 +9,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  css: [],
+  css: ['~/assets/styles/main.css'],
   plugins: [],
   components: [
     {
@@ -30,12 +30,18 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/strapi',
     'nuxt-webfontloader',
+    '@nuxtjs/markdownit',
   ],
   webfontloader: {
     google: {
       // Loads Open Sans font with weights 300 and 400 + display font as swap
       families: ['Lato:300,400,700,900&display=swap'],
     },
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
   },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',

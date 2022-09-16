@@ -10,7 +10,7 @@
     </ul>
     <nuxt-link
       to="#"
-      class="block mt-4 mb-8 text-xl text-lightPrimaryColor font-medium"
+      class="block mt-8 mb-16 text-xl text-lightPrimaryColor font-medium"
       >View all</nuxt-link
     >
   </section>
