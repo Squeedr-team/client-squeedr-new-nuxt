@@ -29,7 +29,7 @@ export default {
         {
           id: 2,
           component: true,
-          component_name: 'TheAppFooter',
+          component_name: 'the-listings',
           content: {
             h1: 'Hello World 2',
           },
