@@ -1,12 +1,11 @@
 <template>
-  <nuxt-link :to="cardData.href" class="listing-card relative">
-    <nuxt-img
-      provider="cloudinary"
-      :src="cardData.image"
-      width="500"
-      height="500"
-    />
-    <div class="absolute bottom-4 left-0 w-full">
+  <nuxt-link
+    :to="cardData.href"
+    class="listing-card relative block"
+    :class="{ rounded: rounded }"
+  >
+    <nuxt-img provider="cloudinary" :src="cardData.image" :class="{ rounded: rounded }"/>
+    <div class="absolute bottom-8 left-0 w-full">
       <h4 class="text-white font-bold text-xl text-center">
         {{ cardData.title }}
       </h4>
@@ -20,6 +19,10 @@ export default {
     cardData: {
       type: Object,
       require: true,
+    },
+    rounded: {
+      type: Boolean,
+      require: false,
     },
   },
 }

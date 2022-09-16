@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hero-section h-hero bg-green-500"
+    class="hero-section h-screen lg:h-hero bg-green-500"
     :style="{
       background: 'url(' + heroDaata.background_image + ')',
       'background-size': 'cover',

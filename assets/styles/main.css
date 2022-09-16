@@ -1,3 +1,7 @@
+section {
+  padding: 1rem 0;
+}
+
 .about-us_text h1 {
   margin-bottom: 1rem;
   font-weight: 900;
@@ -16,7 +20,14 @@
 }
 
 .why-us {
-  height: 500px;
+  min-height: 500px;
+}
+
+@media (min-width: 1024px) {
+  .why-us {
+    min-height: unset;
+    height: 500px;
+  }
 }
 
 .why-us img {
@@ -24,4 +35,86 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .why-us img {
+    height: 500px;
+  }
+}
+
+.carousel-wraper {
+  height: 300px;
+}
+
+.carousel-wraper .listing-card {
+  height: 300px;
+  padding: 0.5rem;
+}
+
+.carousel-wraper .listing-card img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slick-slider,
+.slick-list,
+.slick-track {
+  height: 100%;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  color: #37465f;
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+}
+
+.arrows {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .arrows {
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    right: -0.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .arrows button {
+    background-color: #f8f9fa;
+    width: 2rem;
+    height: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 50%;
+  }
+  .arrows button svg {
+    fill: #37465f;
+    width: 0.75rem;
+  }
 }

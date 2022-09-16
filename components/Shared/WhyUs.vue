@@ -1,9 +1,9 @@
 <template>
-  <section class="why-us flex overflow-hidden my-16">
-    <div class="w-1/2">
-      <nuxt-img provider="cloudinary" :src="image" class="w-full object-cover" />
+  <section class="why-us flex flex-wrap overflow-hidden">
+    <div class="w-full lg:w-1/2">
+      <nuxt-img provider="cloudinary" :src="image" />
     </div>
-    <div class="bg-gray-200 flex-1 flex items-center">
+    <div class="bg-gray-200 flex-1 flex items-center px-4 lg:px-0 py-8 lg:py-0">
       <div v-html="$md.render(text)" class="about-us_text lg:pl-8"></div>
     </div>
   </section>
