@@ -25,7 +25,18 @@ export default {
     },
   },
 
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/strapi'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    '@nuxtjs/strapi',
+    'nuxt-webfontloader',
+  ],
+  webfontloader: {
+    google: {
+      // Loads Open Sans font with weights 300 and 400 + display font as swap
+      families: ['Lato:300,400,700,900&display=swap'],
+    },
+  },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
   },

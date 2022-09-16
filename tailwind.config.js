@@ -2,6 +2,9 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      sans: ['Lato', 'sans-serif'],
+    },
     extend: {
       container: {
         center: true,
@@ -21,6 +24,7 @@ module.exports = {
         borderColor: '#aebaca',
         darkGreyColor: '#596066',
         paraGreyColor: '#aebaca',
+        appLight: '#29BDEF',
       },
     },
   },

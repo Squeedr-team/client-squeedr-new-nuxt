@@ -1,6 +1,6 @@
 <template>
-  <section class="container py-8">
-    <h4 class="font-bold text-xl md:text-2xl my-4 text-mainLight">
+  <section class="container">
+    <h4 class="font-bold text-xl md:text-2xl my-8 text-mainLight">
       Book a unique space for your activity
     </h4>
     <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
@@ -10,7 +10,7 @@
     </ul>
     <nuxt-link
       to="#"
-      class="block my-4 text-xl text-lightPrimaryColor font-medium"
+      class="block mt-4 mb-8 text-xl text-lightPrimaryColor font-medium"
       >View all</nuxt-link
     >
   </section>

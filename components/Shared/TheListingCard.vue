@@ -6,6 +6,11 @@
       width="500"
       height="500"
     />
+    <div class="absolute bottom-4 left-0 w-full">
+      <h4 class="text-white font-bold text-xl text-center">
+        {{ cardData.title }}
+      </h4>
+    </div>
   </nuxt-link>
 </template>
 

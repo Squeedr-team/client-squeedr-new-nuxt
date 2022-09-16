@@ -1,6 +1,6 @@
 <template>
   <div class="hero-search">
-    <h1 class="font-bold text-3xl lg:text-6xl text-white">
+    <h1 class="font-black text-3xl md:text-4xl lg:text-6xl text-white">
       Your Next <span> Baby shower</span> <br />
       starts here
     </h1>
@@ -25,7 +25,7 @@
       />
       <button
         type="submit"
-        class="bg-mainLight text-white p-4 rounded text-2xl font-medium lg:flex-1"
+        class="bg-appLight text-white p-4 rounded text-2xl font-medium lg:px-10 xl:px-16"
       >
         Search
       </button>
