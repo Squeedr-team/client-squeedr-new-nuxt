@@ -14,7 +14,7 @@ module.exports = {
         },
       },
       height: {
-        hero: '70vh',
+        hero: '50vh',
       },
       colors: {
         darkPrimaryColor: '#263043',

@@ -1,5 +1,6 @@
 section {
   margin: 4rem 0;
+  overflow: hidden;
 }
 
 .about-us_text h1 {

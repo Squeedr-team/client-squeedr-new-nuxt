@@ -1,5 +1,6 @@
 section {
   margin: 4rem 0;
+  overflow: hidden;
 }
 .about-us_text {
   h1 {
@@ -158,7 +159,7 @@ section {
   height: 400px;
   .container {
     height: 100%;
-    .app-update__content  {
+    .app-update__content {
       height: 100%;
     }
     img {

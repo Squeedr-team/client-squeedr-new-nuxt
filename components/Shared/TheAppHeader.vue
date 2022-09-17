@@ -9,6 +9,7 @@
       left-0
       w-full
       bg-transpirant
+      z-10
     "
   >
     <nav class="container">

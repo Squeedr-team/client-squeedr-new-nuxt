@@ -27,6 +27,14 @@ export default {
           },
         },
         {
+          id: 2,
+          component: true,
+          component_name: 'the-listings',
+          content: {
+            h1: 'Hello World 2',
+          },
+        },
+        {
           id: 12,
           component: true,
           component_name: 'the-app-update',
@@ -39,14 +47,6 @@ export default {
               text: 'learn more',
               href: '#',
             },
-          },
-        },
-        {
-          id: 2,
-          component: true,
-          component_name: 'the-listings',
-          content: {
-            h1: 'Hello World 2',
           },
         },
         {

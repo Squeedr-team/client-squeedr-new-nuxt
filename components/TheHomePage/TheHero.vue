@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hero-section h-screen lg:h-hero bg-green-500"
+    class="hero-section h-screen lg:h-hero relative"
     :style="{
       background: 'url(' + heroDaata.background_image + ')',
       'background-size': 'cover',
@@ -9,6 +9,7 @@
     <div class="container h-full flex flex-col justify-center">
       <the-hero-search />
     </div>
+    <the-category-nav />
   </div>
 </template>
 
