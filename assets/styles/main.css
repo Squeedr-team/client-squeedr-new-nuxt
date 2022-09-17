@@ -222,6 +222,10 @@ section {
   height: 100%;
 }
 
+.app-update .container .app-update__content {
+  height: 100%;
+}
+
 .app-update .container img {
   position: absolute;
   top: 0;
