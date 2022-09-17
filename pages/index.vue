@@ -27,6 +27,21 @@ export default {
           },
         },
         {
+          id: 12,
+          component: true,
+          component_name: 'the-app-update',
+          content: {
+            center_text: false,
+            image: '/v1663362062/cleaning-spray-xl.jpg',
+            title: 'Our COVID-19 Health & Safety Measures',
+            text: 'We’ve provided guidelines and enhanced safety measures for hosts so guests can book with peace of mind.',
+            cta: {
+              text: 'learn more',
+              href: '#',
+            },
+          },
+        },
+        {
           id: 2,
           component: true,
           component_name: 'the-listings',
@@ -205,15 +220,16 @@ export default {
           },
         },
         {
-          id: 12,
+          id: 20,
           component: true,
           component_name: 'the-app-update',
           content: {
-            image: '/v1663362062/cleaning-spray-xl.jpg',
-            title: 'Our COVID-19 Health & Safety Measures',
-            text: 'We’ve provided guidelines and enhanced safety measures for hosts so guests can book with peace of mind.',
+            center_text: true,
+            image: '/v1663407390/host-banner.jpg',
+            title: 'Share your space and start earning',
+            text: 'List for free, set your price, and rest assured with our $1M liability insurance',
             cta: {
-              text: 'learn more',
+              text: 'Become a host',
               href: '#',
             },
           },
