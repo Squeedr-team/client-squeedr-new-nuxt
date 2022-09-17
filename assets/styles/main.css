@@ -230,3 +230,11 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.app-footer nav .brand .brand-links a::after {
+  content: '-';
+}
+
+.app-footer nav .brand .brand-links a:last-child::after {
+  content: '';
+}
