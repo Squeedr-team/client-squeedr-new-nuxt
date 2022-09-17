@@ -1,5 +1,5 @@
 section {
-  padding: 1rem 0;
+  margin: 4rem 0;
 }
 
 .about-us_text h1 {
@@ -68,13 +68,13 @@ section {
 .section-title {
   font-weight: 700;
   font-size: 1.25rem;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   color: #37465f;
 }
 
 @media (min-width: 1024px) {
   .section-title {
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     font-size: 2rem;
   }
 }
@@ -140,6 +140,10 @@ section {
   border: unset !important;
 }
 
+.hero-search input:focus, .hero-search input:active {
+  outline: 0;
+}
+
 .hero-search form {
   margin: 1rem 0;
   display: -webkit-box;
@@ -150,10 +154,15 @@ section {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .hero-search form input {
   border-radius: 0.25rem !important;
+}
+
+.hero-search form input:focus {
+  outline: 1px solid #29bdef;
 }
 
 .hero-search form button {
@@ -176,7 +185,48 @@ section {
             align-items: center;
     gap: 0.15rem;
   }
+  .hero-search form .form-item {
+    width: 20% !important;
+  }
   .hero-search form button {
     padding: 0.5rem 3rem;
+    width: 20%;
   }
+}
+
+@media (min-width: 1440px) {
+  .hero-search form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 0.15rem;
+  }
+  .hero-search form .form-item {
+    width: 15% !important;
+  }
+  .hero-search form button {
+    padding: 0.5rem 3rem;
+    width: 15%;
+  }
+}
+
+.app-update {
+  height: 400px;
+}
+
+.app-update .container {
+  height: 100%;
+}
+
+.app-update .container img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

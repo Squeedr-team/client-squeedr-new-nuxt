@@ -204,6 +204,20 @@ export default {
             },
           },
         },
+        {
+          id: 12,
+          component: true,
+          component_name: 'the-app-update',
+          content: {
+            image: '/v1663362062/cleaning-spray-xl.jpg',
+            title: 'Our COVID-19 Health & Safety Measures',
+            text: 'We’ve provided guidelines and enhanced safety measures for hosts so guests can book with peace of mind.',
+            cta: {
+              text: 'learn more',
+              href: '#',
+            },
+          },
+        },
       ],
     }
   },

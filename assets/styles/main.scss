@@ -1,5 +1,5 @@
 section {
-  padding: 1rem 0;
+  margin: 4rem 0;
 }
 .about-us_text {
   h1 {
@@ -53,10 +53,10 @@ section {
 .section-title {
   font-weight: 700;
   font-size: 1.25rem;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   color: #37465f;
   @media (min-width: 1024px) {
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     font-size: 2rem;
   }
 }
@@ -103,15 +103,23 @@ section {
     width: unset !important;
     box-shadow: unset !important;
     border: unset !important;
+    &:focus,
+    &:active {
+      outline: 0;
+    }
   }
   form {
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
 
     input {
       border-radius: 0.25rem !important;
+      &:focus {
+        outline: 1px solid #29bdef;
+      }
     }
     button {
       background-color: #29bdef;
@@ -126,9 +134,38 @@ section {
       flex-direction: row;
       align-items: center;
       gap: 0.15rem;
+      .form-item {
+        width: 20% !important;
+      }
       button {
         padding: 0.5rem 3rem;
+        width: 20%;
       }
+    }
+    @media (min-width: 1440px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.15rem;
+      .form-item {
+        width: 15% !important;
+      }
+      button {
+        padding: 0.5rem 3rem;
+        width: 15%;
+      }
+    }
+  }
+}
+.app-update {
+  height: 400px;
+  .container {
+    height: 100%;
+    img {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }
