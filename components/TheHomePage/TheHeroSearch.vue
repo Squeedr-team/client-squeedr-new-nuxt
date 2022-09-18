@@ -16,12 +16,12 @@
         placeholder="where?"
         class="form-item"
       />
-      <!-- <date-picker
+      <date-picker
         v-model="search.when"
         valueType="format"
         placeholder="When?"
         class="form-item"
-      ></date-picker> -->
+      ></date-picker>
 
       <button type="submit">Search</button>
     </form>
@@ -29,10 +29,10 @@
 </template>
 
 <script>
-// import DatePicker from 'vue2-datepicker'
-// import 'vue2-datepicker/index.css'
+import DatePicker from 'vue2-datepicker'
+import 'vue2-datepicker/index.css'
 export default {
-  // components: { DatePicker },
+  components: { DatePicker },
 
   data() {
     return {

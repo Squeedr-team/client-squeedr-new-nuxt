@@ -26,6 +26,7 @@ export default {
             h1: 'Hello World',
           },
         },
+        
         {
           id: 2,
           component: true,
@@ -34,21 +35,7 @@ export default {
             h1: 'Hello World 2',
           },
         },
-        {
-          id: 12,
-          component: true,
-          component_name: 'the-app-update',
-          content: {
-            center_text: false,
-            image: '/v1663362062/cleaning-spray-xl.jpg',
-            title: 'Our COVID-19 Health & Safety Measures',
-            text: 'We’ve provided guidelines and enhanced safety measures for hosts so guests can book with peace of mind.',
-            cta: {
-              text: 'learn more',
-              href: '#',
-            },
-          },
-        },
+
         {
           id: 3,
           component: true,

@@ -22,6 +22,7 @@
             'bg-appLight': nav.active,
             'bg-darkPrimaryColor': !nav.active,
           }"
+          @click="setActive(nav.id)"
         >
           {{ nav.name }}
         </button>
@@ -37,8 +38,13 @@ export default {
       navs: [
         {
           id: 1,
-          name: 'spaces',
+          name: 'All',
           active: true,
+        },
+        {
+          id: 10,
+          name: 'spaces',
+          active: false,
         },
         {
           id: 2,
@@ -52,6 +58,20 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    setActive(id) {
+      this.navs = this.navs.map((x) => {
+        if (x.id === id) {
+          return {
+            ...x,
+            active: true,
+          }
+        } else {
+          return { ...x, active: false }
+        }
+      })
+    },
   },
 }
 </script>

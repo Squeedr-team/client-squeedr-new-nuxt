@@ -1,12 +1,14 @@
 <template>
-  <section class="container">
+  <section class="listings container">
     <h4 class="section-title">Book a unique space for your activity</h4>
     <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
       <li v-for="list in listings" :key="list.id">
         <the-listing-card :card-data="list" />
       </li>
     </ul>
-    <nuxt-link to="#" class="block mt-4 text-xl text-lightPrimaryColor font-medium"
+    <nuxt-link
+      to="#"
+      class="block mt-4 text-md text-lightPrimaryColor font-medium"
       >View all</nuxt-link
     >
   </section>
