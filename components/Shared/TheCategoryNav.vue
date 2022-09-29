@@ -48,7 +48,7 @@ export default {
         },
         {
           id: 2,
-          name: 'classes & appointments',
+          name: 'classes',
           active: false,
         },
         {
@@ -63,6 +63,7 @@ export default {
     setActive(id) {
       this.navs = this.navs.map((x) => {
         if (x.id === id) {
+          this.$router.push({ name: 'index', query: { cate: x.name } })
           return {
             ...x,
             active: true,

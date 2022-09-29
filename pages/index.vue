@@ -26,7 +26,7 @@ export default {
             h1: 'Hello World',
           },
         },
-        
+
         {
           id: 2,
           component: true,
