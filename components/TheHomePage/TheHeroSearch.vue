@@ -23,7 +23,7 @@
         class="form-item"
       ></date-picker>
 
-      <button type="submit">Search</button>
+      <button type="button" @click="showResults">Search</button>
     </form>
   </div>
 </template>
@@ -43,8 +43,12 @@ export default {
       },
     }
   },
+  methods: {
+    showResults() {
+      this.$router.push('/search')
+    },
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>
