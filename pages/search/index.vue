@@ -23,6 +23,12 @@ export default {
           component_name: 'filters-container',
           content: {},
         },
+        {
+          id: 1,
+          component: true,
+          component_name: 'search-results-container',
+          content: {},
+        },
       ],
     }
   },
