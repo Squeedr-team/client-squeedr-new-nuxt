@@ -10,14 +10,13 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: ['~/assets/styles/main.css'],
-  plugins: [],
+  plugins: [{ src: '~/plugins/GMaps.js', ssr: true }],
   components: [
     {
       path: '~/components',
       pathPrefix: false,
     },
   ],
-
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss', '@nuxt/image'],
   image: {
     cloudinary: {
@@ -56,5 +55,7 @@ export default {
     },
   },
 
-  build: {},
+  build: {
+    transpile: [/^vue2-google-maps($|\/)/],
+  },
 }

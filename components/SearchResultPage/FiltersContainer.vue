@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-white px-5 py-3 border-b flex">
+  <div class="w-screen fixed z-50 bg-white px-5 py-3 border-b flex">
     <div class="mr-3 hidden md:block">
       <button
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 rounded"

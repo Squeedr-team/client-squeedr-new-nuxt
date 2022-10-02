@@ -17,6 +17,7 @@
     "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/strapi": "0.3.1",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "nuxt-webfontloader": "^1.1.0",
@@ -25,6 +26,7 @@
     "vue-slick-carousel": "^1.0.6",
     "vue-template-compiler": "^2.6.14",
     "vue2-datepicker": "^3.11.0",
+    "vue2-google-maps": "^0.10.7",
     "webpack": "^4.46.0"
   },
   "devDependencies": {

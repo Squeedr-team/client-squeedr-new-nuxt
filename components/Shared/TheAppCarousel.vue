@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container app-carousel-container">
     <h4 class="section-title">{{ sectionData.title }}</h4>
     <div class="carousel-wraper relative">
       <VueSlickCarousel
