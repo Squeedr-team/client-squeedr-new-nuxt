@@ -100,6 +100,9 @@ export default {
 </script>
 
 <style>
+.event-carousel .slick-dots {
+  display: none !important;
+}
 .event-carousel .carousel-wraper {
   height: unset;
 }

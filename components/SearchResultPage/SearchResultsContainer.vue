@@ -116,6 +116,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: false,
+          covid_enhanced: true,
           href: '#',
         },
         {
@@ -136,6 +138,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: true,
+          covid_enhanced: false,
           href: '#',
         },
         {
@@ -157,6 +161,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: false,
+          covid_enhanced: false,
           href: '#',
         },
         {
@@ -178,6 +184,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: true,
+          covid_enhanced: false,
           href: '#',
         },
         {
@@ -199,6 +207,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: false,
+          covid_enhanced: true,
           href: '#',
         },
         {
@@ -220,6 +230,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: false,
+          covid_enhanced: false,
           href: '#',
         },
         {
@@ -241,6 +253,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: false,
+          covid_enhanced: false,
           href: '#',
         },
         {
@@ -262,6 +276,8 @@ export default {
           covidEnhancment: true,
           instantBook: false,
           rate: null,
+          instant_book: false,
+          covid_enhanced: false,
           href: '#',
         },
       ],

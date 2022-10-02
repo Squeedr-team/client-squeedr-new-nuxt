@@ -27,13 +27,35 @@
     <p class="text-[#343840] text-lg line-clamp-1">
       {{ spaceData.title }}
     </p>
-    <div class="my-2">
-      <span class="flex items-center text-sm text-[#6a707a]">
-        <img width="16px" :src="membersIcons" alt="icon" />{{
-          spaceData.members
-        }}
-      </span>
-    </div>
+    <p class="flex items-center text-sm text-[#6a707a my-1">
+      <img width="16px" :src="membersIcons" alt="icon" />{{ spaceData.members }}
+    </p>
+    <p
+      v-if="spaceData.covid_enhanced"
+      class="mb-1 flex items-center font-bold text-[#1a6dfd] text-xs"
+    >
+      <img
+        width="14px"
+        height="14px"
+        class="mr-1"
+        :src="sheildIcon"
+        alt="shelid"
+      />
+      Enhanced &nbsp;<span class="text-sm"> COVID-19 </span>&nbsp; Measures
+    </p>
+    <p
+      v-if="spaceData.instant_book"
+      class="ml-1 cursor-pointer flex items-center text-sm mb-1 text-gray-400"
+    >
+      <img
+        width="10px"
+        height="10px"
+        class="mr-1"
+        :src="lightIcon"
+        alt="shelid"
+      />
+      Instant Book
+    </p>
     <p class="text-[#6a707a] font-semibold text-sm capitalize">
       {{ spaceData.note }}
     </p>
@@ -54,6 +76,8 @@ export default {
   },
   data() {
     return {
+      sheildIcon: require('@/assets/icons/enhanced-badge.svg'),
+      lightIcon: require('@/assets/icons/lightningbolt.svg'),
       bookmarked: false,
       membersIcons: require('@/assets/icons/people-icon.svg'),
       heartIcon: require('@/assets/icons/heart.svg'),
