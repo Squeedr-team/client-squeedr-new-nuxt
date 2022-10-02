@@ -61,6 +61,8 @@
           type="checkbox"
           value=""
           class="sr-only peer"
+          :checked="showMap"
+          @change="$emit('toggleMap')"
         />
         <div
           class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#52a2b1] outline-none border-0"
@@ -81,9 +83,8 @@ import MoreFiltersModal from './MoreFiltersModal.vue'
 export default {
   components: { priceMenu, AttendeesMenu, SelectDateMenu, MoreFiltersModal },
   props: {
-    sectionData: {
-      type: Object,
-      required: true,
+    showMap: {
+      type: Boolean,
     },
   },
   data() {
@@ -94,10 +95,6 @@ export default {
       showModaFiltersModal: false,
       filterIcon: require('@/assets/icons/filter-teal.svg'),
     }
-  },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log('FILTER CONTAINER PROPS', this.sectionData)
   },
 }
 </script>

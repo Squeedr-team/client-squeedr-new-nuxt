@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
-  <div>
+  <div class="min-h-screen">
     <gmap-map :center="center" :zoom="8" style="width: 100%; height: 900px">
       <!-- <div v-for="space in results" :key="space.id" class="mb-5"> -->
       <gmap-marker

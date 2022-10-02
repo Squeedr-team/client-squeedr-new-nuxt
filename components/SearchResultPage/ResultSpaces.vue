@@ -4,7 +4,12 @@
     <p class="text-md text-gray-600 mb-2 mt-2">
       228 yoga studio spaces near Paris, France
     </p>
-    <div class="space-card grid grid-cols-2 gap-3">
+    <div
+      class="`space-card grid grid-cols-1 gap-3`"
+      :class="`${
+        fullWidth ? 'md:grid-cols-3 sm:grid-cols-2' : 'md:grid-cols-2'
+      } `"
+    >
       <div v-for="space in results" :key="space.id" class="mb-5">
         <space-card :spaceData="space" />
       </div>
@@ -99,6 +104,9 @@ export default {
     results: {
       type: Array,
       required: true,
+    },
+    fullWidth: {
+      type: Boolean,
     },
   },
   data() {

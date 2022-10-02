@@ -1,15 +1,27 @@
+<!-- eslint-disable vue/no-lone-template -->
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div
-    class="grid grid-cols-5 overflow-hidden max-h-screen overflow-y-hidden px-4"
+    class="grid grid-cols-5 overflow-hidden max-h-screen overflow-y-hidden px-4 relative"
   >
     <div
-      class="col-span-3 pt-3 pr-3 pb-16 h-screen overflow-y-scroll overflow-x-hidden mt-16"
+      class="pt-3 pr-3 pb-16 h-screen overflow-y-scroll overflow-x-hidden mt-16"
+      :class="`${showMap ? 'col-span-3' : 'col-span-5'} `"
     >
-      <events-carousel :sectionData="eventsCarouselData" />
-      <result-spaces :results="searchResultsData" />
+      <template v-if="showList">
+        <events-carousel :sectionData="eventsCarouselData" />
+        <result-spaces :results="searchResultsData" :fullWidth="!showMap" />
+      </template>
     </div>
-    <div class="col-span-2 bg-red-200 mt-16">
+    <div
+      v-if="showMap"
+      class="hidden sm:block col-span-2 bg-red-200 mt-16 min-w-screen"
+      :class="`${
+        isSmallScreen
+          ? 'col-span-5 absolute left-0 top-0 w-screen'
+          : 'col-span-2 w-auto relative'
+      }`"
+    >
       <spaces-map :results="searchResultsData" />
     </div>
   </div>
@@ -21,6 +33,16 @@ import ResultSpaces from './ResultSpaces.vue'
 import SpacesMap from './SpacesMap.vue'
 export default {
   components: { EventsCarousel, ResultSpaces, SpacesMap },
+  props: {
+    isSmallScreen: {
+      type: Boolean,
+      required: true,
+    },
+    showMap: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       eventsCarouselData: {
@@ -37,6 +59,24 @@ export default {
           responsive: [
             {
               breakpoint: 1024,
+              settings: {
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 640,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -282,6 +322,27 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    showList() {
+      if (this.isSmallScreen) {
+        if (this.showMap) {
+          return false
+        } else {
+          return true
+        }
+      } else {
+        return true
+      }
+    },
+  },
+  mounted() {
+    console.log('this.isSmalls', this.isSmallScreen)
+    // if (this.isSmallScreen) {
+    //   if (this.showMap) {
+    //     return false
+    //   }
+    // }
   },
 }
 </script>
