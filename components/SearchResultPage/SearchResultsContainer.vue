@@ -141,8 +141,8 @@ export default {
         {
           id: 3,
           images: [
+            '/v1663308801/Baby_shower_tile.jpg',
             '/v1663308759/Meeting_tile.jpg',
-            '/v1663308775/Party_tile.jpg',
           ],
           image: '/v1663308759/Meeting_tile.jpg',
           title: 'Lieu artistique et atypique au coeur de P',
@@ -171,8 +171,8 @@ export default {
           },
           price: 500,
           images: [
-            '/v1663308759/Meeting_tile.jpg',
-            '/v1663308775/Party_tile.jpg',
+            '/v1663308694/Video_shoot_tile_v2.jpg',
+            '/v1663308789/workshop.jpg',
           ],
           note: 'new space',
           covidEnhancment: true,
@@ -185,7 +185,6 @@ export default {
         {
           id: 4,
           image: '/v1663308775/Party_tile.jpg',
-
           title: 'Galerie dart idéale pour pop-up et petits',
           members: 100,
           position: {
@@ -194,8 +193,8 @@ export default {
           },
           price: 500,
           images: [
-            '/v1663308759/Meeting_tile.jpg',
             '/v1663308775/Party_tile.jpg',
+            '/v1663308759/Meeting_tile.jpg',
           ],
           note: 'new space',
           covidEnhancment: true,
@@ -208,7 +207,6 @@ export default {
         {
           id: 2,
           image: '/v1663308737/Photo_shoot_tile.jpg',
-
           title: 'Loft zen et harmonieux de 400m2 pour v',
           members: 100,
           position: {
@@ -217,8 +215,8 @@ export default {
           },
           price: 500,
           images: [
-            '/v1663308759/Meeting_tile.jpg',
-            '/v1663308775/Party_tile.jpg',
+            '/v1663308801/Baby_shower_tile.jpg',
+            '/v1663308801/Baby_shower_tile.jpg',
           ],
           note: 'Responds within 12 hrs',
           covidEnhancment: true,
@@ -231,7 +229,6 @@ export default {
         {
           id: 5,
           image: '/v1663308789/workshop.jpg',
-
           title: 'Superbe Showroom & Studio Photo dans ',
           members: 100,
           position: {
@@ -240,8 +237,8 @@ export default {
           },
           price: 500,
           images: [
-            '/v1663308759/Meeting_tile.jpg',
-            '/v1663308775/Party_tile.jpg',
+            '/v1663308789/workshop.jpg',
+            '/v1663308801/Baby_shower_tile.jpg',
           ],
           note: 'Responds in over 48 hrs',
           covidEnhancment: true,
@@ -264,8 +261,8 @@ export default {
           price: 500,
           note: 'Responds within 1 hr',
           images: [
-            '/v1663308759/Meeting_tile.jpg',
-            '/v1663308775/Party_tile.jpg',
+            '/v1663308801/Baby_shower_tile.jpg',
+            '/v1663308831/Performance_tile.jpg',
           ],
           covidEnhancment: true,
           instantBook: false,
@@ -286,7 +283,7 @@ export default {
           },
           price: 500,
           images: [
-            '/v1663308759/Meeting_tile.jpg',
+            '/v1663308817/Popup_tile.jpg',
             '/v1663308775/Party_tile.jpg',
           ],
           note: 'new space',
@@ -300,7 +297,6 @@ export default {
         {
           id: 8,
           image: '/v1663308831/Performance_tile.jpg',
-
           title: 'Beautiful Yoga Studio in the Marais',
           members: 100,
           position: {
@@ -309,7 +305,7 @@ export default {
           },
           price: 500,
           images: [
-            '/v1663308759/Meeting_tile.jpg',
+            '/v1663308831/Performance_tile.jpg',
             '/v1663308775/Party_tile.jpg',
           ],
           note: 'new space',

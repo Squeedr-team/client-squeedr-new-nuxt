@@ -5,7 +5,7 @@
       228 yoga studio spaces near Paris, France
     </p>
     <div
-      class="`space-card grid grid-cols-1 gap-3`"
+      class="`space-cards-container grid grid-cols-1 gap-3 mx-3`"
       :class="`${
         fullWidth ? 'md:grid-cols-3 sm:grid-cols-2' : 'md:grid-cols-2'
       } `"

@@ -1,5 +1,5 @@
 <template>
-  <div class="cursor-pointer">
+  <div class="space-card cursor-pointer">
     <VueSlickCarousel
       v-if="spaceData?.images?.length > 0"
       v-bind="settings"
