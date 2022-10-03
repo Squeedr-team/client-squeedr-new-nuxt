@@ -1,7 +1,11 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
-  <div class="min-h-screen">
-    <gmap-map :center="center" :zoom="8" style="width: 100%; height: 900px">
+  <div :class="singlePlace ? 'h-auto' : 'min-h-screen'">
+    <gmap-map
+      :center="center"
+      :zoom="8"
+      :style="`width: ${width}; height: ${height}`"
+    >
       <!-- <div v-for="space in results" :key="space.id" class="mb-5"> -->
       <gmap-marker
         v-for="(space, index) in results"
@@ -44,13 +48,27 @@ export default {
       required: false,
       default: () => [],
     },
+    singlePlace: {
+      type: Boolean,
+      required: false,
+      default: () => false,
+    },
+    width: {
+      type: String,
+      required: false,
+      default: () => '100%',
+    },
+    height: {
+      type: String,
+      required: false,
+      default: () => '900px',
+    },
   },
   data() {
     return {
       selectedSpace: {
         position: {},
       },
-      center: { lat: 48.8566, lng: 2.3522 },
       markers: [
         {
           position: { lat: 48.8566, lng: 2.3522 },
@@ -59,6 +77,19 @@ export default {
       places: [],
       currentPlace: null,
     }
+  },
+  computed: {
+    center() {
+      if (this.results.length > 0) {
+        const firstElementCoords = this.results[0].position
+        return {
+          lat: firstElementCoords.lat,
+          lng: firstElementCoords.lng,
+        }
+      } else {
+        return { lat: 48.8566, lng: 2.3522 }
+      }
+    },
   },
   methods: {
     injectGoogleMapsApiIfNotInjectedAlready() {

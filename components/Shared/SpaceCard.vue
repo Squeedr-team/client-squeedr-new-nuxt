@@ -4,7 +4,7 @@
     target="_blank"
     class="space-card"
   >
-    <div @click.stop.prevent>
+    <div class="cursor-default" @click.stop.prevent>
       <VueSlickCarousel
         v-if="spaceData?.images?.length > 0"
         v-bind="settings"

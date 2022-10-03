@@ -53,9 +53,6 @@ export default {
       heartFilledIcon: require('@/assets/icons/heart-filled.svg'),
     }
   },
-  mounted() {
-    console.log('this spacesdatae', this.spaceData)
-  },
 }
 </script>
 

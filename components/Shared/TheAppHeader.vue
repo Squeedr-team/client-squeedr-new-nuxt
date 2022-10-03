@@ -8,7 +8,7 @@
       top-0
       left-0
       w-full
-      bg-transpirant
+      bg-transparent
       z-10
     "
   >
