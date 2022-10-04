@@ -81,27 +81,45 @@
       />
     </div>
 
-    <!-- START SET MEETING DAY FILTER -->
+    <!-- End SET MEETING DAY FILTER -->
+
+    <!-- START CUSTOM FILTERS MODAL -->
 
     <div class="mr-0 md:mr-3 w-full md:w-1/6">
       <button
+        v-if="!customFiltersArr.length"
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full flex items-center gap-1"
         @click="toggleFilterModal"
       >
         <img :src="filterIcon" alt="filter icon" height="17px" width="17px" />
         More Filters
       </button>
+      <button
+        v-if="customFiltersArr.length"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200 flex items-center gap-1"
+        @click="toggleFilterModal"
+      >
+        <img :src="filterIcon" alt="filter icon" height="17px" width="17px" />
+        More Filters • {{ customFiltersArr.length }}
+      </button>
       <more-filters-modal
         v-if="showMoreFiltersModal"
+        :prev-val="queryFilterData.customFilters"
         @closeMenu="showMoreFiltersModal = false"
+        @selectedCustomFilters="selectCustomFilterValue"
+        @keywordSearch="(val) => searchByKeyword(val)"
       />
     </div>
+
+    <!-- End CUSTOM FILTERS MODAL -->
+
     <div class="mr-3 hidden md:block">
       <input
         id="keyword"
         class="border rounded-sm p-2"
         type="text"
         placeholder="Enter a keyword"
+        @change="searchByKeyword($event.target.value)"
       />
     </div>
     <div class="ml-auto self-center hidden md:block">
@@ -157,8 +175,10 @@ export default {
           start_time: '',
           end_time: '',
         },
+        customFilters: {},
         keyword: '',
       },
+      customFiltersArr: [],
     }
   },
   methods: {
@@ -170,29 +190,38 @@ export default {
         this.opendMenuName = menuName
       }
     },
+    searchByKeyword(val) {
+      this.selectFilterValue({
+        filterQueryKey: 'keyword',
+        val,
+      })
+    },
+    selectCustomFilterValue(args) {
+      this.queryFilterData.customFilters[args.filterQueryKey] = args.val
+      const tempArr = []
+      // iterate over custom fileds obect and set them to route query params
+      for (const key in this.queryFilterData.customFilters) {
+        const val = this.queryFilterData.customFilters[key]
+        if (val) {
+          const tempObj = {}
+          tempObj[key] = val
+          this.$router.push({
+            query: { ...this.$route.query, ...tempObj },
+          })
+          tempArr.push(...this.queryFilterData.customFilters[key].split('+'))
+        }
+      }
+      this.customFiltersArr = tempArr
+    },
     selectFilterValue(args) {
-      // eslint-disable-next-line no-console
-      console.log('val', args)
-      // eslint-disable-next-line no-console
-      console.log('filterQueryKey', args)
       if (args.filterQueryKey !== 'dateTime') {
         this.queryFilterData[args.filterQueryKey] = args.val
         this.$router.push({
           query: { ...this.$route.query, ...this.queryFilterData },
         })
       } else {
-        console.log('args.val', args.val)
         // to fomrat date and time as we like for the backend
         this.queryFilterData[args.filterQueryKey] = args.val
-        this.$router.push({
-          query: {
-            ...this.$route.query,
-            date: args.val.date,
-            human_readable_date: args.val.human_readable_date,
-            start: args.val.start_time,
-            end: args.val.end_time,
-          },
-        })
       }
     },
     toggleFilterModal() {

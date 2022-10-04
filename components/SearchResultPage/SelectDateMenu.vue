@@ -89,6 +89,15 @@ export default {
         filterQueryKey: 'dateTime',
         val: { ...this.formValues, hasValue: true },
       })
+      this.$router.push({
+        query: {
+          ...this.$route.query,
+          date: this.formValues.date,
+          human_readable_date: this.formValues.human_readable_date,
+          start: this.formValues.start_time,
+          end: this.formValues.end_time,
+        },
+      })
       this.$emit('closeMenu')
     },
     selectDateTime() {
