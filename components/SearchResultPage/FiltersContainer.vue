@@ -69,7 +69,7 @@
         class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
         @click="openFilterDropDown('dateTime')"
       >
-        {{ queryFilterData.dateTime.date }} &nbsp;
+        {{ queryFilterData.dateTime.human_readable_date }} &nbsp;
         {{ queryFilterData.dateTime.start_time }} -
         {{ queryFilterData.dateTime.end_time }}
       </button>
@@ -153,6 +153,7 @@ export default {
         dateTime: {
           hasValue: false,
           date: '',
+          human_readable_date: '',
           start_time: '',
           end_time: '',
         },
@@ -180,12 +181,14 @@ export default {
           query: { ...this.$route.query, ...this.queryFilterData },
         })
       } else {
+        console.log('args.val', args.val)
         // to fomrat date and time as we like for the backend
         this.queryFilterData[args.filterQueryKey] = args.val
         this.$router.push({
           query: {
             ...this.$route.query,
             date: args.val.date,
+            human_readable_date: args.val.human_readable_date,
             start: args.val.start_time,
             end: args.val.end_time,
           },

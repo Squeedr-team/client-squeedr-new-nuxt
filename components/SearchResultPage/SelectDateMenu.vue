@@ -43,7 +43,10 @@
           >
             Apply
           </button>
-          <button class="w-full text-gray-400 hover:text-gray-500" @click="clear">
+          <button
+            class="w-full text-gray-400 hover:text-gray-500"
+            @click="clear"
+          >
             Clear
           </button>
         </div>
@@ -69,6 +72,7 @@ export default {
       isDisabled: true,
       formValues: {
         date: this.prevVal.date || '',
+        human_readable_date: this.prevVal.human_readable_date || '',
         start_time: this.prevVal.start_time || '',
         end_time: this.prevVal.end_time || '',
       },
@@ -77,7 +81,7 @@ export default {
   },
   methods: {
     submitDateTime() {
-      this.formValues.date = this.$dateFns.format(
+      this.formValues.human_readable_date = this.$dateFns.format(
         this.formValues.date,
         'MMM dd'
       )
@@ -90,6 +94,10 @@ export default {
     selectDateTime() {
       const isAllFilled = Object.values(this.formValues).every((val) =>
         Boolean(val)
+      )
+      this.formValues.human_readable_date = this.$dateFns.format(
+        this.formValues.date,
+        'MMM dd'
       )
       if (isAllFilled) {
         this.isDisabled = false
