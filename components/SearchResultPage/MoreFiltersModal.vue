@@ -132,14 +132,29 @@
             </p>
           </div>
           <div class="w-full h-full relative block md:hidden">
-            <price-menu :isMenu="true" />
+            <price-menu
+              :isMenu="true"
+              :prev-val="pricePrevVal"
+              @closeMenu="opendMenuName = null"
+              @selectPrice="(val) => $emit('selectResponsiveInput', val)"
+            />
           </div>
           <div class="w-full h-full relative block md:hidden">
-            <attendees-menu :isMenu="true" />
+            <attendees-menu
+              :isMenu="true"
+              :prev-val="attendeePrevVal"
+              @closeMenu="opendMenuName = null"
+              @selectAttendees="(val) => $emit('selectResponsiveInput', val)"
+            />
           </div>
         </div>
         <div class="flex justify-between p-5 border-t px-6">
-          <button class="text-gray-400 hover:text-gray-500">Clear all</button>
+          <button
+            class="text-gray-400 hover:text-gray-500"
+            @click="$emit('clearAll')"
+          >
+            Clear all
+          </button>
           <button
             class="bg-[#e82953] hover:bg-[#c8163d] text-white p-2 px-3 rounded"
           >
@@ -161,6 +176,16 @@ export default {
       type: Object,
       required: false,
       default: () => {},
+    },
+    pricePrevVal: {
+      type: String,
+      required: false,
+      default: () => '',
+    },
+    attendeePrevVal: {
+      type: String,
+      required: false,
+      default: () => '',
     },
   },
   data() {
@@ -358,16 +383,6 @@ export default {
         filterQueryKey: inputSectionTitle,
         val: this.customFiltersObj[inputSectionTitle],
       })
-
-      // eslint-disable-next-line no-console
-      // console.log('this.customFiltersObj', this.customFiltersObj)
-
-      // 1- set parent custom filters data
-      // 2- set query params data for each section
-      // 3- set query params data for all selected custom fields
-
-      // outdoor_features=backyard&garden&patio
-      // this.$emit('selectFilterValue', {})
     },
   },
 }

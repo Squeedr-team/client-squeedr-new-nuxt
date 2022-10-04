@@ -59,7 +59,7 @@
     <div class="mr-3 w-full md:w-auto">
       <button
         v-if="!queryFilterData.dateTime.hasValue"
-        class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 text-center md:text-left"
+        class="bg-white hover:bg-gray-100 py-2 px-4 w-full border hover:border-gray-300 text-center md:text-left"
         @click="openFilterDropDown('dateTime')"
       >
         When?
@@ -105,9 +105,13 @@
       <more-filters-modal
         v-if="showMoreFiltersModal"
         :prev-val="queryFilterData.customFilters"
+        :price-prev-val="queryFilterData.price"
+        :attendee-prev-val="queryFilterData.attendees"
         @closeMenu="showMoreFiltersModal = false"
         @selectedCustomFilters="selectCustomFilterValue"
         @keywordSearch="(val) => searchByKeyword(val)"
+        @selectResponsiveInput="selectFilterValue"
+        @clearAll="clearCustomFilters"
       />
     </div>
 
@@ -195,6 +199,16 @@ export default {
         filterQueryKey: 'keyword',
         val,
       })
+    },
+    clearCustomFilters() {
+      this.customFiltersArr = []
+      for (const query in this.$route.query) {
+        delete this.queryFilterData.customFilters[query]
+        this.$router.push({
+          query: {},
+        })
+      }
+      this.showMoreFiltersModal = false
     },
     selectCustomFilterValue(args) {
       this.queryFilterData.customFilters[args.filterQueryKey] = args.val
