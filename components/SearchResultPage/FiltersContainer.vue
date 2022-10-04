@@ -86,7 +86,7 @@
     <div class="mr-0 md:mr-3 w-full md:w-1/6">
       <button
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full flex items-center gap-1"
-        @click="showMoreFiltersModal = !showMoreFiltersModal"
+        @click="toggleFilterModal"
       >
         <img :src="filterIcon" alt="filter icon" height="17px" width="17px" />
         More Filters
@@ -174,12 +174,25 @@ export default {
       console.log('val', args)
       // eslint-disable-next-line no-console
       console.log('filterQueryKey', args)
-      this.queryFilterData[args.filterQueryKey] = args.val
-      this.$router.push({
-        query: { ...this.$route.query, ...this.queryFilterData },
-      })
+      if (args.filterQueryKey !== 'dateTime') {
+        this.queryFilterData[args.filterQueryKey] = args.val
+        this.$router.push({
+          query: { ...this.$route.query, ...this.queryFilterData },
+        })
+      } else {
+        // to fomrat date and time as we like for the backend
+        this.queryFilterData[args.filterQueryKey] = args.val
+        this.$router.push({
+          query: {
+            ...this.$route.query,
+            date: args.val.date,
+            start: args.val.start_time,
+            end: args.val.end_time,
+          },
+        })
+      }
     },
-    toggleFilterModa() {
+    toggleFilterModal() {
       this.showMoreFiltersModal = !this.showMoreFiltersModal
       this.opendMenuName = null
     },
