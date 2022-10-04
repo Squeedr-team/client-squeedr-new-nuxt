@@ -332,14 +332,6 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log('this.isSmalls', this.isSmallScreen)
-    // if (this.isSmallScreen) {
-    //   if (this.showMap) {
-    //     return false
-    //   }
-    // }
-  },
 }
 </script>
 

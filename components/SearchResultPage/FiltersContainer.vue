@@ -2,45 +2,61 @@
   <div class="w-screen fixed z-50 bg-white px-5 py-3 border-b flex">
     <div class="mr-3 hidden md:block">
       <button
+        v-if="!queryFilterData.price"
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 rounded"
-        @click="showPriceMenu = !showPriceMenu"
+        @click="openFilterDropDown('showPriceMenu')"
       >
         Price
       </button>
-      <price-menu v-if="showPriceMenu" @closeMenu="showPriceMenu = false" />
+      <button
+        v-if="queryFilterData.price"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
+        @click="openFilterDropDown('showPriceMenu')"
+      >
+        {{ queryFilterData.price }}
+      </button>
+      <price-menu
+        v-if="opendMenuName === 'showPriceMenu'"
+        :prev-val="queryFilterData.price"
+        @closeMenu="opendMenuName = null"
+        @selectPrice="selectFilterValue"
+      />
     </div>
     <div class="mr-3 hidden md:block">
       <button
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 rounded"
-        @click="showAttendeesMenu = !showAttendeesMenu"
+        @click="openFilterDropDown('showAttendeesMenu')"
       >
         Attendees
       </button>
       <attendees-menu
-        v-if="showAttendeesMenu"
-        @closeMenu="showAttendeesMenu = false"
+        v-if="opendMenuName === 'showAttendeesMenu'"
+        @closeMenu="opendMenuName = null"
       />
     </div>
     <div class="mr-3 w-full md:w-1/12">
       <button
-        class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full"
-        @click="showDateMenu = !showDateMenu"
+        class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full text-center md:text-left"
+        @click="openFilterDropDown('showDateMenu')"
       >
         When?
       </button>
-      <select-date-menu v-if="showDateMenu" @closeMenu="showDateMenu = false" />
+      <select-date-menu
+        v-if="opendMenuName === 'showDateMenu'"
+        @closeMenu="opendMenuName = null"
+      />
     </div>
     <div class="mr-0 md:mr-3 w-full md:w-1/6">
       <button
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full flex items-center gap-1"
-        @click="showModaFiltersModal = !showModaFiltersModal"
+        @click="showMoreFiltersModal = !showMoreFiltersModal"
       >
         <img :src="filterIcon" alt="filter icon" height="17px" width="17px" />
         More Filters
       </button>
       <more-filters-modal
-        v-if="showModaFiltersModal"
-        @closeMenu="showModaFiltersModal = false"
+        v-if="showMoreFiltersModal"
+        @closeMenu="showMoreFiltersModal = false"
       />
     </div>
     <div class="mr-3 hidden md:block">
@@ -89,12 +105,50 @@ export default {
   },
   data() {
     return {
-      showPriceMenu: false,
+      opendMenuName: null,
       showAttendeesMenu: false,
       showDateMenu: false,
-      showModaFiltersModal: false,
+      showMoreFiltersModal: false,
       filterIcon: require('@/assets/icons/filter-teal.svg'),
+      queryFilterData: {
+        price: '',
+        attendes: '',
+        date: '',
+        keyword: '',
+      },
     }
+  },
+  methods: {
+    openFilterDropDown(menuName) {
+      // if it already opend ==> close it
+      if (menuName === this.opendMenuName) {
+        this.opendMenuName = null
+      } else {
+        this.opendMenuName = menuName
+      }
+    },
+    selectFilterValue(args) {
+      // eslint-disable-next-line no-console
+      console.log('val', args)
+      // eslint-disable-next-line no-console
+      console.log('filterQueryKey', args)
+      this.queryFilterData[args.filterQueryKey] = args.val
+      this.$router.push({
+        query: { ...this.$route.query, ...this.queryFilterData },
+      })
+    },
+    toggleFilterModa() {
+      this.showMoreFiltersModal = !this.showMoreFiltersModal
+      this.opendMenuName = null
+    },
   },
 }
 </script>
+
+<!-- 
+
+  1- update new button text
+  2- update route query params
+  3- make selected value checked
+
+ -->

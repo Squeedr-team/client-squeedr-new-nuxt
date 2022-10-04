@@ -171,11 +171,11 @@ export default {
 
 .space-card .slick-next {
   right: 0;
-  z-index: 999;
+  z-index: 9;
 }
 
 .space-card .slick-prev {
   left: 0 !important;
-  z-index: 999;
+  z-index: 9;
 }
 </style>

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div
-    class="backdrop-blur-sm flex items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
+    class="backdrop-blur-sm flex items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-10 w-full md:inset-0 h-modal md:h-full"
   >
     <div class="relative p-4 w-screen min-h-screen pb-96">
       <!-- Modal content -->
