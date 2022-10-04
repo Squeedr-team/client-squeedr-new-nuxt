@@ -72,7 +72,9 @@
         </div>
       </div>
       <div v-show="!isMenu" class="w-full flex justify-between my-4">
-        <button class="text-gray-400 hover:text-gray-500">Clear</button>
+        <button class="text-gray-400 hover:text-gray-500" @click="clear">
+          Clear
+        </button>
         <button
           class="bg-[#52a2b1] hover:bg-[#41838f] text-white p-2 px-4 rounded-md"
           @click="$emit('closeMenu')"
@@ -118,6 +120,13 @@ export default {
         filterQueryKey: 'price',
         val: `€${this.inputRange.min} - €${this.inputRange.max}`,
       })
+    },
+    clear() {
+      this.$emit('selectPrice', {
+        filterQueryKey: 'price',
+        val: '',
+      })
+      this.$emit('closeMenu')
     },
   },
 }

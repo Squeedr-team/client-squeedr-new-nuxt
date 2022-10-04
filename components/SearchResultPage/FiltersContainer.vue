@@ -1,5 +1,7 @@
 <template>
   <div class="w-screen fixed z-50 bg-white px-5 py-3 border-b flex">
+    <!-- START PRICE FILTER -->
+
     <div class="mr-3 hidden md:block">
       <button
         v-if="!queryFilterData.price"
@@ -22,18 +24,36 @@
         @selectPrice="selectFilterValue"
       />
     </div>
+
+    <!-- END PRICE FILTER -->
+
+    <!-- START ATTENDEE FILTER -->
+
     <div class="mr-3 hidden md:block">
       <button
+        v-if="!queryFilterData.attendees"
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 rounded"
         @click="openFilterDropDown('showAttendeesMenu')"
       >
         Attendees
       </button>
+      <button
+        v-if="queryFilterData.attendees"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
+        @click="openFilterDropDown('showAttendeesMenu')"
+      >
+        {{ queryFilterData.attendees }} people
+      </button>
       <attendees-menu
         v-if="opendMenuName === 'showAttendeesMenu'"
+        :prev-val="queryFilterData.attendees"
         @closeMenu="opendMenuName = null"
+        @selectAttendees="selectFilterValue"
       />
     </div>
+
+    <!-- End ATTENDEE FILTER -->
+
     <div class="mr-3 w-full md:w-1/12">
       <button
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full text-center md:text-left"
@@ -112,7 +132,7 @@ export default {
       filterIcon: require('@/assets/icons/filter-teal.svg'),
       queryFilterData: {
         price: '',
-        attendes: '',
+        attendees: '',
         date: '',
         keyword: '',
       },
