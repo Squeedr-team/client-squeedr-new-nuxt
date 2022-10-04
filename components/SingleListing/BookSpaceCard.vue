@@ -6,7 +6,7 @@
     </div>
     <div class="book-space-form border border-t-0 p-5">
       <label class="font-bold" for="data-time">Date & Time</label>
-      <div v-for="bookingForm in bookingDays" :key="bookingForm.start_date">
+      <div v-for="(bookingForm, index) in bookingDays" :key="index">
         <date-picker
           v-model="bookingForm.start_date"
           :default-value="bookingForm.start_date"
@@ -43,8 +43,8 @@
           Remove
         </button>
       </div>
-      <!-- bell data -->
-      <div class="w-full mt-3">
+      <!-- bill data -->
+      <div v-show="showBill" class="w-full mt-3">
         <p class="font-semibold mb-1">Price</p>
         <p class="flex items-center justify-between w-full text-gray-600">
           <span>€75.00 x 5 hours</span>
@@ -65,12 +65,13 @@
           <span>Total</span>
           <span> €443.48 </span>
         </p>
-        <button
-          class="mt-3 w-full bg-red-500 hover:bg-red-600 p-3 rounded-md text-white"
-        >
-          Book Now
-        </button>
       </div>
+      <button
+        :disabled="!showBill"
+        class="mt-3 w-full bg-red-500 hover:bg-red-600 p-3 rounded-md text-white disabled:bg-red-400 disabled:cursor-not-allowed"
+      >
+        Book Now
+      </button>
       <div>
         <p class="mt-4 flex items-center font-bold">
           <img
@@ -99,6 +100,7 @@ export default {
   data() {
     return {
       lightIcon: require('@/assets/icons/lightningbolt.svg'),
+      showBill: false,
       bookingDays: [
         {
           id: 1,
@@ -109,15 +111,37 @@ export default {
       ],
     }
   },
-  updated() {
-    console.log('THIS IS AFTER UPDATED', this.bookingDays)
+  watch: {
+    bookingDays: {
+      handler(updatedData) {
+        // eslint-disable-next-line array-callback-return
+        updatedData.map((eachDayObj) => {
+          const isDataEntered = Object.values(eachDayObj).every((val) =>
+            Boolean(val)
+          )
+          if (isDataEntered) {
+            this.showBill = true
+            // todo fetch/update bill data
+          } else {
+            this.showBill = false
+          }
+        })
+      },
+      deep: true,
+    },
   },
   methods: {
     addMoreBookingDay() {
       // todo: check if last day is completed before added new one
+      const lastAddedDay = this.bookingDays[this.bookingDays.length - 1]
       this.bookingDays = [
         ...this.bookingDays,
-        { id: 2, start_date: new Date(), start_time: '', end_time: '' },
+        {
+          id: lastAddedDay.id + 1,
+          start_date: lastAddedDay.start_date,
+          start_time: lastAddedDay.start_time,
+          end_time: lastAddedDay.end_time,
+        },
       ]
     },
     removeLastDay() {
