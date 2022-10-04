@@ -54,18 +54,35 @@
 
     <!-- End ATTENDEE FILTER -->
 
-    <div class="mr-3 w-full md:w-1/12">
+    <!-- START SET MEETING DAY FILTER -->
+
+    <div class="mr-3 w-full md:w-auto">
       <button
-        class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full text-center md:text-left"
-        @click="openFilterDropDown('showDateMenu')"
+        v-if="!queryFilterData.dateTime.hasValue"
+        class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 text-center md:text-left"
+        @click="openFilterDropDown('dateTime')"
       >
         When?
       </button>
+      <button
+        v-if="queryFilterData.dateTime.hasValue"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
+        @click="openFilterDropDown('dateTime')"
+      >
+        {{ queryFilterData.dateTime.date }} &nbsp;
+        {{ queryFilterData.dateTime.start_time }} -
+        {{ queryFilterData.dateTime.end_time }}
+      </button>
       <select-date-menu
-        v-if="opendMenuName === 'showDateMenu'"
+        v-if="opendMenuName === 'dateTime'"
+        :prev-val="queryFilterData.dateTime"
         @closeMenu="opendMenuName = null"
+        @selectDataTime="selectFilterValue"
       />
     </div>
+
+    <!-- START SET MEETING DAY FILTER -->
+
     <div class="mr-0 md:mr-3 w-full md:w-1/6">
       <button
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full flex items-center gap-1"
@@ -133,7 +150,12 @@ export default {
       queryFilterData: {
         price: '',
         attendees: '',
-        date: '',
+        dateTime: {
+          hasValue: false,
+          date: '',
+          start_time: '',
+          end_time: '',
+        },
         keyword: '',
       },
     }

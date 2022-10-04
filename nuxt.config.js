@@ -17,7 +17,19 @@ export default {
       pathPrefix: false,
     },
   ],
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss', '@nuxt/image'],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image',
+    [
+      '@nuxtjs/date-fns',
+      {
+        locales: ['es', 'fr'],
+        defaultLocale: 'en-US',
+        format: 'yyyy-MM-dd',
+      },
+    ],
+  ],
   image: {
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/toravl/image/upload',
