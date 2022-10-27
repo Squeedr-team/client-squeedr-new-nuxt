@@ -35,7 +35,7 @@ export default {
   webfontloader: {
     google: {
       // Loads Open Sans font with weights 300 and 400 + display font as swap
-      families: ['Lato:300,400,700,900&display=swap'],
+      families: ['Poppins:300,400,700,900&display=swap'],
     },
   },
   markdownit: {

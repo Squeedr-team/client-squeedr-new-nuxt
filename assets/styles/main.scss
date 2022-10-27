@@ -1,3 +1,8 @@
+$profile_dark_1: #263043;
+$profile_dark_2: #37465f;
+$profile_light_1: #08a7de;
+$profile_gray: #4c5463;
+
 section {
   margin: 4rem 0;
   overflow: hidden;
@@ -209,6 +214,36 @@ section {
       .brand-links a:last-child {
         &::after {
           content: '';
+        }
+      }
+    }
+  }
+}
+
+.coach-profile {
+  color: white;
+  .coach-hero {
+    background: linear-gradient(
+      135deg,
+      $profile_dark_1 0%,
+      $profile_light_1 100%
+    );
+    .coach-hero__wraper-right {
+      position: relative;
+      .coach-hero-video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.151);
+        cursor: pointer;
+        svg {
+          width: 50px;
+          fill: white;
         }
       }
     }

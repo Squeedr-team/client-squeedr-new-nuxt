@@ -282,3 +282,39 @@ section {
 .app-footer nav .brand .brand-links a:last-child::after {
   content: '';
 }
+
+.coach-profile {
+  color: white;
+}
+
+.coach-profile .coach-hero {
+  background: linear-gradient(135deg, #263043 0%, #08a7de 100%);
+}
+
+.coach-profile .coach-hero .coach-hero__wraper-right {
+  position: relative;
+}
+
+.coach-profile .coach-hero .coach-hero__wraper-right .coach-hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.151);
+  cursor: pointer;
+}
+
+.coach-profile .coach-hero .coach-hero__wraper-right .coach-hero-video-overlay svg {
+  width: 50px;
+  fill: white;
+}
