@@ -1,6 +1,8 @@
 <template>
-  <section class="container app-carousel-container">
-    <h4 class="section-title">{{ sectionData.title }}</h4>
+  <div class="event-carousel">
+    <p class="ml-2 mb-2 pb-0 text-gray-700 font-semibold">
+      {{ sectionData.title }}
+    </p>
     <div class="carousel-wraper relative">
       <VueSlickCarousel
         v-if="sectionData.listings.length > 0"
@@ -9,7 +11,14 @@
         @afterChange="afterChange"
       >
         <div v-for="list in sectionData.listings" :key="list.id">
-          <the-listing-card :card-data="list" :rounded="true" />
+          <nuxt-link :to="list.href" class="relative block rounded">
+            <nuxt-img provider="cloudinary" :src="list.image" class="rounded" />
+            <div class="absolute bottom-2 z-20 text-center w-full">
+              <span class="text-white font-bold text-sm text-center">
+                {{ list.title }}
+              </span>
+            </div>
+          </nuxt-link>
         </div>
       </VueSlickCarousel>
       <div class="arrows">
@@ -29,13 +38,7 @@
         </button>
       </div>
     </div>
-    <nuxt-link
-      v-if="sectionData.cta"
-      :to="sectionData.cta.href"
-      class="block mt-4 text-md text-lightPrimaryColor font-medium"
-      >{{ sectionData.cta.text }}</nuxt-link
-    >
-  </section>
+  </div>
 </template>
 
 <script>
@@ -96,4 +99,27 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.event-carousel .slick-dots {
+  display: none !important;
+}
+.event-carousel .carousel-wraper {
+  height: unset;
+}
+.event-carousel .arrows button {
+  width: 20px;
+  height: 20px;
+}
+.event-carousel .slick-slider {
+  height: auto;
+}
+.event-carousel .slick-slider .slick-slide {
+  padding: 3px;
+}
+.event-carousel .slick-list {
+  height: auto;
+}
+.event-carousel .slick-track {
+  height: auto;
+}
+</style>

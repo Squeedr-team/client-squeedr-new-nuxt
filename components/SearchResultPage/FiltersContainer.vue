@@ -1,54 +1,129 @@
 <template>
-  <div class="w-full bg-white px-5 py-3 border-b flex">
+  <div class="w-screen fixed z-50 bg-white px-5 py-3 border-b flex">
+    <!-- START PRICE FILTER -->
+
     <div class="mr-3 hidden md:block">
       <button
+        v-if="!queryFilterData.price"
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 rounded"
-        @click="showPriceMenu = !showPriceMenu"
+        @click="openFilterDropDown('showPriceMenu')"
       >
         Price
       </button>
-      <price-menu v-if="showPriceMenu" @closeMenu="showPriceMenu = false" />
+      <button
+        v-if="queryFilterData.price"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
+        @click="openFilterDropDown('showPriceMenu')"
+      >
+        {{ queryFilterData.price }}
+      </button>
+      <price-menu
+        v-if="opendMenuName === 'showPriceMenu'"
+        :prev-val="queryFilterData.price"
+        @closeMenu="opendMenuName = null"
+        @selectPrice="selectFilterValue"
+      />
     </div>
+
+    <!-- END PRICE FILTER -->
+
+    <!-- START ATTENDEE FILTER -->
+
     <div class="mr-3 hidden md:block">
       <button
+        v-if="!queryFilterData.attendees"
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 rounded"
-        @click="showAttendeesMenu = !showAttendeesMenu"
+        @click="openFilterDropDown('showAttendeesMenu')"
       >
         Attendees
       </button>
+      <button
+        v-if="queryFilterData.attendees"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
+        @click="openFilterDropDown('showAttendeesMenu')"
+      >
+        {{ queryFilterData.attendees }} people
+      </button>
       <attendees-menu
-        v-if="showAttendeesMenu"
-        @closeMenu="showAttendeesMenu = false"
+        v-if="opendMenuName === 'showAttendeesMenu'"
+        :prev-val="queryFilterData.attendees"
+        @closeMenu="opendMenuName = null"
+        @selectAttendees="selectFilterValue"
       />
     </div>
-    <div class="mr-3 w-full md:w-1/12">
+
+    <!-- End ATTENDEE FILTER -->
+
+    <!-- START SET MEETING DAY FILTER -->
+
+    <div class="mr-3 w-full md:w-auto">
       <button
-        class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full"
-        @click="showDateMenu = !showDateMenu"
+        v-if="!queryFilterData.dateTime.hasValue"
+        class="bg-white hover:bg-gray-100 py-2 px-4 w-full border hover:border-gray-300 text-center md:text-left"
+        @click="openFilterDropDown('dateTime')"
       >
         When?
       </button>
-      <select-date-menu v-if="showDateMenu" @closeMenu="showDateMenu = false" />
+      <button
+        v-if="queryFilterData.dateTime.hasValue"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200"
+        @click="openFilterDropDown('dateTime')"
+      >
+        {{ queryFilterData.dateTime.human_readable_date }} &nbsp;
+        {{ queryFilterData.dateTime.start_time }} -
+        {{ queryFilterData.dateTime.end_time }}
+      </button>
+      <select-date-menu
+        v-if="opendMenuName === 'dateTime'"
+        :prev-val="queryFilterData.dateTime"
+        @closeMenu="opendMenuName = null"
+        @selectDataTime="selectFilterValue"
+      />
     </div>
+
+    <!-- End SET MEETING DAY FILTER -->
+
+    <!-- START CUSTOM FILTERS MODAL -->
+
     <div class="mr-0 md:mr-3 w-full md:w-1/6">
       <button
+        v-if="!customFiltersArr.length"
         class="bg-white hover:bg-gray-100 py-2 px-4 border hover:border-gray-300 w-full flex items-center gap-1"
-        @click="showModaFiltersModal = !showModaFiltersModal"
+        @click="toggleFilterModal"
       >
         <img :src="filterIcon" alt="filter icon" height="17px" width="17px" />
         More Filters
       </button>
+      <button
+        v-if="customFiltersArr.length"
+        class="bg-green-200 py-2 px-4 rounded text-green-800 border border-green-200 flex items-center gap-1"
+        @click="toggleFilterModal"
+      >
+        <img :src="filterIcon" alt="filter icon" height="17px" width="17px" />
+        More Filters • {{ customFiltersArr.length }}
+      </button>
       <more-filters-modal
-        v-if="showModaFiltersModal"
-        @closeMenu="showModaFiltersModal = false"
+        v-if="showMoreFiltersModal"
+        :prev-val="queryFilterData.customFilters"
+        :price-prev-val="queryFilterData.price"
+        :attendee-prev-val="queryFilterData.attendees"
+        @closeMenu="showMoreFiltersModal = false"
+        @selectedCustomFilters="selectCustomFilterValue"
+        @keywordSearch="(val) => searchByKeyword(val)"
+        @selectResponsiveInput="selectFilterValue"
+        @clearAll="clearCustomFilters"
       />
     </div>
+
+    <!-- End CUSTOM FILTERS MODAL -->
+
     <div class="mr-3 hidden md:block">
       <input
         id="keyword"
         class="border rounded-sm p-2"
         type="text"
         placeholder="Enter a keyword"
+        @change="searchByKeyword($event.target.value)"
       />
     </div>
     <div class="ml-auto self-center hidden md:block">
@@ -61,6 +136,8 @@
           type="checkbox"
           value=""
           class="sr-only peer"
+          :checked="showMap"
+          @change="$emit('toggleMap')"
         />
         <div
           class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#52a2b1] outline-none border-0"
@@ -81,23 +158,98 @@ import MoreFiltersModal from './MoreFiltersModal.vue'
 export default {
   components: { priceMenu, AttendeesMenu, SelectDateMenu, MoreFiltersModal },
   props: {
-    sectionData: {
-      type: Object,
-      required: true,
+    showMap: {
+      type: Boolean,
     },
   },
   data() {
     return {
-      showPriceMenu: false,
+      opendMenuName: null,
       showAttendeesMenu: false,
       showDateMenu: false,
-      showModaFiltersModal: false,
+      showMoreFiltersModal: false,
       filterIcon: require('@/assets/icons/filter-teal.svg'),
+      queryFilterData: {
+        price: '',
+        attendees: '',
+        dateTime: {
+          hasValue: false,
+          date: '',
+          human_readable_date: '',
+          start_time: '',
+          end_time: '',
+        },
+        customFilters: {},
+        keyword: '',
+      },
+      customFiltersArr: [],
     }
   },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log('FILTER CONTAINER PROPS', this.sectionData)
+  methods: {
+    openFilterDropDown(menuName) {
+      // if it already opend ==> close it
+      if (menuName === this.opendMenuName) {
+        this.opendMenuName = null
+      } else {
+        this.opendMenuName = menuName
+      }
+    },
+    searchByKeyword(val) {
+      this.selectFilterValue({
+        filterQueryKey: 'keyword',
+        val,
+      })
+    },
+    clearCustomFilters() {
+      this.customFiltersArr = []
+      for (const query in this.$route.query) {
+        delete this.queryFilterData.customFilters[query]
+        this.$router.push({
+          query: {},
+        })
+      }
+      this.showMoreFiltersModal = false
+    },
+    selectCustomFilterValue(args) {
+      this.queryFilterData.customFilters[args.filterQueryKey] = args.val
+      const tempArr = []
+      // iterate over custom fileds obect and set them to route query params
+      for (const key in this.queryFilterData.customFilters) {
+        const val = this.queryFilterData.customFilters[key]
+        if (val) {
+          const tempObj = {}
+          tempObj[key] = val
+          this.$router.push({
+            query: { ...this.$route.query, ...tempObj },
+          })
+          tempArr.push(...this.queryFilterData.customFilters[key].split('+'))
+        }
+      }
+      this.customFiltersArr = tempArr
+    },
+    selectFilterValue(args) {
+      if (args.filterQueryKey !== 'dateTime') {
+        this.queryFilterData[args.filterQueryKey] = args.val
+        this.$router.push({
+          query: { ...this.$route.query, ...this.queryFilterData },
+        })
+      } else {
+        // to fomrat date and time as we like for the backend
+        this.queryFilterData[args.filterQueryKey] = args.val
+      }
+    },
+    toggleFilterModal() {
+      this.showMoreFiltersModal = !this.showMoreFiltersModal
+      this.opendMenuName = null
+    },
   },
 }
 </script>
+
+<!-- 
+
+  1- update new button text
+  2- update route query params
+  3- make selected value checked
+
+ -->
