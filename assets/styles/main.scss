@@ -234,22 +234,59 @@ section {
     );
     .coach-hero__wraper-right {
       position: relative;
-      .coach-hero-video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.151);
-        cursor: pointer;
-        svg {
-          width: 50px;
-          fill: white;
-        }
-      }
     }
   }
+}
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.151);
+  cursor: pointer;
+  svg {
+    width: 18px;
+    fill: white;
+
+    @media (min-width: 1024px) {
+      width: 30px;
+    }
+  }
+}
+.coach-classes-carousel__arrows {
+  position: absolute;
+  top: -2rem;
+  right: 0.6rem;
+  button {
+    padding: 0.5rem 1rem;
+  }
+  svg {
+    width: 12px;
+  }
+  button.bg-profile_light_1 {
+    svg {
+      fill: white !important;
+    }
+  }
+}
+.coach-classes-carousel {
+  padding: 4rem 0;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.coach-classes-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.698);
 }

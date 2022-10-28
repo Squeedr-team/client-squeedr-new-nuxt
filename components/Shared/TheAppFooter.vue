@@ -2,7 +2,7 @@
   <footer class="app-footer bg-darkPrimaryColor py-12 text-white">
     <div class="container">
       <nav class="footer-nav flex flex-col lg:flex lg:flex-row lg:gap-4">
-        <div class="brand mt-8 lg:mt-0 flex lg:block order-last lg:order-first">
+        <div class="brand mt-8 lg:mt-0 flex lg:block order-last lg:order-first text-xs">
           <nuxt-link to="/" class="brand-logo inline-block mr-8">
             <nuxt-img
               provider="cloudinary"
@@ -23,13 +23,13 @@
         </div>
         <ul class="footer-link flex-1 flex flex-wrap lg:gap-8">
           <li v-for="nav in footerData.navs" :key="nav.id" class="px-4" >
-            <p class="uppercase font-bold lg:text-lg mb-4">{{ nav.label }}</p>
+            <p class="uppercase font-bold mb-4">{{ nav.label }}</p>
             <template v-for="(link, linkIndex) in nav.links">
               <nuxt-link
                 :key="linkIndex"
                 v-if="!link.external"
                 :to="link.href"
-                class="block mb-2 capitalize hover:text-appLight"
+                class="block mb-2 capitalize hover:text-appLight text-xs"
                 >{{ link.name }}</nuxt-link
               >
               <a
@@ -38,7 +38,7 @@
                 :href="link.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block mb-2 capitalize hover:text-appLight"
+                class="block mb-2 capitalize hover:text-appLight text-xs"
                 >{{ link.name }}</a
               >
             </template>
