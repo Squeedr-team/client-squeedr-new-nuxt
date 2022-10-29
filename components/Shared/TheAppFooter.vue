@@ -132,11 +132,11 @@ export default {
                 href: '/activities',
                 external: false,
               },
-              {
-                name: 'locations',
-                href: '/venues/locations',
-                external: false,
-              },
+              // {
+              //   name: 'locations',
+              //   href: '/venues/locations',
+              //   external: false,
+              // },
             ],
           },
           {
