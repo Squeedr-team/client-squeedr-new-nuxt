@@ -11,6 +11,8 @@ export default {
   data() {
     return {
       profileData: {
+        id: 1,
+        slug: 'drussell',
         hero: {
           firstName: 'dianne',
           lastName: 'Russell',
