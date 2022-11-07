@@ -1,6 +1,6 @@
 <template>
   <div class="coach-gallery bg-profile_dark_2 py-16">
-    <div class="container">
+    <div class="container relative">
       <h1 class="capitalize font-bold text-2xl mb-4">Gallery</h1>
       <div class="lg:flex lg:gap-2 my-8">
         <div
@@ -19,7 +19,16 @@
             class="h-full w-full object-cover object-left"
           />
         </div>
-        <ul class="gallery__not_feature lg:w-2/3 flex flex-wrap gap-2 mt-4 lg:mt-0">
+        <ul
+          class="
+            gallery__not_feature
+            lg:w-2/3
+            flex flex-wrap
+            gap-2
+            mt-4
+            lg:mt-0
+          "
+        >
           <li
             v-for="(g, i) in gallery"
             :key="i"
@@ -41,12 +50,48 @@
           </li>
         </ul>
       </div>
+      <button
+        id="coach_gallery__showmore"
+        @click="showMultiple(0)"
+        class="
+          gallery-btn
+          absolute
+          bottom-4
+          right-16
+          border-2
+          border-profile_light_1
+          px-6
+          py-2
+          rounded
+          text-lg
+          text-profile_light_1
+          bg-white
+          font-bold
+        "
+      >
+        Show more
+      </button>
     </div>
+    <client-only>
+      <vue-easy-lightbox
+        escDisabled
+        moveDisabled
+        :visible="visible"
+        :imgs="lightbox"
+        :index="index"
+        @hide="handleHide"
+      ></vue-easy-lightbox>
+    </client-only>
   </div>
 </template>
 
 <script>
+import VueEasyLightbox from 'vue-easy-lightbox'
+
 export default {
+  components: {
+    VueEasyLightbox,
+  },
   props: {
     galleryData: {
       type: Array,
@@ -56,6 +101,12 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      visible: false,
+      index: 0, // default: 0
+    }
+  },
   computed: {
     featured() {
       return this.galleryData.filter((x) => x.featured === true)[0]
@@ -63,9 +114,26 @@ export default {
     gallery() {
       return this.galleryData.filter((x) => x.featured !== true).slice(0, 4)
     },
+    lightbox() {
+      return this.galleryData
+        .filter((x) => x.type === 'image')
+        .map((x) => x.file)
+    },
   },
   mounted() {
-    console.log(this.gallery)
+    console.log('lightbox', this.lightbox)
+  },
+  methods: {
+    showMultiple(indx) {
+      this.index = indx // index of imgList
+      this.show()
+    },
+    show() {
+      this.visible = true
+    },
+    handleHide() {
+      this.visible = false
+    },
   },
 }
 </script>

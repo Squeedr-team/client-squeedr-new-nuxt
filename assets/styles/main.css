@@ -361,3 +361,11 @@ section {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.698);
 }
+
+.coach_gallery__showmore svg {
+  fill: #08a7de !important;
+}
+
+.coach_gallery__showmore svg path {
+  fill: #08a7de !important;
+}
