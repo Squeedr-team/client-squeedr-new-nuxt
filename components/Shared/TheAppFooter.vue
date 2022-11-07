@@ -1,5 +1,5 @@
 <template>
-  <footer class="app-footer bg-darkPrimaryColor py-12 text-white">
+  <footer class="app-footer bg-profile_light_1 py-12 text-white">
     <div class="container">
       <nav class="footer-nav flex flex-col lg:flex lg:flex-row lg:gap-4">
         <div class="brand mt-8 lg:mt-0 flex lg:block order-last lg:order-first text-xs">
@@ -16,7 +16,7 @@
               v-for="link in footerData.brand.links"
               :key="link.id"
               :to="link.href"
-              class="mr-2 capitalize text-appLight"
+              class="mr-2 capitalize text-white"
               >{{ link.name }}
             </nuxt-link>
           </div>

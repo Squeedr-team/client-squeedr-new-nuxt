@@ -1,8 +1,9 @@
 <template>
   <div class="coach-profile">
     <the-coach-hero :heroData="profileData.hero" />
-    <the-upcoming-classess :upcomingClasses="profileData.upcomingClasses" />
-    <the-coach-gallery :galleryData="profileData.gallery" />
+    <the-upcoming-classess :upcoming-classes="profileData.upcomingClasses" />
+    <the-coach-gallery :gallery-data="profileData.gallery" />
+    <the-coach-testimonials :testimonials-data="profileData.testimonials" />
   </div>
 </template>
 
@@ -180,7 +181,26 @@ export default {
             featured: false,
           },
         ],
-        testimonials: [],
+        testimonials: [
+          {
+            name: 'Janne Cooper',
+            jobTitle: 'Designer',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+            text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione neque ipsum quae amet. Ipsam dolorem, minus dolores libero pariatur quaerat voluptate vero inventore quod?',
+          },
+          {
+            name: 'Clark Biernacki',
+            jobTitle: 'Fitness instractor',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+            text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione neque ipsum quae amet. Ipsam dolorem, minus dolores libero pariatur quaerat voluptate vero inventore quod?',
+          },
+          {
+            name: 'Alexis Holcombe',
+            jobTitle: 'Hotel Manager',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+            text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione neque ipsum quae amet. Ipsam dolorem, minus dolores libero pariatur quaerat voluptate vero inventore quod?',
+          },
+        ],
       },
     }
   },

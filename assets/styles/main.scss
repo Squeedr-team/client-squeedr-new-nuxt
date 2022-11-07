@@ -293,9 +293,37 @@ section {
 
 .coach_gallery__showmore {
   svg {
-    fill: $profile_light_1!important;
+    fill: $profile_light_1 !important;
     path {
-      fill: $profile_light_1!important;
+      fill: $profile_light_1 !important;
+    }
+  }
+}
+.coach-testimonials__slider {
+  padding: 5rem 0;
+}
+#single-testimonial__text {
+  position: relative;
+  svg {
+    fill: white !important;
+    width: 24px;
+    &:first-child {
+      transform: rotate(180deg);
+    }
+    &:last-child {
+      float: right;
+    }
+  }
+  p {
+    margin: 1rem 0;
+  }
+}
+.custom-dot-class {
+  li {
+    button::before {
+      color: white !important;
+      width: 25px!important;
+      height: 25px!important;
     }
   }
 }

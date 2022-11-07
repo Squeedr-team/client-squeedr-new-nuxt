@@ -369,3 +369,35 @@ section {
 .coach_gallery__showmore svg path {
   fill: #08a7de !important;
 }
+
+.coach-testimonials__slider {
+  padding: 5rem 0;
+}
+
+#single-testimonial__text {
+  position: relative;
+}
+
+#single-testimonial__text svg {
+  fill: white !important;
+  width: 24px;
+}
+
+#single-testimonial__text svg:first-child {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#single-testimonial__text svg:last-child {
+  float: right;
+}
+
+#single-testimonial__text p {
+  margin: 1rem 0;
+}
+
+.custom-dot-class li button::before {
+  color: white !important;
+  width: 25px !important;
+  height: 25px !important;
+}

@@ -183,7 +183,26 @@ export default {
               featured: false,
             },
           ],
-          testimonials: [],
+          testimonials: [
+            {
+              name: 'Janne Cooper',
+              jobTitle: 'Designer',
+              avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+              text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione neque ipsum quae amet. Ipsam dolorem, minus dolores libero pariatur quaerat voluptate vero inventore quod?',
+            },
+            {
+              name: 'Clark Biernacki',
+              jobTitle: 'Fitness instractor',
+              avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+              text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione neque ipsum quae amet. Ipsam dolorem, minus dolores libero pariatur quaerat voluptate vero inventore quod?',
+            },
+            {
+              name: 'Alexis Holcombe',
+              jobTitle: 'Hotel Manager',
+              avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+              text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione neque ipsum quae amet. Ipsam dolorem, minus dolores libero pariatur quaerat voluptate vero inventore quod?',
+            },
+          ],
         },
       ],
     }
