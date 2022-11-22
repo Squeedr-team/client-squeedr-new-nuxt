@@ -26,6 +26,7 @@ module.exports = {
         darkGreyColor: '#596066',
         paraGreyColor: '#aebaca',
         appLight: '#29BDEF',
+        primary: '#29BDEF',
         profile_dark_1: '#263043',
         profile_dark_2: '#37465f',
         profile_light_1: '#08a7de',

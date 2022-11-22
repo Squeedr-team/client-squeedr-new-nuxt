@@ -22,7 +22,7 @@
       padding-left: 40px;
 
       &:hover .menu-item-btn {
-        color: blue;
+        color: theme('colors.primary');
       }
 
 
@@ -40,7 +40,7 @@
           position: absolute;
           border-radius: 4px;
           width: 6px;
-          background: #0B2A97;
+          background: theme('colors.primary');
           top: 0;
           right: 0;
           opacity: 0;
@@ -73,7 +73,7 @@
 
         &.active {
           background: rgba(11, 42, 151, 0.1);
-          color: blue;
+          color: theme('colors.primary');
           position: relative;
 
           &:before {
@@ -91,7 +91,7 @@
     .sub-menu-item {
       padding: 8px 30px 8px 55px;
       .nuxt-link-exact-active{
-        color: blue;
+        color: theme('colors.primary');
       }
     }
   }
