@@ -30,6 +30,7 @@ module.exports = {
         profile_dark_2: '#37465f',
         profile_light_1: '#08a7de',
         profile_gray: '#4c5463',
+        body_bg:'#F9F9F9'
       },
     },
   },

@@ -1,0 +1,98 @@
+.sidebar {
+  position: fixed;
+  overflow-y: auto;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 999;
+  /*padding: 3rem 20px 2rem 20px;*/
+  width: 345px;
+  box-shadow: 0 0 10px #78828c21;
+  background: white; /*transition: all .2s ease;*/
+  .logo {
+    height: 120px;
+  }
+
+  .sidebar-panel {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding-top: 15px;
+
+    .menu-item {
+      padding-left: 40px;
+
+      &:hover .menu-item-btn {
+        color: blue;
+      }
+
+
+      .menu-item-btn {
+        padding: 20px;
+        transition: all 0.5s;
+        position: relative;
+        border-top-left-radius: 1.25rem;
+        border-bottom-left-radius: 1.25rem;
+        width: 100%;
+        text-align: left;
+
+        &:after {
+          height: 100%;
+          position: absolute;
+          border-radius: 4px;
+          width: 6px;
+          background: #0B2A97;
+          top: 0;
+          right: 0;
+          opacity: 0;
+          content: "";
+          transition: all 0.5s;
+        }
+
+        &:before {
+          width: 0.5rem;
+          height: 0.5rem;
+          position: absolute;
+          content: "";
+          border-width: 1px 0 0 1px;
+          border-style: solid;
+          border-color: initial;
+          right: 1.8em;
+          -webkit-transform: rotate(-225deg) translateY(-50%);
+          transform: rotate(-225deg) translateY(-50%);
+          -webkit-transform-origin: top;
+          transform-origin: top;
+          top: 48%;
+          transition: all .3s ease-out;
+        }
+
+        i {
+          margin-right: 15px;
+          font-size: 1.4rem;
+          vertical-align: middle;
+        }
+
+        &.active {
+          background: rgba(11, 42, 151, 0.1);
+          color: blue;
+          position: relative;
+
+          &:before {
+            transform: rotate(-135deg) translateY(-50%);
+            transition: all .3s ease-out;
+          }
+
+          &:after {
+            opacity: 1;
+            transition: all 0.5s;
+          }
+        }
+      }
+    }
+    .sub-menu-item {
+      padding: 8px 30px 8px 55px;
+      .nuxt-link-exact-active{
+        color: blue;
+      }
+    }
+  }
+}
