@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Ahmed</h1>
     <template v-for="section in pageData">
       <component
         :is="section.component_name"
