@@ -17,7 +17,6 @@ export default {
     { src: '~/plugins/scrollbar.js', ssr: true },
     { src: '~/plugins/popover.js', ssr: false },
     { src: '~/plugins/qr.js', ssr: false },
-    { src: '~/plugins/chat.js', ssr: false },
     { src: '~/plugins/fontawesome.js'},
     { src: '~/plugins/veeValidate.js'},
 
