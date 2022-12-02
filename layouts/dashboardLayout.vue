@@ -4,6 +4,7 @@
     <!--    <the-app-header />-->
 
       <Nuxt />
+      <Chat/>
     </main-navigator>
     <!--    <the-app-footer />-->
   </div>
@@ -12,10 +13,11 @@
 
 <script>
     import MainNavigator from "../components/Navigation/MainNavigator";
+    import Chat from "../components/Utils/Chat";
 
     export default {
         name: 'DashboardLayout',
-        components: {MainNavigator},
+        components: {Chat, MainNavigator},
     }
 </script>
 

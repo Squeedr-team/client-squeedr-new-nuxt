@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
+  faClose,
   faTableList,
   faSliders,
   faPrescriptionBottle,
@@ -9,7 +10,7 @@ import {
   faPlus,
   faCaretUp,
   faCaretRight,
-  faEllipsisVertical,
+  faEllipsisVertical,faEllipsisH,
   faCaretDown,
   faStar as faStarO,
   faShoppingBasket,
@@ -19,6 +20,6 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faClock, faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 
 config.autoAddCss = false
-library.add(faChevronRight,faChevronLeft,faChevronUp,faChevronDown,faEllipsisVertical, faCaretRight, faTableList, faSliders, faSearch, faPrescriptionBottle, faTwitter, faClock, faStar, faPlus, faCalendar, faCaretUp, faCaretDown, faStarO, faShoppingBasket)
+library.add(faEllipsisH,faClose,faChevronRight,faChevronLeft,faChevronUp,faChevronDown,faEllipsisVertical, faCaretRight, faTableList, faSliders, faSearch, faPrescriptionBottle, faTwitter, faClock, faStar, faPlus, faCalendar, faCaretUp, faCaretDown, faStarO, faShoppingBasket)
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 

@@ -10,7 +10,9 @@
           <div class="form-group">
             <label>
               Show
-              <select v-model="itemsPerPage" class="border px-3 py-2 rounded-lg focus:border-primary focus:outline-none">
+              <select
+                v-model="itemsPerPage"
+                class="border px-3 py-2 rounded-lg focus:border-primary focus:outline-none">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="5">5</option>
@@ -30,8 +32,9 @@
           <div class="form-group">
             <label>
               <input
-v-model="query" type="text" class="border px-3 py-2 rounded-lg focus:border-primary focus:outline-none" placeholder="Search Records"
-                     @keyup="search(query)">
+                v-model="query" type="text" class="border px-3 py-2 rounded-lg focus:border-primary focus:outline-none"
+                placeholder="Search Records"
+                @keyup="search(query)">
             </label>
           </div>
         </div>
@@ -45,7 +48,9 @@ v-model="query" type="text" class="border px-3 py-2 rounded-lg focus:border-prim
         </div>
       </div>
       <div class="overflow-x-auto">
-        <table class="tw-table table-auto table-striped w-full" :class="{straight: !breakWords, 'table-hover': !!onClick}">
+        <table
+          class="tw-table table-auto table-striped w-full"
+          :class="{straight: !breakWords, 'table-hover': !!onClick}">
           <thead>
           <tr>
             <!-- Display Checkboxes If Requested -->
@@ -82,7 +87,7 @@ v-model="query" type="text" class="border px-3 py-2 rounded-lg focus:border-prim
           </thead>
           <tbody v-if="paginatedItems.length">
           <!-- Loop Through All Parsed and Paginated Items -->
-          <tr v-for="(item, i) in paginatedItems" :key="i" >
+          <tr v-for="(item, i) in paginatedItems" :key="i">
 
             <!-- Display Checkboxes If Requested -->
             <th v-if="selectable">
@@ -98,9 +103,9 @@ v-model="query" type="text" class="border px-3 py-2 rounded-lg focus:border-prim
             <!-- Display All Parsed Values -->
             <template v-for="(td, j) in item.details">
               <td
-v-if="td.show"
-                  :key="'td'+j"
-                  @click="click(item.row, td.value, td.name, i), columnClick(td.click, item.row, td.value, td.name, i)">
+                v-if="td.show"
+                :key="'td'+j"
+                @click="click(item.row, td.value, td.name, i), columnClick(td.click, item.row, td.value, td.name, i)">
                 <!-- <component :is="i+'Component'" v-if="value.render"></component> -->
                 <span v-html="td.rendered != null ? td.rendered : '----'"></span>
               </td>
@@ -108,20 +113,36 @@ v-if="td.show"
 
             <!-- Diplay Actions If Provided -->
             <td v-if="item.buttons.length">
-              <!-- Loop Through All Provided Actions -->
-              <template v-for="(button, j) in item.buttons">
+              <VDropdown
+                placement='auto-end'
+                :delay='{ show: 300, hide: 0 }'
+              >
                 <button
-                  v-if="button.show"
-                  :key="'button-'+j"
-                  type="button"
-                  class="px-3 py-1 text-sm border bg-primary rounded-lg text-white hover:bg-primary-900"
-                  :class="`btn-${button.color} btn-${button.size}`"
-                  :disabled="button.disabled"
-                  @click="button.action(item.row, item.index)"
+                  class='rounded-full w-10 h-10 hover:bg-primary-100 xl:rounded-2xl more-button'
                 >
-                  {{ button.text }}
+                  <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-md text-sm'/>
                 </button>
-              </template>
+
+                <template #popper>
+                  <div class='w-32 flex-col flex items-start'>
+                    <template v-for="(button, j) in item.buttons">
+                      <button
+                        v-if="button.show"
+                        :key="'button-'+j"
+                        type="button"
+                        class='text-secondary-600 hover:text-primary hover:bg-primary-200 py-2 px-4 w-full text-left'
+                        :class="`btn-${button.color} btn-${button.size}`"
+                        :disabled="button.disabled"
+                        @click="button.action(item.row, item.index)"
+                      >
+                        {{ button.text }}
+                      </button>
+                    </template>
+                  </div>
+                </template>
+              </VDropdown>
+              <!-- Loop Through All Provided Actions -->
+
             </td>
           </tr>
           </tbody>
@@ -157,8 +178,9 @@ v-if="td.show"
 
 <script>
     import Pagination from "./Pagination";
+
     export default {
-        name:'DataTable',
+        name: 'DataTable',
         components: {Pagination},
         props: {
             url: {
@@ -170,7 +192,6 @@ v-if="td.show"
                 type: Boolean,
                 default: () => false
             },
-
 
 
             // Table Items
