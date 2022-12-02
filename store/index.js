@@ -1,4 +1,4 @@
-import chat from "@/store/modules/chat";
+
 
 export const state = () => ({
   snackbar: {
@@ -40,5 +40,4 @@ export const actions = {
 
 }
 export const modules = {
-  chat
 }
