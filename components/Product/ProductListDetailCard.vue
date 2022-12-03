@@ -1,16 +1,17 @@
 <template>
-  <div v-if='info' class='p-5 rounded-2xl bg-white shadow-md product-card'>
+  <div v-if='info' class='p-5 xl:p-8 rounded-2xl bg-white shadow-md product-card'>
     <div class='grid md:grid-cols-12 grid-cols-1 md:gap-7'>
       <div class='2xl:col-span-3 col-span-5 mb-5'>
         <div>
           <div class='mb-2'>
-            <nuxt-img
+            <img
               :key='images?images:info.img'
-              class='w-full' provider='cloudinary'
-              :src='images?images:info.img'
+              alt=''
+              class='w-full'
+              :src="require('~/assets/images/product1.jpg')"
             />
           </div>
-          <div class='w-full'>
+          <div class='w-full pt-2'>
             <Carousel :settings='settings'>
               <div v-for='(img,idx) in info.images' :key='idx'>
                 <nuxt-img
@@ -55,7 +56,7 @@
               :key='idx'
               type='button'
               :value='siz'
-              class='py-2 px-4 border border-primary hover:bg-primary text-sm'
+              class='py-2 px-4 border border-primary hover:bg-primary text-sm hover:text-white'
               :class="{'bg-primary':size === siz}"
             >
               {{ siz }}
@@ -66,7 +67,7 @@
           <input
             v-model='count'
             type='number'
-            class='border border-secondary-100 focus:outline-none focus:border-primary p-2 md:p-3 rounded-2xl w-20 text-sm text-secondary'>
+            class='border border-secondary-100 focus:outline-none focus:border-primary p-2 md:p-4 rounded-2xl w-20 xl:w-32 text-sm text-secondary'>
         </div>
         <button class='bg-primary hover:bg-primary-700 py-3 text-lg rounded-2xl px-5 font-bold text-white'>
           <font-awesome-icon icon='fa fa-shopping-basket ' />

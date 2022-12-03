@@ -7,7 +7,7 @@
                  {name:"Product",path:"/product"},
                ]'
     />
-    <div class='grid md:grid-cols-2 grid-cols-1 gap-5 sm:p-5 p-2'>
+    <div class='grid md:grid-cols-2 grid-cols-1 gap-5 2xl:gap-8 sm:p-5 p-2'>
       <template v-for='(product,idx) in products'>
         <product-list-card
           :key='idx'

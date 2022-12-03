@@ -1,7 +1,7 @@
 <template>
-  <div v-if='info' class='p-5 rounded-2xl bg-white shadow-md product-card 2xl:flex 2xl:items-center 2xl:gap-7'>
+  <div v-if='info' class='p-5 rounded-2xl bg-white shadow-sm product-card 2xl:p-8 2xl:flex 2xl:items-start 2xl:gap-7'>
     <div class='img-box mb-5 2xl:mb-0 2xl:w-5/12'>
-      <nuxt-img provider='cloudinary' :src='info.img' class='w-full' />
+      <img :src="require('~/assets/images/product1.jpg')" class='w-full' alt='' />
     </div>
     <div class='2xl:w-7/12'>
       <NuxtLink to='/product/2'>
@@ -9,16 +9,24 @@
       </NuxtLink>
       <Rating :rating='info.review' />
       <div class='flex justify-between'>
-        <p class='text-darkDust'>({{ info.reviews_count }} reviews) / <u>
-          <nuxt-link to='/'>Write a review?</nuxt-link>
+        <p class='text-secondary-600'>({{ info.reviews_count }} reviews) / <u>
+          <nuxt-link to='/' class='text-secondary-400'>Write a review?</nuxt-link>
         </u></p>
-        <h5 class='text-primary text-2xl font-bold'>${{ info.price }}</h5>
+        <h5 class='text-primary text-2xl font-bold'>${{ info.price.toFixed(2) }}</h5>
       </div>
 
-      <p class='text-sm text-darkDust py-1'>Availability: In stock {{ info.in_stock }}</p>
-      <p class='text-sm text-darkDust py-1'>Product code: {{ info.code }}</p>
-      <p class='text-sm text-darkDust py-1'>Brand: {{ info.brand }}</p>
-      <p class='text-sm text-darkDust pt-2'>{{ info.description }}</p>
+      <p class='text-sm text-secondary-600 py-1'>Availability:
+        <span
+          class='text-xs text-secondary-400'>
+          In stock
+          <font-awesome-icon icon='fa fa-circle-check' class='text-primary'>{{ info.in_stock }}</font-awesome-icon>
+        </span>
+      </p>
+      <p class='text-sm text-secondary-600 py-1'>Product code: <span class='text-xs text-secondary-400'>{{ info.code
+        }}</span></p>
+      <p class='text-sm text-secondary-600 py-1'>Brand: <span class='text-xs text-secondary-400'>{{ info.brand }}</span>
+      </p>
+      <p class='text-sm text-secondary-600 pt-2'>{{ info.description }}</p>
     </div>
 
   </div>
