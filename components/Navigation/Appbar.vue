@@ -1,5 +1,5 @@
 <template>
-  <div class='app-bar'>
+  <div class='app-bar shadow-sm'>
     <div class='flex items-center'>
       <nuxt-link to='/' class='w-full block md:hidden'>
         <Logo

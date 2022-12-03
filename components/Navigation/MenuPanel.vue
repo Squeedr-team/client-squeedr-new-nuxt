@@ -16,7 +16,8 @@
           <button
             :class="[opened===menu.id?'active':'',isMainMenu?'menu-item-btn':'sub-menu-item-btn']"
             @click="opened===menu.id?opened='':opened=menu.id">
-            <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='w-6 text-2xl'></font-awesome-icon><span class='menu-text'>{{ menu.name }}</span>
+            <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='w-6 text-2xl'></font-awesome-icon>
+            <span class='menu-text'>{{ menu.name }}</span>
           </button>
           <expand>
             <MenuPanel
@@ -32,11 +33,16 @@
           <VMenu
             placement='right-start'
             :distance='14'
-            :delay='{ show: 300, hide: 0 }'
+            :triggers="['hover', 'focus','click']"
+            :delay='{ show: 200, hide: 100 }'
+            :auto-hide='false'
           >
             <button :class="[opened===menu.id?'active':'',isMainMenu?'menu-item-btn':'sub-menu-item-btn']"
             >
-              <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='text-xl'></font-awesome-icon><span class='menu-text'>{{ menu.name }}</span>
+              <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='text-xl'></font-awesome-icon>
+              <span class='menu-text'>
+              {{ menu.name }}
+              </span>
             </button>
 
             <template #popper>

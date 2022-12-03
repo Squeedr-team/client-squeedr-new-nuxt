@@ -3,7 +3,7 @@
     <div class='img-box mb-5 2xl:mb-0 2xl:w-5/12'>
       <nuxt-img provider='cloudinary' :src='info.img' class='w-full' />
     </div>
-    <div class='2xl:w-5/12'>
+    <div class='2xl:w-7/12'>
       <NuxtLink to='/product/2'>
         <h6 class='text-lg mb-2 font-semibold'>{{ info.name }}</h6>
       </NuxtLink>
