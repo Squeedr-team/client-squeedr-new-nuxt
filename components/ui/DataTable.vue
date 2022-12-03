@@ -13,15 +13,9 @@
               <select
                 v-model='itemsPerPage'
                 class='border px-3 py-2 rounded-lg focus:border-primary focus:outline-none'>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='5'>5</option>
                 <option value='10'>10</option>
-                <option value='15'>15</option>
                 <option value='20'>20</option>
-                <option value='25'>25</option>
                 <option value='50'>50</option>
-                <option value='75'>75</option>
                 <option value='100'>100</option>
               </select>
               rows
@@ -74,18 +68,20 @@
                 v-if='th.show'
 
                 :key="'th'+s_index"
-                class='sortable'
+                class='text-sm text-secondary-600'
                 :class="{sort: sortColumn === th.name, 'asc': sortColumn === th.name && asc, 'desc': sortColumn === th.name && !asc}"
                 @click='sort(th.name)'
               >
                 <div class='flex justify-between items-center'>
                   {{ th.th }}
                   <div v-if='th.sortable'>
-                    <font-awesome-icon icon='fa fa-sort-up' class='text-sm'
-                                       v-if='sortColumn === th.name && asc'></font-awesome-icon>
-                    <font-awesome-icon icon='fa fa-sort-down' class='text-sm'
-                                       v-else-if='sortColumn === th.name && !asc'></font-awesome-icon>
-                    <font-awesome-icon icon='fa fa-sort' class='text-sm' v-else></font-awesome-icon>
+                    <font-awesome-icon
+                      v-if='sortColumn === th.name && asc' icon='fa fa-sort-up'
+                      class='text-sm'></font-awesome-icon>
+                    <font-awesome-icon
+                      v-else-if='sortColumn === th.name && !asc' icon='fa fa-sort-down'
+                      class='text-sm'></font-awesome-icon>
+                    <font-awesome-icon v-else icon='fa fa-sort' class='text-sm'></font-awesome-icon>
                   </div>
                 </div>
               </th>
@@ -410,7 +406,12 @@ export default {
       this.sortIndex(false)
     },
     getHeaders() {
-      this.headers = this.columns.map((item) => ({ name: item.name, th: item.th,sortable:item.sortable, show: item.show !== false }))
+      this.headers = this.columns.map((item) => ({
+        name: item.name,
+        th: item.th,
+        sortable: item.sortable,
+        show: item.show !== false
+      }))
     },
     mapItems(items) {
       items = items.map((item, index) => {

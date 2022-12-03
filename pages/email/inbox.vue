@@ -7,6 +7,8 @@
                  {name:"Inbox",path:"/email/inbox"},
                ]'
     />
+    <div class='bg-white rounded-2xl sm:m-5 m-3 p-3 sm:p-5'>
+    </div>
   </div>
 </template>
 
