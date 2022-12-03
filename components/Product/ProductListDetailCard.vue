@@ -1,11 +1,13 @@
 <template>
   <div v-if='info' class='p-5 rounded-2xl bg-white shadow-md product-card'>
-    <div class='grid md:grid-cols-12 grid-cols-1 gap-5'>
-      <div class='col-span-5 mb-5'>
+    <div class='grid md:grid-cols-12 grid-cols-1 md:gap-7'>
+      <div class='2xl:col-span-3 col-span-5 mb-5'>
         <div>
           <div class='mb-2'>
             <nuxt-img
-              :key='images?images:info.img' provider='cloudinary' :src='images?images:info.img'
+              :key='images?images:info.img'
+              class='w-full' provider='cloudinary'
+              :src='images?images:info.img'
             />
           </div>
           <div class='w-full'>
@@ -21,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class='col-span-7'>
+      <div class='2xl:col-span-9 col-span-7'>
         <h6 class='text-lg mb-2 font-semibold'>{{ info.name }}</h6>
         <Rating :rating='info.review' />
         <p class='text-secondary-500'>({{ info.reviews_count }} reviews) / <u>

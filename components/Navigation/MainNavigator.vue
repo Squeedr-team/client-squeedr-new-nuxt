@@ -1,7 +1,8 @@
 <template>
   <div class='bg-body_bg'>
-    <div v-show='isMobile && !sidebarOpen' id="body-overlay"
-         @click='sidebarOpen=true'
+    <div
+      v-show='isMobile && !sidebarOpen' id='body-overlay'
+      @click='sidebarOpen=true'
     >
     </div>
     <sidebar
@@ -74,6 +75,7 @@ export default {
     transition: unset !important;
   }
 }
+
 #body-overlay {
   width: 100vw;
   height: 100vh;

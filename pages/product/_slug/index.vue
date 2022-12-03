@@ -1,6 +1,13 @@
 <template>
   <div>
-    Breadcum here
+    <Breadcumb
+      class='sm:p-5 p-2'
+      :routes='[
+                 {name:"Dashboard",path:"/"},
+                 {name:"Product",path:"/product"},
+                 {name:"Product Detail",path:"/product/2"},
+               ]'
+    />
     <div class='sm:p-5 p-2'>
       <product-list-detail-card :info='product'></product-list-detail-card>
     </div>
