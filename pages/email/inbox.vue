@@ -61,19 +61,19 @@
               <span class='font-semibold'>Work</span>
             </div>
           </button>
-          <button class='w-full flex justify-between items-center py-3 px-4 border'>
+          <button class='w-full flex justify-between items-center py-3 px-4 border border-t-0'>
             <div class='text-secondary-600'>
               <font-awesome-icon icon='fa fa-circle' class='fa fa-inbox mr-2 text-secondary-300' />
               <span class='font-semibold'>Private</span>
             </div>
           </button>
-          <button class='w-full flex justify-between items-center py-3 px-4 border'>
+          <button class='w-full flex justify-between items-center py-3 px-4 border border-t-0'>
             <div class='text-secondary-600'>
               <font-awesome-icon icon='fa fa-circle' class='fa fa-inbox mr-2 text-secondary-300' />
               <span class='font-semibold'>Support</span>
             </div>
           </button>
-          <button class='w-full flex justify-between items-center py-3 px-4 border'>
+          <button class='w-full flex justify-between items-center py-3 px-4 border border-t-0'>
             <div class='text-secondary-600'>
               <font-awesome-icon icon='fa fa-circle' class='fa fa-inbox mr-2 text-secondary-300' />
               <span class='font-semibold'>Social</span>
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class='email-right-box flex-1'>
-        <div class='flex items-center'>
+        <div class='flex items-center md:px-5 px-3'>
           <div class='m-1'>
             <div class='custom-control custom-checkbox pl-2'>
               <input id='checkAll' type='checkbox' class='custom-control-input'>
@@ -125,8 +125,8 @@
             </VDropdown>
           </div>
         </div>
-        <div class='email-list mt-3'>
-          <div v-for='(email,idx) in 10' :key='idx' class='flex message-single'>
+        <div class='email-list md:p-5 p-3'>
+          <div v-for='(email,idx) in 10' :key='idx' class='flex message-single hover:bg-secondary-100'>
             <div>
               <div class='flex items-center'>
                 <div class='custom-control custom-checkbox px-2 '>
