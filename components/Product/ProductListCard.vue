@@ -1,11 +1,14 @@
 <template>
-  <div v-if='info' class='p-5 rounded-2xl bg-white shadow-sm product-card 2xl:p-8 2xl:flex 2xl:items-start 2xl:gap-7'>
-    <div class='img-box mb-5 2xl:mb-0 2xl:w-5/12'>
+  <div
+    v-if='info'
+    class='p-5 rounded-2xl bg-white shadow-sm product-card
+  sm:p-8 sm:flex 2xl:flex-row xl:flex-col 2xl:flex 2xl:items-start 2xl:gap-7 sm:gap-7 xl:gap-0'>
+    <div class='img-box mb-5 2xl:mb-0 2xl:w-5/12 xl:w-full sm:w-5/12 w-full'>
       <img :src="require('~/assets/images/product1.jpg')" class='w-full' alt='' />
     </div>
-    <div class='2xl:w-7/12'>
+    <div class='2xl:w-7/12 xl:w-full sm:w-7/12 w-full'>
       <NuxtLink to='/product/2'>
-        <h6 class='text-lg mb-2 font-semibold'>{{ info.name }}</h6>
+        <h6 class='lg:text-lg text-md mb-2 font-semibold'>{{ info.name }}</h6>
       </NuxtLink>
       <Rating :rating='info.review' />
       <div class='flex justify-between'>
