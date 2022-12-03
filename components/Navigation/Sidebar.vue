@@ -21,7 +21,6 @@
 </template>
 
 <script>
-    // import Expand from '../ui/expand'
     import Logo from './Logo'
     import MenuPanel from '~/components/Navigation/MenuPanel'
 

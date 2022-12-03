@@ -16,7 +16,7 @@
           <button
             :class="[opened===menu.id?'active':'',isMainMenu?'menu-item-btn':'sub-menu-item-btn']"
             @click="opened===menu.id?opened='':opened=menu.id">
-            <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='w-6 text-xl'></font-awesome-icon><span class='menu-text'>{{ menu.name }}</span>
+            <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='w-6 text-2xl'></font-awesome-icon><span class='menu-text'>{{ menu.name }}</span>
           </button>
           <expand>
             <MenuPanel
@@ -36,7 +36,7 @@
           >
             <button :class="[opened===menu.id?'active':'',isMainMenu?'menu-item-btn':'sub-menu-item-btn']"
             >
-              <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='w-10'></font-awesome-icon><span class='menu-text'>{{ menu.name }}</span>
+              <font-awesome-icon v-if='menu.icon' :icon='menu.icon' class='text-xl'></font-awesome-icon><span class='menu-text'>{{ menu.name }}</span>
             </button>
 
             <template #popper>

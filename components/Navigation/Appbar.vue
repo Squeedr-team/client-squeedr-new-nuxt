@@ -67,7 +67,7 @@ export default {
   height: 120px;
   background: white;
   padding: 0 2.4rem;
-  z-index: 10;
+  z-index: 500;
   @media (max-width: 1024px) {
     height: 80px;
     padding: 0 12px;

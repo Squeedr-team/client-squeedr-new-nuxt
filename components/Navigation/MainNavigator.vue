@@ -1,5 +1,9 @@
 <template>
   <div class='bg-body_bg'>
+    <div v-show='isMobile && !sidebarOpen' id="body-overlay"
+         @click='sidebarOpen=true'
+    >
+    </div>
     <sidebar
       :class="{'sidebar-closed':!sidebarOpen}"
       :open='sidebarOpen'
@@ -27,6 +31,14 @@ export default {
       isMobile: false
     }
   },
+  watch: {
+    $route(to, from) {
+      if (this.isMobile && to.path !== from.path) {
+        this.sidebarOpen = true
+      }
+    }
+  },
+
   mounted() {
     if (window.innerWidth < 1280 && window.innerWidth > 767) {
       this.sidebarOpen = false
@@ -34,9 +46,12 @@ export default {
     if (window.innerWidth < 768) {
       this.isMobile = true
     }
-    const vm = this;
-    window.addEventListener('resize', function () {
-        vm.sidebarOpen = !(window.innerWidth < 1280 && window.innerWidth > 767)
+    const vm = this
+    window.addEventListener('resize', function() {
+      vm.sidebarOpen = !(window.innerWidth < 1280 && window.innerWidth > 767)
+      if (window.innerWidth < 768) {
+        this.isMobile = true
+      }
     })
   }
 }
@@ -58,5 +73,15 @@ export default {
     margin-left: 0 !important;
     transition: unset !important;
   }
+}
+#body-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 0.3s;
 }
 </style>
