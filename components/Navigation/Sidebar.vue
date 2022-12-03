@@ -94,6 +94,10 @@ export default {
               pathName: 'checkout'
             },
             {
+              name: 'Orders',
+              pathName: 'orders'
+            },
+            {
               name: 'Email Inbox',
               pathName: 'email-inbox'
             }

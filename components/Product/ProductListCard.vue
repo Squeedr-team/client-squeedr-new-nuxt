@@ -11,7 +11,7 @@
         <h6 class='lg:text-lg text-md mb-2 font-semibold'>{{ info.name }}</h6>
       </NuxtLink>
       <Rating :rating='info.review' />
-      <div class='flex justify-between'>
+      <div class='flex flex-col sm:flex-row justify-between'>
         <p class='text-secondary-600'>({{ info.reviews_count }} reviews) / <u>
           <nuxt-link to='/' class='text-secondary-400'>Write a review?</nuxt-link>
         </u></p>
@@ -60,7 +60,7 @@ export default {
 
     &:hover {
       img {
-        transform: scale(1.1);
+        transform: scale(1.4);
         filter: grayscale(0.5);
       }
     }

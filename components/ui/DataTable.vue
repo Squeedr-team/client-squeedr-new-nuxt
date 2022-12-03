@@ -43,8 +43,8 @@
       </div>
       <div class='overflow-x-auto'>
         <table
-          class='tw-table table-auto table-striped w-full'
-          :class="{straight: !breakWords, 'table-hover': !!onClick}">
+          class='tw-table table-auto  w-full'
+          :class="{straight: !breakWords, 'table-hover': !!onClick,'table-striped':stripe}">
           <thead>
           <tr>
             <!-- Display Checkboxes If Requested -->
@@ -88,7 +88,7 @@
             </template>
 
             <!-- Display Actions If Provided -->
-            <th v-if='actions.length'>Actions</th>
+            <th v-if='actions.length' class='text-sm'>Actions</th>
           </tr>
           </thead>
           <tbody v-if='paginatedItems.length'>
@@ -120,8 +120,8 @@
             <!-- Diplay Actions If Provided -->
             <td v-if='item.buttons.length'>
               <VDropdown
-                placement='auto-end'
-                :delay='{ show: 300, hide: 0 }'
+                placement='bottom-end'
+                :delay='{ show: 300, hide: 100 }'
               >
                 <button
                   class='rounded-full w-10 h-10 hover:bg-primary-100 xl:rounded-2xl more-button'
@@ -274,6 +274,10 @@ export default {
     selectable: {
       type: Boolean,
       default: () => false
+    },
+    stripe: {
+      type: Boolean,
+      default: () => true
     }
   },
   data() {
