@@ -41,16 +41,17 @@ export default {
   },
 
   mounted() {
-    if (window.innerWidth < 1280 && window.innerWidth > 767) {
+    const width = (window.innerWidth > 0) ? window.innerWidth : screen.width
+    if (width < 1280 && width > 767) {
       this.sidebarOpen = false
     }
-    if (window.innerWidth < 768) {
+    if (width < 768) {
       this.isMobile = true
     }
     const vm = this
     window.addEventListener('resize', function() {
-      vm.sidebarOpen = !(window.innerWidth < 1280 && window.innerWidth > 767)
-      if (window.innerWidth < 768) {
+      vm.sidebarOpen = !(width < 1280 && width > 767)
+      if (width < 768) {
         this.isMobile = true
       }
     })

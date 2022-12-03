@@ -529,3 +529,15 @@ body{
 .mx-calendar {
   width: 100% !important;
 }
+
+.v-popper__inner{
+  border-radius: 1.25rem!important;
+  padding:8px 0;
+}
+.ellipsis-text{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  top:0;
+}
