@@ -3,22 +3,26 @@
     <div class='grid md:grid-cols-12 grid-cols-1 md:gap-7'>
       <div class='2xl:col-span-3 col-span-5 mb-5'>
         <div>
-          <div class='mb-2'>
-            <img
-              :key='images?images:info.img'
-              alt=''
-              class='w-full'
-              :src="require('~/assets/images/product1.jpg')"
-            />
+          <div class='mb-2 overflow-hidden flex'>
+
+            <template v-for='(img,idx) in info.images'>
+              <transition :key='idx' name='fade'>
+                <img
+                  v-if='images===idx'
+                  :src='img.url'
+                  class='w-full'
+                  @click='images=img.url' />
+              </transition>
+            </template>
+
           </div>
           <div class='w-full pt-2'>
             <Carousel :settings='settings'>
-              <div v-for='(img,idx) in info.images' :key='idx'>
-                <nuxt-img
-                  provider='cloudinary'
+              <div v-for='(img,idx) in info.thumbs' :key='idx'>
+                <img
                   :src='img.url'
                   class='cursor-pointer'
-                  @click='images=img.url' />
+                  @click='images=idx' />
               </div>
             </Carousel>
           </div>
@@ -95,7 +99,7 @@ export default {
     return {
       size: '',
       count: 1,
-      images: '',
+      images: 0,
       settings: {
         dots: false,
         infinite: false,

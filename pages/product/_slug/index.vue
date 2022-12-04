@@ -24,25 +24,43 @@
             return {
 
                 product: {
-                    img: '/v1663308694/Video_shoot_tile_v2.jpg',
+                    img: require('~/assets/images/product1.jpg'),
                     images: [
                         {
                             id: 1,
-                            url: '/v1663308694/Video_shoot_tile_v2.jpg'
+                            url: require('~/assets/images/product1.jpg')
                         },
                         {
                             id: 2,
-                            url: '/v1663308737/Photo_shoot_tile.jpg'
+                            url: require('~/assets/images/product1.jpg')
                         },
                         {
                             id: 3,
-                            url: '/v1663308694/Video_shoot_tile_v2.jpg'
+                            url: require('~/assets/images/product1.jpg')
                         },
                         {
                             id: 4,
-                            url: '/v1663308694/Video_shoot_tile_v2.jpg'
+                            url: require('~/assets/images/product1.jpg')
                         }
                     ],
+                  thumbs: [
+                    {
+                      id: 1,
+                      url: require('~/assets/images/tab1.jpg')
+                    },
+                    {
+                      id: 2,
+                      url: require('~/assets/images/tab1.jpg')
+                    },
+                    {
+                      id: 3,
+                      url: require('~/assets/images/tab1.jpg')
+                    },
+                    {
+                      id: 4,
+                      url: require('~/assets/images/tab1.jpg')
+                    }
+                  ],
                     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
                     name: 'Hearty Italian-Style White Bean Soup',
                     author: {name: 'Andrew', avatar: 'https://picsum.photos/80/8'},
