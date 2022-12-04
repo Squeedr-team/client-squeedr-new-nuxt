@@ -25,7 +25,7 @@
 
     </div>
     <div>
-      <div v-for='(workout,idx) in workouts' :key='idx'>
+      <div v-for='(workout,idx) in filteredWorkout' :key='idx'>
         <workout-item :workout='workout' />
       </div>
     </div>
@@ -48,6 +48,15 @@ export default {
       type: Object,
       default: () => {
       }
+    }
+  },
+  computed: {
+    filteredWorkout() {
+      const arr = this.workouts
+      if (this.filter === 'finished' || this.filter === 'unfinished') {
+        return arr.filter(item => item.status === this.filter)
+      }
+      return arr
     }
   },
   data() {

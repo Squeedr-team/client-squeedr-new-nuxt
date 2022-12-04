@@ -78,8 +78,8 @@ export default {
         searchPlaceholder: 'Search Menus here',
         filterItems: [
           { name: 'All', value: 'all' },
-          { name: 'Finished', value: 'Finished' },
-          { name: 'Unfinished', value: 'Unfinished' }
+          { name: 'Finished', value: 'finished' },
+          { name: 'Unfinished', value: 'unfinished' }
         ]
       }
     }

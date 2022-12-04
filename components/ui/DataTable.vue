@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div class='overflow-x-auto'>
+      <div class='overflow-x-auto mt-2'>
         <table
           class='tw-table table-auto  w-full'
           :class="{straight: !breakWords, 'table-striped':stripe}">
@@ -50,8 +50,8 @@
             <template v-for='(th, s_index) in headers'>
               <th
                 :key="'th'+s_index"
-                class='text-sm text-secondary-600'
                 :class='th.thClass'
+                :style='th.thStyle'
                 @click='sort(th.name)'
               >
                 <div class='flex justify-between items-center'>
@@ -71,7 +71,7 @@
                     <font-awesome-icon
                       v-else-if='sortColumn === th.name && !asc' icon='fa fa-sort-down'
                       class='text-sm'></font-awesome-icon>
-                    <font-awesome-icon v-else icon='fa fa-sort' class='text-sm'></font-awesome-icon>
+                    <font-awesome-icon v-else icon='fa fa-sort' class='text-sm text-secondary-300'></font-awesome-icon>
                   </div>
                 </div>
               </th>
@@ -165,7 +165,7 @@ export default {
       type: Boolean,
       default: () => true
     },
-    bordered:{
+    bordered: {
       type: Boolean,
       default: () => false
     }
@@ -174,7 +174,7 @@ export default {
     return {
       itemsPerPage: 10,
       currentPage: 1,
-      asc: 'asc',
+      asc: false,
       sortColumn: null,
       totalCount: 3,
       query: '',
@@ -202,6 +202,7 @@ export default {
     },
     sort(name) {
       this.sortColumn = name
+      this.asc = !this.asc
     },
     columnClick(action, row, cell, name, index) {
       if (action) {
