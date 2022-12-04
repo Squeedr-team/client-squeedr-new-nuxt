@@ -8,7 +8,92 @@
                ]'
     />
     <div class='bg-white rounded-2xl sm:m-5 m-3 p-3 sm:p-5'>
-      <data-table :data='data' :columns='columns' :actions='actions' :index='false' selectable :stripe='false'/>
+      <data-table :data='data' :headers='headers' :stripe='false' bordered>
+        <template #head(select)='{  }'>
+          <label class='custom-control'>
+            <input type='checkbox' class='custom-control-input' @change='selectAll'>
+          </label>
+        </template>
+        <template #cell(select)='{ item }'>
+          <label class='custom-control'>
+            <input
+              v-model='selected' type='checkbox' class='custom-control-input'
+              :value='item.email'>
+          </label>
+        </template>
+        <template #cell(order)='{ item }'>
+          <div><span class='text-secondary-400 mr-1 font-semibold'>#{{ item.order_no }}</span>by
+            <span class='text-secondary-400 ml-1 font-semibold'>{{ item.user_name }}</span><br />
+            {{ item.email }}
+          </div>
+        </template>
+        <template #cell(amount)='{ item }'>
+          <div class='text-right'>${{ item.amount }}</div>
+        </template>
+        <template #cell(status)='{ item }'>
+          <div class='flex justify-end'>
+            <div
+              class='rounded-2xl px-3 py-1 capitalize text-center text-sm font-semibold'
+              :style='{background: item.status.bg_color,color:item.status.text_color}'>
+              {{ item.status.stat }}
+              <font-awesome-icon v-if='item.status.stat==="on hold"' icon='fa fa-ban' />
+              <font-awesome-icon v-else-if='item.status.stat==="completed"' icon='fa fa-check' />
+            </div>
+          </div>
+        </template>
+        <template #cell(actions)='{ item }'>
+          <VDropdown
+            placement='bottom-end'
+            :delay='{ show: 300, hide: 100 }'
+          >
+            <button
+              class='rounded-full w-10 h-10 hover:bg-primary-100 xl:rounded-2xl more-button'
+            >
+              <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-md text-sm' />
+            </button>
+
+            <template #popper>
+              <div class='w-32 flex-col flex items-start'>
+                <button
+                  type='button'
+                  class='text-secondary-600 hover:text-primary hover:bg-primary-200 py-2 px-4 w-full text-left'
+                  @click='console.log(item.email)'
+                >
+                  Completed
+                </button>
+                <button
+                  type='button'
+                  class='text-secondary-600 hover:text-primary hover:bg-primary-200 py-2 px-4 w-full text-left'
+                  @click='console.log(item.email)'
+                >
+                  Processing
+                </button>
+                <button
+                  type='button'
+                  class='text-secondary-600 hover:text-primary hover:bg-primary-200 py-2 px-4 w-full text-left'
+                  @click='console.log(item.email)'
+                >
+                  On Hold
+                </button>
+                <button
+                  type='button'
+                  class='text-secondary-600 hover:text-primary hover:bg-primary-200 py-2 px-4 w-full text-left'
+                  @click='console.log(item.email)'
+                >
+                  Pending
+                </button>
+                <button
+                  type='button'
+                  class='text-red-600 border-t hover:text-primary hover:bg-primary-200 py-2 px-4 w-full text-left'
+                  @click='console.log(item.email)'
+                >
+                  Delete
+                </button>
+              </div>
+            </template>
+          </VDropdown>
+        </template>
+      </data-table>
     </div>
   </div>
 
@@ -17,11 +102,7 @@
 <script>
 import DataTable from '~/components/ui/DataTable'
 
-const getButton = (row) => {
-  return `<div class='flex justify-end'><div class='rounded-2xl px-3 py-1 capitalize text-center text-sm font-semibold' style='background: ${row.status.bg_color};color:${row.status.text_color}'>
-${row.status.stat} <font-awesome-icon icon='fa fa-star'/>
-</div></div>`
-}
+
 export default {
   name: 'Orders',
   components: { DataTable },
@@ -87,43 +168,34 @@ export default {
 
 
       ],
-
+      selected: [],
       // Columns that should be displayed on The Table
-      columns: [
+      headers: [
+        { name: 'select', th: '' },
         {
-          name: 'order', th: 'Order', render(row, cell, index) {
-            // Parse date and display difference
-            return `<div><span class='text-secondary-400 mr-1 font-semibold'>#${row.order_no}</span>by<span class='text-secondary-400 ml-1 font-semibold'>${row.user_name}</span><br/>${row.email}</div>`
-          }
+          name: 'order', th: 'Order'
         },
         { name: 'date', th: 'Date' },
         { name: 'billing_Address', th: 'Ship To' },
         {
-          name: 'status', th: 'Status', render(row, cell, index) {
-            return getButton(row)
-          }
+          name: 'status', th: 'Status', thClass: 'text-right'
         },
         {
-          name: 'amount', th: 'amount', render(row, cell, index) {
-            return '<div class="text-right">$' + row.amount + '</div>'
-          }
-        }
-      ],
-      actions: [
-        {
-          text: 'Edit', color: 'primary', action: (row, index) => {
-            alert(`about to edit ${row.first_name} ${row.last_name}`)
-          }
+          name: 'amount', th: 'amount', thClass: 'text-right'
         },
-        {
-          text: 'Delete', color: 'danger', action: (row, index) => {
-            alert(`about to delete ${row.first_name} ${row.last_name}`)
-          }
-        }
+        { name: 'actions', th: '' }
       ]
     }
   },
-  methods: {}
+  methods: {
+    selectAll() {
+      if (this.selected.length > 0) {
+        this.selected = []
+      } else {
+        this.selected = this.data.map(i => i.email)
+      }
+    }
+  }
 }
 </script>
 

@@ -541,3 +541,8 @@ body{
   width: 100%;
   top:0;
 }
+.v-popper--shown{
+  .more-button{
+    background: theme('colors.primary.100');
+  }
+}
