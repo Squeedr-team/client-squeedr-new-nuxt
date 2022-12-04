@@ -1,27 +1,26 @@
 <template>
   <div v-if='info' class='border-b'>
-    <div class='lg:flex lg:flex-row flex-wrap block py-5 lg:gap-5'>
-      <div class='lg:w-28 w-20 float-left mr-4 lg:mr-0'>
+    <div class='md:flex md:flex-row flex-wrap lg:flex-nowrap block py-5'>
+      <div class='sm:float-none float-left sm:mr-0 mr-4 mb-3 sm:mb-0'>
         <nuxt-link to='/'>
           <img
             :src='info.img'
-            width='120px'
-            class='rounded-xl bg-gray-200 w-full'
+            class='rounded-2xl bg-gray-200 product-img'
             alt='user' />
         </nuxt-link>
       </div>
-      <div class='flex-1 mb-3'>
-        <h6 class='text-md mb-2 font-semibold'>{{ info.name }}</h6>
-        <p class='text-sm text-darkDust'>{{ info.description }}</p>
-        <div v-if='info.author' class='flex items-center flex-wrap gap-5 mt-4'>
+      <div class='lg:w-8/12 flex-1 mb-3 pl-4'>
+        <h6 class='text-md font-semibold'>{{ info.name }}</h6>
+        <p class='text-darkDust'>{{ info.description }}</p>
+        <div v-if='info.author' class='flex items-center flex-wrap xl:gap-5 gap-3 mt-4'>
           <div class='flex items-center mr-auto'>
             <img
               :src='info.author.avatar'
-              class='rounded-full bg-gray-200 w-8 h-8'
+              class='rounded-full bg-gray-200 w-7 h-7'
               alt='user' />
             <span class='text-sm ml-3'>{{ info.author.name }}</span>
           </div>
-          <div class='flex flex-wrap gap-x-4 gap-y-2'>
+          <div class='flex flex-wrap gap-x-4 gap-y-1'>
             <div class='flex items-center'>
               <font-awesome-icon icon='fa-regular fa-clock' class='text-darkDust text-xl' />
               <span class='text-sm mx-2'>{{ info.cookTime }}</span>
@@ -37,11 +36,11 @@
           </div>
         </div>
       </div>
-      <div class='lg:text-right'>
+      <div class='lg:ml-auto w-full lg:w-auto ml-0 2xl:ml-14 lg:ml-7'>
         <button
-          class='bg-primary-100 rounded-2xl text-sm md:p-3 p-2 text-sm hover:bg-primary hover:text-white whitespace-nowrap'>
-          <font-awesome-icon icon='fa fa-plus'></font-awesome-icon>
-          <span>Add Menu</span>
+          class='bg-primary-100 rounded-2xl flex items-center xl:py-4 px-5 p-2 text-sm hover:bg-primary hover:text-white whitespace-nowrap'>
+          <font-awesome-icon icon='fa fa-plus' class='text-xl font-extrabold'></font-awesome-icon>
+          <span class='text-sm ml-3'>Add Menu</span>
         </button>
       </div>
     </div>
@@ -61,6 +60,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang='scss'>
+.product-img{
+  width: 120px;
+  @media (max-width: 425px) {
+    width:80px!important;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-<div class='bg-white rounded-2xl p-5 shadow-md'>
+<div class='bg-white rounded-2xl p-5 md:p-8 shadow-sm'>
   <food-menu-filter :section-data='sectionData'/>
   <food-menu-list :food-items='foodItems'/>
 </div>

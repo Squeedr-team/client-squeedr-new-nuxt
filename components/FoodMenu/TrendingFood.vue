@@ -1,6 +1,6 @@
 <template>
   <div class="block">
-    <div v-if="sectionData" class="bg-white p-5 rounded-2xl shadow-md">
+    <div v-if="sectionData" class="bg-white p-5 rounded-2xl shadow-sm">
       <div class='flex items-center justify-between flex-wrap gap-5 mb-8'>
         <div>
           <h6 class='text-lg mb-2 font-semibold'>{{ sectionData.title }}</h6>
@@ -8,7 +8,7 @@
         </div>
       </div>
       <div v-if="sectionData.items">
-        <div class="flex justify-between border-b py-2" v-for="(item,idx) in sectionData.items" :key="idx">
+        <div v-for="(item,idx) in sectionData.items" :key="idx" class="flex justify-between border-b py-2">
           <div class="flex">
             <img
               :src='item.img'

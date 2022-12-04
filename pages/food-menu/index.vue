@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 grid-flow-row grid-flow-column sm:p-5 p-2'>
+    <div class='grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 md:gap-8 grid-flow-row grid-flow-column xl:p-8 p-2'>
       <template v-for='section in pageData'>
         <component
           :is='section.component_name'
@@ -24,16 +24,16 @@
             return {
                 foodItems: [
                     {
-                        img: 'https://picsum.photos/80/80',
+                        img: require('~/assets/images/menu1.png'),
                         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
                         name: 'Hearty Italian-Style White Bean Soup',
-                        author: {name: 'Andrew', avatar: 'https://picsum.photos/80/8'},
+                        author: {name: 'Andrew Sceenshaver', avatar: 'https://picsum.photos/80/8'},
                         cookTime: '4-6 mins',
                         schedule: 'Breakfast (Monday, Tuesday)',
                         ingredients_count: 8,
                         reviews_count: 568
                     }, {
-                        img: 'https://picsum.photos/80/80',
+                        img: require('~/assets/images/menu1.png'),
                         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
                         name: 'Hearty Italian-Style White Bean Soup',
                         author: {name: 'Andrew', avatar: 'https://picsum.photos/80/8'},
@@ -43,7 +43,7 @@
                         reviews_count: 568
                     },
                     {
-                        img: 'https://picsum.photos/80/80',
+                        img: require('~/assets/images/menu1.png'),
                         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
                         name: 'Hearty Italian-Style White Bean Soup',
                         author: {name: 'Andrew', avatar: 'https://picsum.photos/80/8'},
@@ -58,7 +58,7 @@
                         id: 1,
                         component: true,
                         component_name: 'food-panel',
-                        className: 'md:col-span-2 lg:row-span-3 col-span-1',
+                        className: 'md:col-span-2 lg:row-span-3 col-span-1 2xl:col-span-3',
                         content: {
                             title: 'Diet Menus',
                             description: 'Lorem ipsum dolor sit amet, consectetur',
