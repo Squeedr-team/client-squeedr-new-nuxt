@@ -12,7 +12,7 @@ import {
   faCaretRight,
   faEllipsisVertical,faEllipsisH,
   faCaretDown,
-  faStar as faStarO,faInbox,faPaperPlane,faTrash,faCircle,
+  faStar as faStarO,faInbox,faPaperPlane,faTrash,faCircle,faPencil,
   faShoppingBasket,faSort,faSortUp,faSortDown,faCheck,faBan,
   faChevronRight,faChevronLeft,faChevronUp,faChevronDown,faCircleCheck
 } from '@fortawesome/free-solid-svg-icons'
@@ -20,6 +20,6 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import {faClock, faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 
 config.autoAddCss = false
-library.add(faCheck,faBan,faCircleCheck,faRefresh,faInbox,faPaperPlane,faTrash,faCircle,faSortUp,faSortDown,faSort,faEllipsisH,faClose,faChevronRight,faChevronLeft,faChevronUp,faChevronDown,faEllipsisVertical, faCaretRight, faTableList, faSliders, faSearch, faPrescriptionBottle, faTwitter, faClock, faStar, faPlus, faCalendar, faCaretUp, faCaretDown, faStarO, faShoppingBasket)
+library.add(faPencil,faCheck,faBan,faCircleCheck,faRefresh,faInbox,faPaperPlane,faTrash,faCircle,faSortUp,faSortDown,faSort,faEllipsisH,faClose,faChevronRight,faChevronLeft,faChevronUp,faChevronDown,faEllipsisVertical, faCaretRight, faTableList, faSliders, faSearch, faPrescriptionBottle, faTwitter, faClock, faStar, faPlus, faCalendar, faCaretUp, faCaretDown, faStarO, faShoppingBasket)
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 

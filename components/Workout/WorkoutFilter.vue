@@ -50,6 +50,11 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      filter: 'all'
+    }
+  },
   computed: {
     filteredWorkout() {
       const arr = this.workouts
@@ -57,11 +62,6 @@ export default {
         return arr.filter(item => item.status === this.filter)
       }
       return arr
-    }
-  },
-  data() {
-    return {
-      filter: 'all'
     }
   }
 }

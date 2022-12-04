@@ -6,8 +6,8 @@
     </div>
     <div v-else class='data-table-inner'>
       <div v-if='header' class='flex flex-wrap gap-y-5 justify-between items-center data-table-control mb-4 mt-2'>
-        <div v-if='limitable' class='md:w-1/2 w-full'>
-          <div class='form-group'>
+        <div class='md:w-1/2 w-full'>
+          <div v-if='limitable' class='form-group'>
             <label>
               Show
               <select
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div class='overflow-x-auto mt-2'>
+      <div class='overflow-x-auto mt-2' :class="{'scrollable':scrollable}">
         <table
           class='tw-table table-auto  w-full'
           :class="{straight: !breakWords, 'table-striped':stripe}">
@@ -79,10 +79,14 @@
           </tr>
           </thead>
           <tbody v-if='data.length'>
-          <tr v-for='(item, i) in data' :key='i' :class="{'border-t':bordered}">
+          <tr
+            v-for='(item, i) in data'
+            :key='i'
+            :class="{'border-t hover:bg-secondary-100':bordered}">
             <template v-for='(td, j) in headers'>
               <td
                 :key="'td'+j"
+                :class='td.tdClass'
               >
                 <slot
                   :name='`cell(${td.name})`'
@@ -95,6 +99,7 @@
             </template>
           </tr>
           </tbody>
+
           <tbody v-else>
           <!-- Display Empty Message If No Items Are Rendered -->
           <tr>
@@ -104,7 +109,7 @@
         </table>
       </div>
       <div v-if='footer' class='flex flex-wrap gap-5 justify-end my-5'>
-        <div v-if='paginate'>
+        <div v-if='paginatable'>
           <pagination :total-count='totalCount' :current-page='currentPage' :sibling-count='1' @change='paginate' />
         </div>
       </div>
@@ -168,6 +173,10 @@ export default {
     bordered: {
       type: Boolean,
       default: () => false
+    },
+    scrollable: {
+      type: Boolean,
+      default: () => false
     }
   },
   data() {
@@ -212,3 +221,42 @@ export default {
   }
 }
 </script>
+<style lang='scss'>
+.scrollable {
+
+  tbody {
+    display: block;
+    height: 33.25rem;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* even columns width , fix width of table too*/
+  }
+
+  thead {
+    width: calc(100% - 1em)
+  }
+}
+</style>

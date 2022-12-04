@@ -9,6 +9,8 @@
                ]'
       />
       <basic-data-table />
+      <basic-overflow-data-table class='mt-7'/>
+      <profile-data-table class='mt-7'/>
     </div>
   </div>
 </template>

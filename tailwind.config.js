@@ -45,6 +45,9 @@ module.exports = {
         dustColor:'#EFEFEF',
         darkDust:'#7e7e7e',
         dustTxtColor:'#B1B1B1',
+        danger:{
+          DEFAULT:'#F94687'
+        },
         warning:{
           DEFAULT:'#FFBC11',
           100:'#fff5dd',

@@ -1,7 +1,7 @@
 <template>
   <div class='bg-white rounded-2xl sm:m-5 m-3'>
-    <div class='border-b lg:py-6 lg:px-6 text-xl font-semibold'>Basic Datatable</div>
-    <div class='p-3 lg:p-6'>
+    <div class='border-b lg:py-6 lg:px-6 px-4 py-5 text-xl font-semibold'>Basic Datatable</div>
+    <div class='p-4 lg:p-6'>
       <data-table :data='data' :headers='headers' bordered :stripe='false'>
       </data-table>
     </div>
@@ -90,12 +90,12 @@ export default {
       ],
       headers: [
         {
-          name: 'name', th: 'Name', sortable: true, thStyle: { width: '247px' }, thClass: 'text-black'
+          name: 'name', th: 'Name', sortable: true, thStyle: { width: '247px' }, thClass: 'text-black',tdClass:'whitespace-nowrap'
         },
         { name: 'position', sortable: true, th: 'Position', thStyle: { width: '394px' }, thClass: 'text-black' },
         { name: 'office', th: 'Office', sortable: true, thStyle: { width: '189px' }, thClass: 'text-black' },
         { name: 'age', th: 'Age', sortable: true, thStyle: { width: '89px' }, thClass: 'text-black' },
-        { name: 'joined', th: 'Start Date', sortable: true, thStyle: { width: '167px' }, thClass: 'text-black' },
+        { name: 'joined', th: 'Start Date', sortable: true, thStyle: { width: '167px' }, thClass: 'text-black whitespace-nowrap' },
         { name: 'salary', th: 'Salary', sortable: true, thStyle: { width: '150px' }, thClass: 'text-black' }
       ]
     }
