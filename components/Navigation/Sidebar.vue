@@ -72,6 +72,10 @@ export default {
             {
               name: 'Customers',
               pathName: 'customers'
+            },
+            {
+              name: 'Datatable',
+              pathName: 'data-tables'
             }
           ]
         },
