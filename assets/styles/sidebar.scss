@@ -30,7 +30,7 @@
 
 
       .menu-item-btn {
-        padding: 15px 20px;
+        padding: 18px 20px;
         transition: all 0.5s;
         position: relative;
         border-top-left-radius: 1.25rem;
@@ -166,7 +166,9 @@
         position: relative;
 
         .menu-item-btn {
-          padding: 13px;
+          width: 50px;
+          height: 50px;
+          margin: auto;
           text-align: center;
           justify-content: center;
           svg{
@@ -232,12 +234,21 @@
       padding-left: 10px !important;
     }
     .menu-item-btn {
-      padding: 10px 20px !important;
+      width: 50px;
+      height: 50px;
+      &.active {
+        background: none!important;
+        &:after{
+          display: none;
+        }
+      }
+
     }
 
     width: 288px;
     transition: transform .3s ease-in-out;
     transform: translateX(-288px);
+
     &.sidebar-closed {
       transform: translateX(0px);
     }

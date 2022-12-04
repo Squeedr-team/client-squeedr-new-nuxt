@@ -1,30 +1,31 @@
 <template>
-  <div v-if='workout' class='flex  border-b flex-wrap sm:p-5 p-3 workout-card items-center mb-2'>
+  <div v-if='workout' class='flex  border-b flex-wrap sm:p-3 p-2 workout-card items-center mb-2 gap-y-3'>
     <div
       class='flex items-center'
-      :class='workout.status!=="finished"?"w-full sm:w-2/3 md:w-8/12 xl:w-8/12 lg:w-1/2":"xl:w-7/12 sm:w-7/12 w-full"'
+      :class='workout.status!=="finished"?"2xl:w-5/12 xl:w-8/12 lg:w-1/2 sm:w-2/3 w-full":"2xl:w-5/12 xl:w-7/12 lg:w-1/2 sm:w-7/12 w-full"'
     >
       <div
-        class='mr-3 mb-3 rounded-2xl flex flex-col justify-center items-center xl:w-20 xl:h-20 md:w-16 md:h-16 w-14 h-14'
+        class='mr-3 rounded-2xl flex flex-col justify-center items-center lg:w-20 lg:h-20 md:w-16 md:h-16 w-14 h-14'
         :class="workout.status==='finished'?'bg-primary-200':'bg-primary-100'"
       >
-        <p class='xl:text-2xl md:text-lg text-md text-primary-900 mb-0 font-semibold'>{{ $moment(workout.date).format('DD') }}</p>
+        <p class='lg:text-2xl md:text-lg text-md text-primary-900 mb-0 font-semibold'>
+          {{ $moment(workout.date).format('DD') }}</p>
         <span class='md:text-sm text-xs text-primary-900 font-semibold'>{{ $moment(workout.date).format('ddd') }}</span>
       </div>
       <div class='flex-1 mb-2'>
         <h4 class='lg:text-xl sm:text-md text-sm pb-2'><a class='font-semibold'>{{ workout.name }}</a></h4>
         <div class='statusTxt lg:text-md sm:text-sm text-xs'>
-        <span class='text-warning font-semibold capitalize'>
+        <span class='text-warning font-semibold capitalize lg:text-lg'>
           {{ workout.status }}
         </span>
-          <span v-if='workout.status==="finished"' class='text-dustTxtColor px-3'>34km</span>
-          <span v-if='workout.status==="finished"' class='text-dustTxtColor'>00:23:45”</span>
+          <span v-if='workout.status==="finished"' class='2xl:text-lg text-dustTxtColor px-3'>34km</span>
+          <span v-if='workout.status==="finished"' class='2xl:text-lg text-dustTxtColor'>00:23:45”</span>
         </div>
       </div>
     </div>
     <div
-      class=' flex flex-1 items-center mb-3 mr-auto pl-3 pr-3 sm:justify-center status'
-      :class='workout.status!=="finished"?"w-full sm:w-1/3 xl:w-1/3 lg:1/6":"sm:w-1/4 w-1/2"'
+      class=' flex flex-1 items-center mr-auto pl-3 pr-3 sm:justify-center status'
+      :class='workout.status!=="finished"?"2xl:w-1/6 xl:1/3 lg:w-1/6 sm:w-1/3 w-full":"2xl:w-1/6 lg:w-1/6 sm:w-1/4 w-1/2"'
       :style='{color: workout.exercise?workout.exercise.color:"#000000"}'
     >
       <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -51,21 +52,23 @@
       <span class='text-info ml-2'>Cycling</span>
     </div>
     <div
-      class='flex items-center justify-between'
-      :class='workout.status!=="finished"?"xl:w-full lg:w-3/12 w-full":"xl:w-1/6 sm:w-1/6 w-1/2"'
+      class='flex items-center'
+      :class='workout.status!=="finished"?"2xl:w-5/12 xl:w-full lg:w-1/3 w-full":"2xl:w-5/12 xl:w-1/6 lg:w-1/3 sm:w-1/6 w-1/2"'
     >
-      <button v-if='workout.status!=="finished"'
-              class='btn mb-3 play-button xl:rounded-2xl rounded-2xl md:px-5 md:py-3 px-4 py-2 mr-3 flex items-center'>
+      <button
+        v-if='workout.status!=="finished"'
+        class='play-button xl:rounded-2xl rounded-2xl lg:px-5 lg:py-3 px-4 py-2 mr-3 flex items-center 2xl:ml-auto xl:ml-0 lg:ml-auto md:ml-0'>
         <font-awesome-icon
           icon='fa fa-caret-right' class='mr-3 xl:text-3xl text-xl'></font-awesome-icon>
-        <span class='text-sm md:text-md'>Start Workout</span>
+        <span class='text-sm lg:text-md 2xl:text-lg'>Start Workout</span>
       </button>
-      <div class='mb-3 flex justify-end flex-1'>
+      <div :class='workout.status!=="finished"?"xl:ml-auto 2xl:ml-0 lg:ml-0 ml-auto":"ml-auto"'>
         <VDropdown
-          placement='auto-end'
+          placement='bottom-end'
           :delay='{ show: 300, hide: 0 }'
         >
-          <button class='xl:w-14 xl:h-14 md:w-12 md:h-12 w-10 h-10 rounded-2xl bg-secondary-100 xl:rounded-2xl more-button'
+          <button
+            class='xl:w-14 xl:h-14 lg:w-12 lg:h-12 w-10 h-10 rounded-2xl bg-secondary-100 xl:rounded-2xl more-button'
           >
             <font-awesome-icon icon='fa fa-ellipsis-vertical' class='xl:text-3xl md:text-xl text-sm' />
           </button>
@@ -107,6 +110,7 @@ export default {
 
   .play-button {
     background: theme('colors.secondary.100') !important;
+    color: theme('colors.primary.900') !important;
   }
 
   &:hover {
@@ -126,13 +130,15 @@ export default {
 
     .play-button {
       background: theme('colors.warning.DEFAULT') !important;
+      color: white !important;
     }
 
     .more-button {
       background: rgba(255, 255, 255, 0.3) !important;
     }
-    .statusTxt span{
-      color: white!important;
+
+    .statusTxt span {
+      color: white !important;
     }
   }
 }
