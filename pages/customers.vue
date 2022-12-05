@@ -8,7 +8,7 @@
                ]'
     />
     <div class='bg-white rounded-2xl sm:m-5 m-3 p-3 sm:p-5'>
-      <data-table :data='data' :headers='headers'>
+      <data-table :data='data' :headers='headers' client>
         <template #head(select)='{  }'>
           <label class='custom-control'>
             <input type='checkbox' class='custom-control-input' @change='selectAll'>

@@ -2,7 +2,7 @@
   <div class='bg-white rounded-2xl sm:m-5 m-3'>
     <div class='border-b lg:py-6 lg:px-6 px-4 py-5 text-xl font-semibold'>Profile Datatable</div>
     <div class='p-4 lg:p-6'>
-      <data-table :data='data' :headers='headers' bordered :stripe='false'>
+      <data-table :data='data' :headers='headers' bordered :stripe='false' client>
         <template #cell(image)='{ item }'>
           <div class='flex items-center'>
             <img

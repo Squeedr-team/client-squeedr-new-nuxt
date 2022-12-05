@@ -8,7 +8,7 @@
                  {name:"Datatable",path:"/data-tables"},
                ]'
       />
-      <basic-data-table />
+      <basic-data-table/>
       <basic-overflow-data-table class='mt-7'/>
       <profile-data-table class='mt-7'/>
     </div>

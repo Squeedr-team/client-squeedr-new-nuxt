@@ -80,7 +80,7 @@
           </thead>
           <tbody v-if='data.length'>
           <tr
-            v-for='(item, i) in data'
+            v-for='(item, i) in renderedItems'
             :key='i'
             :class="{'border-t hover:bg-secondary-100':bordered}">
             <template v-for='(td, j) in headers'>
@@ -177,7 +177,11 @@ export default {
     scrollable: {
       type: Boolean,
       default: () => false
-    }
+    },
+    client: {
+      type: Boolean,
+      default: () => false
+    },
   },
   data() {
     return {
@@ -191,13 +195,41 @@ export default {
     }
   },
   computed: {
-
     showFilters() {
       return Object.keys(this.filters).length > 0
+    },
+    renderedItems(){
+      if(!this.client){
+        return this.data
+      }else{
+        let arr=[...this.data];
+        if(this.query) {
+          arr=arr.filter(item => {
+            let found=false
+            found=this.headers.some(th => {
+              if (item[th.name]) {
+                return item[th.name].toString().match(new RegExp(this.query, "i"))
+              }
+              return false
+            })
+            return found
+          })
+        }
+        if(this.sortColumn){
+          arr.sort((a,b) => {
+            return (a[this.sortColumn] > b[this.sortColumn]) ? 1 : ((b[this.sortColumn] > a[this.sortColumn]) ? -1 : 0);
+          });
+        }
+        if(this.asc){
+          arr=arr.reverse()
+        }
+        arr=arr.slice(this.itemsPerPage * (this.currentPage - 1), (this.itemsPerPage * this.currentPage))
+        return arr
+      }
     }
   },
 
-  async mounted() {
+  mounted() {
 
   },
   methods: {
@@ -207,12 +239,14 @@ export default {
     },
 
     search(query) {
-
+      this.currentPage=1
     },
     sort(name) {
-      this.sortColumn = name
+      this.sortColumn = name;
+      this.currentPage=1
       this.asc = !this.asc
     },
+
     columnClick(action, row, cell, name, index) {
       if (action) {
         action(row, cell, name, index)

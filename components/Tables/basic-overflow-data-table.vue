@@ -11,6 +11,7 @@
               :limitable='false'
               :stripe='false'
               scrollable
+              client
             >
             </data-table>
       </div>
