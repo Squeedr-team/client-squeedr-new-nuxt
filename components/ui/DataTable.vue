@@ -108,9 +108,22 @@
           </tbody>
         </table>
       </div>
-      <div v-if='footer' class='flex flex-wrap gap-5 justify-end my-5'>
+      <div v-if='footer' class='flex flex-wrap gap-5 justify-between my-5'>
+        <div v-if="pageDetails && renderedItems" class="col-md-6">
+          <div class="showing">
+            Showing
+            <!-- Current Page Starting Index -->
+            {{ renderedItems.length ? (itemsPerPage * (currentPage - 1)) + 1 : 0 }}
+            to
+            <!-- Current Page End Index -->
+            {{ (itemsPerPage * (currentPage -1 )) + renderedItems.length }}
+            of
+            <!-- All Items Provided -->
+            {{ totalItem }} items
+          </div>
+        </div>
         <div v-if='paginatable'>
-          <pagination :total-count='totalCount' :current-page='currentPage' :sibling-count='1' @change='paginate' />
+          <pagination :total-count='totalPages' :current-page='currentPage' :sibling-count='1' @change='paginate' />
         </div>
       </div>
     </div>
@@ -225,6 +238,33 @@ export default {
         }
         arr=arr.slice(this.itemsPerPage * (this.currentPage - 1), (this.itemsPerPage * this.currentPage))
         return arr
+      }
+    },
+    totalItem(){
+      if(!this.client){
+        return this.data.length
+      }else{
+        let arr=[...this.data];
+        if(this.query) {
+          arr=arr.filter(item => {
+            let found=false
+            found=this.headers.some(th => {
+              if (item[th.name]) {
+                return item[th.name].toString().match(new RegExp(this.query, "i"))
+              }
+              return false
+            })
+            return found
+          })
+        }
+        return arr.length
+      }
+    },
+    totalPages(){
+      if(!this.client){
+        return this.totalCount
+      }else{
+        return Math.ceil(this.totalItem/this.itemsPerPage)
       }
     }
   },

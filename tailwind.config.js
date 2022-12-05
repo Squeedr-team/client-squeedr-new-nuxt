@@ -31,11 +31,20 @@ module.exports = {
           700:'#08a7de',
           100:'#d8e0fc',
           200:'#F4F5F9',
-          900:'#0B2A97'
+          900:'#0B2A97',
         },
         success: {
           DEFAULT:'#2BC155',
-          100:'#e3f9e9'
+          100:'#e3f9e9',
+        },
+        danger:{
+          DEFAULT:'#F94687',
+          100:'#fff3f7',
+        },
+        warning:{
+          DEFAULT:'#FFBC11',
+          100:'#fff5dd',
+          700:'#eaa800',
         },
         profile_dark_1: '#263043',
         profile_dark_2: '#37465f',
@@ -45,21 +54,14 @@ module.exports = {
         dustColor:'#EFEFEF',
         darkDust:'#7e7e7e',
         dustTxtColor:'#B1B1B1',
-        danger:{
-          DEFAULT:'#F94687'
-        },
-        warning:{
-          DEFAULT:'#FFBC11',
-          100:'#fff5dd',
-          700:'#eaa800'
-        },
+
         secondary:{
           100:'#EFEFEF',
           300:'#d7dae3',
           400:'#B1B1B1',
           500:'#828690',
           600:'#7e7e7e',
-          'DEFAULT':'#3d4465'
+          'DEFAULT':'#3d4465',
         },
         lightBlue:'#0b2a971a'
       },
