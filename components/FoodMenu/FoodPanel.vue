@@ -1,6 +1,6 @@
 <template>
-<div class='bg-white rounded-2xl p-5 md:p-8 shadow-sm'>
-  <food-menu-filter :section-data='sectionData'/>
+<div class='bg-white rounded-2xl  shadow-sm'>
+  <food-menu-filter :section-data='sectionData' class='p-5 md:p-8'/>
   <food-menu-list :food-items='foodItems'/>
 </div>
 </template>

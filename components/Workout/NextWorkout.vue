@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class='bg-white rounded-2xl p-5 shadow-md block w-full'>
+    <div class='bg-white rounded-2xl shadow-md block w-full'>
       <div class='flex flex-wrap'>
-        <div class='w-full md:w-1/2 xl:w-full md:p-3'>
-          <date-picker v-model='date' :open='true' style='width: 100%' :inline='true' />
+        <div class='w-full md:w-1/2 xl:w-full mb-5 p-3'>
+          <date-picker v-model='date' :open='true' style='width: 100%' :inline='true' class='own-picker'/>
         </div>
-        <div class='w-full md:w-1/2 xl:w-full border-t md:border-t-0 py-3 md:px-3 md:pt-0'>
+        <div class='w-full md:w-1/2 xl:w-full md:border-t border-t-0 py-3 md:px-8 md:pt-0 px-5'>
           <div class='my-3'>Next week plan</div>
           <div v-for='(i,idx) in 3' :key='idx' class='py-3'>
             <div class='flex items-center'>

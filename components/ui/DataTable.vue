@@ -103,7 +103,7 @@
           <tbody v-else>
           <!-- Display Empty Message If No Items Are Rendered -->
           <tr>
-            <td align='center' :colspan='headers.length'>No results</td>
+            <td class='text-center bg-secondary-100 font-semibold' :colspan='headers.length'>No results</td>
           </tr>
           </tbody>
         </table>

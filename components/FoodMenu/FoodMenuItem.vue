@@ -36,14 +36,32 @@
           </div>
         </div>
       </div>
-      <div class='lg:ml-auto w-full lg:w-auto ml-0 2xl:ml-14 lg:ml-7'>
+      <div class='lg:ml-auto w-full lg:w-auto ml-0 2xl:ml-14 xl:ml-7'>
         <button
-          class='bg-primary-100 rounded-2xl flex items-center xl:py-4 px-5 p-2 text-sm hover:bg-primary hover:text-white whitespace-nowrap'>
+          class='bg-primary-100 rounded-2xl flex items-center xl:py-4 px-5 p-2 text-sm hover:bg-primary hover:text-white whitespace-nowrap'
+          @click='addModal=true'>
           <font-awesome-icon icon='fa fa-plus' class='text-xl font-extrabold'></font-awesome-icon>
           <span class='text-sm ml-3'>Add Menu</span>
         </button>
       </div>
     </div>
+    <Modal :show='addModal' @close='addModal=false'>
+      <div class='flex justify-between border-b py-4 px-7'>
+        <span class='font-semibold'>Diet Menus</span>
+        <font-awesome-icon icon='fa fa-close' class='cursor-pointer' @click='addModal=false' />
+      </div>
+      <div class='p-6'>
+        <tw-input label='Running' placeholder='Km' rounded class='mb-5'>
+        </tw-input>
+        <tw-input label='Running' placeholder='Km' rounded class='mb-5'>
+        </tw-input>
+        <tw-input label='Running' placeholder='Km' rounded class='mb-5'>
+        </tw-input>
+        <button class='bg-primary py-2 px-4 sm:py-4 sm:px-5 rounded-2xl font-semibold text-white'>
+          Submit
+        </button>
+      </div>
+    </Modal>
   </div>
 </template>
 
@@ -56,15 +74,20 @@ export default {
       default: () => {
       }
     }
+  },
+  data() {
+    return {
+      addModal: false
+    }
   }
 }
 </script>
 
 <style scoped lang='scss'>
-.product-img{
+.product-img {
   width: 120px;
   @media (max-width: 425px) {
-    width:80px!important;
+    width: 80px !important;
   }
 }
 </style>

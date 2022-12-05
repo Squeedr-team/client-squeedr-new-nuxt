@@ -7,13 +7,16 @@ section {
   margin: 4rem 0;
   overflow: hidden;
 }
+
 .listings {
   .listing-card {
     overflow: hidden;
+
     img {
       transition: 0.3s ease-in-out;
       transition-property: transform, filter;
     }
+
     &:hover {
       img {
         transform: scale(1.1);
@@ -22,28 +25,33 @@ section {
     }
   }
 }
+
 .about-us_text {
   h1 {
     margin-bottom: 1rem;
     font-weight: 900;
     font-size: 2rem;
   }
+
   h2 {
     margin-bottom: 1rem;
     font-weight: 900;
     font-size: 1.25rem;
   }
+
   p {
     margin-bottom: 1rem;
     line-height: 1.5;
   }
 }
+
 .why-us {
   min-height: 500px;
   @media (min-width: 1024px) {
     min-height: unset;
     height: 500px;
   }
+
   img {
     width: 100%;
     height: 100%;
@@ -53,12 +61,15 @@ section {
     }
   }
 }
+
 .app-carousel-container {
   .carousel-wraper {
     height: 240px;
+
     .listing-card {
       height: 240px;
       overflow: hidden;
+
       img {
         height: 100%;
         width: 100%;
@@ -66,6 +77,7 @@ section {
         transition: 0.3s ease-in-out;
         transition-property: transform, filter;
       }
+
       &:hover {
         img {
           transform: scale(1.1);
@@ -75,11 +87,13 @@ section {
     }
   }
 }
+
 .app-carousel-container {
   .slick-slider,
   .slick-list,
   .slick-track {
     height: 100%;
+
     .slick-slide {
       padding: 0 0.5rem;
     }
@@ -96,6 +110,7 @@ section {
     font-size: 2rem;
   }
 }
+
 .arrows {
   display: none;
   @media (min-width: 1024px) {
@@ -114,6 +129,7 @@ section {
       align-items: center;
       justify-content: center;
       border-radius: 50%;
+
       svg {
         fill: #37465f;
         width: 0.75rem;
@@ -121,14 +137,17 @@ section {
     }
   }
 }
+
 .hero-search {
   .mx-datepicker {
     height: 100% !important;
     width: auto !important;
+
     input {
       width: 100% !important;
     }
   }
+
   input {
     padding: 0.8rem !important;
     height: unset !important;
@@ -138,11 +157,13 @@ section {
     width: unset !important;
     box-shadow: unset !important;
     border: unset !important;
+
     &:focus,
     &:active {
       outline: 0;
     }
   }
+
   form {
     margin: 1rem 0;
     display: flex;
@@ -152,10 +173,12 @@ section {
 
     input {
       border-radius: 0.25rem !important;
+
       &:focus {
         outline: 1px solid #29bdef;
       }
     }
+
     button {
       background-color: #29bdef;
       padding: 0.8rem;
@@ -191,13 +214,17 @@ section {
     }
   }
 }
+
 .app-update {
   height: 400px;
+
   .container {
     height: 100%;
+
     .app-update__content {
       height: 100%;
     }
+
     img {
       position: absolute;
       top: 0;
@@ -207,6 +234,7 @@ section {
     }
   }
 }
+
 .app-footer {
   nav {
     .brand {
@@ -215,6 +243,7 @@ section {
           content: '-';
         }
       }
+
       .brand-links a:last-child {
         &::after {
           content: '';
@@ -226,17 +255,20 @@ section {
 
 .coach-profile {
   color: white;
+
   .coach-hero {
     background: linear-gradient(
-      135deg,
-      $profile_dark_1 0%,
-      $profile_light_1 100%
+        135deg,
+        $profile_dark_1 0%,
+        $profile_light_1 100%
     );
+
     .coach-hero__wraper-right {
       position: relative;
     }
   }
 }
+
 .video-overlay {
   position: absolute;
   top: 0;
@@ -248,6 +280,7 @@ section {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.151);
   cursor: pointer;
+
   svg {
     width: 18px;
     fill: white;
@@ -257,28 +290,34 @@ section {
     }
   }
 }
+
 .coach-classes-carousel__arrows {
   position: absolute;
   top: -2rem;
   right: 0.6rem;
+
   button {
     padding: 0.5rem 1rem;
   }
+
   svg {
     width: 12px;
   }
+
   button.bg-profile_light_1 {
     svg {
       fill: white !important;
     }
   }
 }
+
 .coach-classes-carousel {
   padding: 4rem 0;
   background-size: cover !important;
   background-repeat: no-repeat;
   position: relative;
 }
+
 .coach-classes-carousel::after {
   content: '';
   position: absolute;
@@ -294,58 +333,68 @@ section {
 .coach_gallery__showmore {
   svg {
     fill: $profile_light_1 !important;
+
     path {
       fill: $profile_light_1 !important;
     }
   }
 }
+
 .coach-testimonials__slider {
   padding: 5rem 0;
 }
+
 #single-testimonial__text {
   position: relative;
+
   svg {
     fill: white !important;
     width: 24px;
+
     &:first-child {
       transform: rotate(180deg);
     }
+
     &:last-child {
       float: right;
     }
   }
+
   p {
     margin: 1rem 0;
   }
 }
+
 .custom-dot-class {
   li {
     button::before {
       color: white !important;
-      width: 25px!important;
-      height: 25px!important;
+      width: 25px !important;
+      height: 25px !important;
     }
   }
 }
+
 .animation-pulse {
-    /*box-shadow: 0 0 0 20px rgba(229,62,62, 0.5);
-    transform: scale(0.8);*/
-    animation: pulse 2s infinite;
+  /*box-shadow: 0 0 0 20px rgba(229,62,62, 0.5);
+  transform: scale(0.8);*/
+  animation: pulse 2s infinite;
 }
+
 @keyframes pulse {
-    0% {
+  0% {
 
-        box-shadow: 0 0 0 0 rgba(255, 188, 17, 1);
-    }
+    box-shadow: 0 0 0 0 rgba(255, 188, 17, 1);
+  }
 
-    70% {
-        //transform: scale(1);
-        box-shadow: 0 0 0 15px rgba(255, 188, 17, 0);
-    }
+  70% {
+    //transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(255, 188, 17, 0);
+  }
 
-    100% {
-        //transform: scale(0.8);
-    }
+  100% {
+    //transform: scale(0.8);
+  }
 }
 
 :root {
@@ -370,27 +419,33 @@ section {
     -webkit-text-fill-color: transparent;
   }
 }
-body{
-  color:theme('colors.secondary.DEFAULT')
+
+body {
+  color: theme('colors.secondary.DEFAULT')
 }
+
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
-.tw-table{
-  td,th{
+
+.tw-table {
+  td, th {
     padding: 15px 10px;
     text-align: left;
-    &.text-right{
-      text-align: right!important;
+
+    &.text-right {
+      text-align: right !important;
     }
-    &.text-center{
-      text-align: center!important;
+
+    &.text-center {
+      text-align: center !important;
     }
   }
 }
+
 .custom-control {
   display: flex;
-  @supports(-webkit-appearance: none) or (-moz-appearance: none) {
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
     input[type='checkbox'],
     input[type='radio'] {
       --active: theme('colors.primary.DEFAULT');
@@ -413,14 +468,16 @@ body{
       border: 1px solid var(--bc, var(--border));
       background: var(--b, var(--background));
       transition: background .3s, border-color .3s, box-shadow .2s;
+
       &:after {
         content: '';
         display: block;
         left: 0;
         top: 0;
         position: absolute;
-        transition: transform var(--d-t,.3s) var(--d-t-e, ease), opacity var(--d-o, .2s);
+        transition: transform var(--d-t, .3s) var(--d-t-e, ease), opacity var(--d-o, .2s);
       }
+
       &:checked {
         --b: var(--active);
         --bc: var(--active);
@@ -428,18 +485,22 @@ body{
         --d-t: .6s;
         --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
       }
+
       &:disabled {
         --b: var(--disabled);
         cursor: not-allowed;
         opacity: .9;
+
         &:checked {
           --b: var(--disabled-inner);
           --bc: var(--border);
         }
+
         & + label {
           cursor: not-allowed;
         }
       }
+
       &:hover {
         &:not(:checked) {
           &:not(:disabled) {
@@ -447,18 +508,23 @@ body{
           }
         }
       }
+
       &:focus {
         box-shadow: 0 0 0 var(--focus);
       }
+
       &:not(.switch) {
         width: 21px;
+
         &:after {
           opacity: var(--o, 0);
         }
+
         &:checked {
           --o: 1;
         }
       }
+
       & + label {
         font-size: 14px;
         line-height: 21px;
@@ -471,6 +537,7 @@ body{
     input[type='checkbox'] {
       &:not(.switch) {
         border-radius: 7px;
+
         &:after {
           width: 5px;
           height: 9px;
@@ -481,13 +548,16 @@ body{
           top: 4px;
           transform: rotate(var(--r, 20deg));
         }
+
         &:checked {
           --r: 43deg;
         }
       }
+
       &.switch {
         width: 38px;
         border-radius: 11px;
+
         &:after {
           left: 2px;
           top: 2px;
@@ -497,10 +567,12 @@ body{
           background: var(--ab, var(--border));
           transform: translateX(var(--x, 0));
         }
+
         &:checked {
           --ab: var(--active-inner);
           --x: 17px;
         }
+
         &:disabled {
           &:not(:checked) {
             &:after {
@@ -512,6 +584,7 @@ body{
     }
     input[type='radio'] {
       border-radius: 50%;
+
       &:after {
         width: 19px;
         height: 19px;
@@ -520,35 +593,78 @@ body{
         opacity: 0;
         transform: scale(var(--s, .7));
       }
+
       &:checked {
         --s: .5;
       }
     }
   }
 }
-.mx-calendar {
-  width: 100% !important;
+
+.own-picker {
+  .mx-datepicker-main {
+    border: none !important;
+  }
+  .mx-calendar {
+    width: 100% !important;
+    padding: 0!important;
+  }
+
+  .mx-calendar-header-label {
+    .mx-btn {
+      font-size: 18px !important;
+      color: black;
+    }
+  }
+
+  .cell {
+    color: black;
+    font-size: 16px;
+    border-radius: 10px;
+
+    &:hover {
+      background: theme('colors.warning.DEFAULT') !important;
+      color: white !important;
+    }
+  }
+
+  .cell.active {
+    background: #EEEEEE !important;
+    color: black !important;
+    box-shadow: none;
+  }
 }
 
-.v-popper__inner{
-  border-radius: 1.25rem!important;
-  padding:8px 0;
+.v-popper__inner {
+  border-radius: 1.25rem !important;
+  padding: 8px 0;
 }
-.ellipsis-text{
+
+.ellipsis-text {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  top:0;
+  top: 0;
 }
-.v-popper--shown{
-  .more-button{
+
+.more-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.v-popper--shown {
+  .more-button {
     background: theme('colors.primary.100');
   }
 }
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */
+{
   opacity: 0
 }

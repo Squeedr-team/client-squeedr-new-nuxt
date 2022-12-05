@@ -149,6 +149,22 @@ export default {
           joined: '30/03/2018',
           phone: '(201) 200-1851',
           billing_Address: '2392 Main Avenue, Penasauka'
+        },
+        {
+          first_name: 'Shikamaru',
+          last_name: 'Nara',
+          email: 'shikamarunara@gmail.com',
+          joined: '30/03/2018',
+          phone: '(201) 200-1851',
+          billing_Address: '2392 Main Avenue, Penasauka'
+        },
+        {
+          first_name: 'Shikamaru',
+          last_name: 'Nara',
+          email: 'shikamarunara@gmail.com',
+          joined: '30/03/2018',
+          phone: '(201) 200-1851',
+          billing_Address: '2392 Main Avenue, Penasauka'
         }
 
       ],
