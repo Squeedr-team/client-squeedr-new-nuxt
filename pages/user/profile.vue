@@ -31,7 +31,7 @@
                     :delay='{ show: 300, hide: 100 }'
                   >
                     <button
-                      class='rounded-full w-10 h-10 hover:bg-primary hover:text-white xl:rounded-2xl more-button'
+                      class='rounded-full w-10 h-10 bg-primary-100 hover:bg-primary hover:text-white xl:rounded-2xl more-button'
                     >
                       <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-md text-sm' />
                     </button>
