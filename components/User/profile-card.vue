@@ -44,7 +44,9 @@
               <font-awesome-icon icon='fa fa-heart' class='mr-2'></font-awesome-icon>
               Like
             </button>
-            <button class='bg-primary hover:bg-primary-700 text-white py-4 px-7 rounded-2xl' data-toggle='modal' data-target='#replyModal'>
+            <button
+              class='bg-primary-900 hover:shadow-lg text-white py-4 px-7 rounded-2xl'
+              @click='addModal=true'>
               <font-awesome-icon icon='fa fa-reply' class='mr-2'></font-awesome-icon>
               Reply
             </button>
@@ -52,167 +54,239 @@
         </div>
       </div>
       <div>
-        <div class='profile-about-me'>
+        <div class=''>
           <div class='pt-4 border-bottom-1 pb-3'>
-            <h4 class='text-primary'>About Me</h4>
-            <p class='mb-2'>A wonderful serenity has taken possession of my entire soul, like these sweet
+            <h4 class='text-primary text-lg mb-1'>About Me</h4>
+            <p class='mb-2 text-secondary-600 leading-7'>A wonderful serenity has taken possession of my entire soul, like these sweet
               mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
               existence was created for the bliss of souls like mine.I am so happy, my dear friend, so
               absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
-            <p>A collection of textile samples lay spread out on the table - Samsa was a travelling
+            <p class='mb-2 text-secondary-600 leading-7'>A collection of textile samples lay spread out on the table - Samsa was a travelling
               salesman - and above it there hung a picture that he had recently cut out of an illustrated
               magazine and housed in a nice, gilded frame.</p>
           </div>
         </div>
         <div class='profile-skills mb-5'>
-          <h4 class='text-primary mb-2'>Skills</h4>
-          <a class='btn btn-primary light btn-xs mb-1'>Admin</a>
-          <a class='btn btn-primary light btn-xs mb-1'>Dashboard</a>
-          <a class='btn btn-primary light btn-xs mb-1'>Photoshop</a>
-          <a class='btn btn-primary light btn-xs mb-1'>Bootstrap</a>
-          <a class='btn btn-primary light btn-xs mb-1'>Responsive</a>
-          <a class='btn btn-primary light btn-xs mb-1'>Crypto</a>
+          <h4 class='text-primary text-lg mb-2'>Skills</h4>
+          <button class='bg-primary-100 text-primary-900 hover:bg-primary hover:text-white rounded-2xl mb-1 px-3 py-2 text-sm'>Admin</button>
+          <button class='bg-primary-100 text-primary-900 hover:bg-primary hover:text-white rounded-2xl mb-1 px-3 py-2 text-sm'>
+            Dashboard
+          </button>
+          <button class='bg-primary-100 text-primary-900 hover:bg-primary hover:text-white rounded-2xl mb-1 px-3 py-2 text-sm'>
+            Photoshop
+          </button>
+          <button class='bg-primary-100 text-primary-900 hover:bg-primary hover:text-white rounded-2xl mb-1 px-3 py-2 text-sm'>
+            Bootstrap
+          </button>
+          <button class='bg-primary-100 text-primary-900 hover:bg-primary hover:text-white rounded-2xl mb-1 px-3 py-2 text-sm'>
+            Responsive
+          </button>
+          <button class='bg-primary-100 text-primary-900 hover:bg-primary hover:text-white rounded-2xl mb-1 px-3 py-2 text-sm'>
+            Crypto
+          </button>
         </div>
         <div class='profile-lang  mb-5'>
-          <h4 class='text-primary mb-2'>Language</h4>
-          <a class='text-muted pr-3 f-s-16'><i class='flag-icon flag-icon-us'></i> English</a>
-          <a class='text-muted pr-3 f-s-16'><i class='flag-icon flag-icon-fr'></i> French</a>
-          <a class='text-muted pr-3 f-s-16'><i class='flag-icon flag-icon-bd'></i> Bangla</a>
+          <h4 class='text-primary mb-2 text-lg'>Language</h4>
+          <button class='text-secondary-600 pr-3 f-s-16'>English</button>
+          <button class='text-secondary-600 pr-3 f-s-16'>French</button>
+          <button class='text-secondary-600 pr-3 f-s-16'>Bangla</button>
         </div>
         <div class='profile-personal-info'>
-          <h4 class='text-primary mb-4'>Personal Information</h4>
-          <div class='row mb-2'>
-            <div class='col-sm-3 col-5'>
-              <h5 class='f-w-500'>Name <span class='pull-right'>:</span>
+          <h4 class='text-primary mb-4 text-lg'>Personal Information</h4>
+          <div class='grid grid-cols-12 mb-2'>
+            <div class='sm:col-span-3 col-span-5 pr-3 py-1'>
+              <h5 class='font-semibold'>Name <span class='float-right'>:</span>
               </h5>
             </div>
-            <div class='col-sm-9 col-7'><span>Mitchell C.Shay</span>
+            <div class='sm:col-span-9 col-span-7 px-3 py-1 text-secondary-600'><span>Mitchell C.Shay</span>
             </div>
           </div>
-          <div class='row mb-2'>
-            <div class='col-sm-3 col-5'>
-              <h5 class='f-w-500'>Email <span class='pull-right'>:</span>
+          <div class='grid grid-cols-12 mb-2'>
+            <div class='sm:col-span-3 col-span-5 pr-3 py-1'>
+              <h5 class='font-semibold'>Email <span class='float-right'>:</span>
               </h5>
             </div>
-            <div class='col-sm-9 col-7'><span>example@examplel.com</span>
+            <div class='sm:col-span-9 col-span-7 px-3 py-1 text-secondary-600'>
+              <span>example@examplel.com</span>
             </div>
           </div>
-          <div class='row mb-2'>
-            <div class='col-sm-3 col-5'>
-              <h5 class='f-w-500'>Availability <span class='pull-right'>:</span></h5>
-            </div>
-            <div class='col-sm-9 col-7'><span>Full Time (Free Lancer)</span>
-            </div>
-          </div>
-          <div class='row mb-2'>
-            <div class='col-sm-3 col-5'>
-              <h5 class='f-w-500'>Age <span class='pull-right'>:</span>
+          <div class='grid grid-cols-12 mb-2'>
+            <div class='sm:col-span-3 col-span-5 pr-3 py-1'>
+              <h5 class='font-semibold'>Availability <span class='float-right'>:</span>
               </h5>
             </div>
-            <div class='col-sm-9 col-7'><span>27</span>
+            <div class='sm:col-span-9 col-span-7 px-3 py-1 text-secondary-600'>
+              <span>Full Time (Free Lancer)</span>
             </div>
           </div>
-          <div class='row mb-2'>
-            <div class='col-sm-3 col-5'>
-              <h5 class='f-w-500'>Location <span class='pull-right'>:</span></h5>
+          <div class='grid grid-cols-12 mb-2'>
+            <div class='sm:col-span-3 col-span-5 pr-3 py-1'>
+              <h5 class='font-semibold'>Age <span class='float-right'>:</span>
+              </h5>
             </div>
-            <div class='col-sm-9 col-7'><span>Rosemont Avenue Melbourne,
-                                                                Florida</span>
+            <div class='sm:col-span-9 col-span-7 px-3 py-1 text-secondary-600'>
+              <span>27</span>
             </div>
           </div>
-          <div class='row mb-2'>
-            <div class='col-sm-3 col-5'>
-              <h5 class='f-w-500'>Year Experience <span class='pull-right'>:</span></h5>
+          <div class='grid grid-cols-12 mb-2'>
+            <div class='sm:col-span-3 col-span-5 pr-3 py-1'>
+              <h5 class='font-semibold'>Location <span class='float-right'>:</span>
+              </h5>
             </div>
-            <div class='col-sm-9 col-7'><span>07 Year Experiences</span>
+            <div class='sm:col-span-9 col-span-7 px-3 py-1 text-secondary-600'>
+              <span>Rosemont Avenue Melbourne, Florida</span>
+            </div>
+          </div>
+          <div class='grid grid-cols-12 mb-2'>
+            <div class='sm:col-span-3 col-span-5 pr-3 py-1'>
+              <h5 class='font-semibold'>Year Experience <span class='float-right'>:</span>
+              </h5>
+            </div>
+            <div class='sm:col-span-9 col-span-7 px-3 py-1 text-secondary-600'>
+              <span>07 Year Experiences</span>
             </div>
           </div>
         </div>
       </div>
       <div>
         <div class='pt-3'>
-          <div class='settings-form'>
-            <h4 class='text-primary'>Account Setting</h4>
-            <form>
-              <div class='form-row'>
-                <div class='form-group col-md-6'>
-                  <label>Email</label>
-                  <input type='email' placeholder='Email' class='form-control'>
+          <div class=''>
+            <h4 class='text-primary text-lg'>Account Setting</h4>
+            <ValidationObserver v-slot='{ invalid }'>
+              <form
+                class='grid gap-5 grid-cols-12'
+                @submit.prevent='onSubmit'>
+                <div class='sm:col-span-6 col-span-12'>
+                  <ValidationProvider
+                    v-slot='{ errors }'
+                    name='email'
+                    rules='required'>
+                    <tw-input v-model='form.email' label='Email' :errors='errors' rounded placeholder='email'/>
+                  </ValidationProvider>
                 </div>
-                <div class='form-group col-md-6'>
-                  <label>Password</label>
-                  <input type='password' placeholder='Password' class='form-control'>
+                <div class='sm:col-span-6 col-span-12'>
+                  <ValidationProvider
+                    v-slot='{ errors }'
+                    name='password'
+                    rules='required'>
+                    <tw-input
+                      v-model='form.password'
+                      label='Password'
+                      type='password'
+                      :errors='errors'
+                      rounded />
+                  </ValidationProvider>
                 </div>
-              </div>
-              <div class='form-group'>
-                <label>Address</label>
-                <input type='text' placeholder='1234 Main St' class='form-control'>
-              </div>
-              <div class='form-group'>
-                <label>Address 2</label>
-                <input type='text' placeholder='Apartment, studio, or floor' class='form-control'>
-              </div>
-              <div class='form-row'>
-                <div class='form-group col-md-6'>
-                  <label>City</label>
-                  <input type='text' class='form-control'>
+
+                <div class='col-span-12'>
+                  <ValidationProvider
+                    v-slot='{ errors }'
+                    name='address'
+                    rules='required'>
+                    <tw-input
+                      v-model='form.address'
+                      label='Address'
+                      :errors='errors'
+                      placeholder='Enter your address'
+                      rounded>
+                    </tw-input>
+                  </ValidationProvider>
                 </div>
-                <div class='form-group col-md-4'>
-                  <label>State</label>
-                  <select id='inputState' class='form-control default-select'>
-                    <option selected=''>Choose...</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                  </select>
+                <div class='col-span-12'>
+                    <tw-input
+                      v-model='form.address2'
+                      label='Address 2'
+                      placeholder='Enter your address 2'
+                      rounded>
+                    </tw-input>
                 </div>
-                <div class='form-group col-md-2'>
-                  <label>Zip</label>
-                  <input type='text' class='form-control'>
+
+                <div class='sm:col-span-5 col-span-12'>
+                  <tw-input
+                    v-model='form.city'
+                    label='City'
+                    rounded>
+                  </tw-input>
                 </div>
-              </div>
-              <div class='form-group'>
-                <div class='custom-control custom-checkbox'>
-                  <input id='gridCheck' type='checkbox' class='custom-control-input'>
-                  <label class='custom-control-label' for='gridCheck'> Check me out</label>
+                <div class='sm:col-span-4 col-span-6'>
+                  <tw-select
+                    v-model='form.state'
+                    label='State'
+                    :options="[
+                      {id:1,name:'California'}
+                    ]"
+                    item-text='name'
+                    item-value='id'
+                    rounded>
+                  </tw-select>
                 </div>
-              </div>
-              <button class='btn btn-primary' type='submit'>Sign
-                in
-              </button>
-            </form>
+                <div class='sm:col-span-3 col-span-6'>
+                  <tw-input
+                    v-model='form.zip'
+                    label='Zip'
+                    rounded>
+                  </tw-input>
+                </div>
+                <div class='col-span-12'>
+                  <div class='custom-control mb-2'>
+                    <input id='same-address' type='checkbox'>
+                    <label class='text-secondary-600' for='same-address'>
+                      Check me out
+                    </label>
+                  </div>
+                </div>
+
+                <div class='col-span-12'>
+                  <button
+                    :disabled='invalid'
+                    class='bg-primary py-2 lg:py-3 text-lg md:text-xl rounded-2xl text-white px-5 hover:bg-primary-700'>
+                    Sign In
+                  </button>
+                </div>
+              </form>
+            </ValidationObserver>
           </div>
         </div>
       </div>
     </tw-tabs>
-    <!--    <div id='replyModal' class='modal fade'>-->
-    <!--      <div class='modal-dialog modal-dialog-centered' role='document'>-->
-    <!--        <div class='modal-content'>-->
-    <!--          <div class='modal-header'>-->
-    <!--            <h5 class='modal-title'>Post Reply</h5>-->
-    <!--            <button type='button' class='close' data-dismiss='modal'><span>&times;</span></button>-->
-    <!--          </div>-->
-    <!--          <div class='modal-body'>-->
-    <!--            <form>-->
-    <!--              <textarea class='form-control' rows='4'>Message</textarea>-->
-    <!--            </form>-->
-    <!--          </div>-->
-    <!--          <div class='modal-footer'>-->
-    <!--            <button type='button' class='btn btn-danger light' data-dismiss='modal'>Close</button>-->
-    <!--            <button type='button' class='btn btn-primary'>Reply</button>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
+    <Modal :show='addModal' @close='addModal=false'>
+      <div class='flex justify-between border-b py-4 px-7'>
+        <span class='font-semibold'>Post Reply</span>
+        <font-awesome-icon icon='fa fa-close' class='cursor-pointer' @click='addModal=false' />
+      </div>
+      <div class='p-6'>
+        <tw-text-area :rows='4' rounded placeholder='Message'>
+        </tw-text-area>
+      </div>
+      <div class='flex justify-end border-t py-4 px-7'>
+        <button
+          class='bg-danger-100 hover:bg-danger hover:text-white text-danger py-4 px-7 rounded-2xl mr-2'>
+          Close
+        </button>
+        <button
+          class='bg-primary hover:bg-primary-700 text-white py-4 px-7 rounded-2xl'>
+          Reply
+        </button>
+      </div>
+    </Modal>
 
   </div>
 </template>
 
 <script>
+
+import { ValidationObserver, ValidationProvider } from 'vee-validate';
+
 export default {
   name: 'ProfileCard',
+    components: {
+      ValidationObserver,
+      ValidationProvider
+    },
   data() {
     return {
+      addModal: false,
+      form:{},
       tabs: [
         {
           label: 'Posts'
@@ -224,6 +298,11 @@ export default {
           label: 'Setting'
         }
       ]
+
+    }
+  },
+  methods:{
+    onSubmit(){
 
     }
   }

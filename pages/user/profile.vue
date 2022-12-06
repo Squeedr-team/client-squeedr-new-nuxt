@@ -77,7 +77,7 @@
       </div>
       <div class='grid grid-cols-12 gap-8 mt-5'>
         <div class='col-span-4'>
-          <div class='bg-white px-4 xl:px-8 py-4 xl:py-8 rounded-2xl'>
+          <div class='bg-white px-4 xl:px-8 py-4 xl:py-8 rounded-2xl h-full'>
             <div class='grid grid-cols-3 text-center'>
               <div class='col-span-1'>
                 <h3 class='text-2xl'>150</h3>
