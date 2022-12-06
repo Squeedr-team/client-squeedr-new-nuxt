@@ -111,6 +111,7 @@ export default {
   .play-button {
     background: theme('colors.secondary.100') !important;
     color: theme('colors.primary.900') !important;
+    transition: all 0.5s;
   }
 
   &:hover {

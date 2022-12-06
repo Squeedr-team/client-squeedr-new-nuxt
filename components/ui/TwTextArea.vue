@@ -7,36 +7,23 @@
     >{{ label }}
     </label>
     <div class='flex'>
-      <div
-        v-if='withIcon'
-        class='w-12 h-12 lg:h-14'
-      >
-        <slot name='icon'></slot>
-      </div>
-      <input
+      <textarea
         :id='id'
         ref='input'
         v-bind='$attrs'
-        class='px-3 py-2 h-12 lg:h-14 leading-normal block w-full text-gray-800 bg-white text-left appearance-none outline-none'
+        class='px-3 py-2 leading-normal block w-full text-gray-800 bg-white text-left appearance-none outline-none'
         :class="[
                     {
                         'border-red-400': errors.length,
                     },
                     classes
                 ]"
-        :type='type'
         :value='value'
         @input="$emit('input', $event.target.value)"
         @keydown="$emit('keydown', $event)"
         @blur="$emit('blur', $event)"
         @keyup="$emit('keyup', $event)"
       />
-      <div
-        v-if='append'
-        class='h-12 lg:h-14'
-      >
-        <slot name='append'></slot>
-      </div>
     </div>
 
     <div v-if='!errors.length && hint' class='text-secondary-400 mt-1 text-sm'>
@@ -50,7 +37,7 @@
 
 <script>
 export default {
-  name: 'TwInput',
+  name: 'TwTextArea',
 
   inheritAttrs: false,
 
@@ -58,7 +45,7 @@ export default {
     id: {
       type: String,
       default() {
-        return `text-input-${this._uid}`
+        return `text-area-${this._uid}`
       }
     },
     type: {
@@ -81,14 +68,6 @@ export default {
       type: Array,
       default: () => []
     },
-    withIcon: {
-      type: Boolean,
-      default: false
-    },
-    append: {
-      type: Boolean,
-      default: false
-    },
     bordered: {
       type: Boolean,
       default: true
@@ -105,10 +84,8 @@ export default {
         'border focus:border-primary focus:outline-none':
           this.bordered === true,
         'border bg-gray-200 focus:bg-white': this.bordered === false,
-        'rounded-2xl': this.rounded && !this.withIcon && !this.append,
+        'rounded-2xl': this.rounded,
         'rounded-lg': this.rounded === false,
-        'rounded-tl-0 rounded-bl-0 rounded-tr-2xl rounded-br-2xl':  this.rounded && this.withIcon,
-        'rounded-tr-0 rounded-br-0 rounded-tl-2xl rounded-bl-2xl':  this.rounded && this.append,
       }
     }
   },
