@@ -7,7 +7,7 @@
                  {name:"Profile",path:"/user/profile"},
                ]'
     />
-    <div class='sm:m-5 m-3 p-0 sm:p-5'>
+    <div class='sm:m-5 m-2 p-0 sm:p-5'>
       <div class='flex'>
         <div class='w-full bg-white px-4 py-4 rounded-2xl'>
           <div class='profile-card relative'>
@@ -147,7 +147,7 @@
 
               <div class='mb-5'>
                 <h5 class='text-primary'>Interest</h5>
-                <div class='grid grid-cols-3 mt-4 gap-1'>
+                <div class='grid sm:grid-cols-3 grid-cols-2 mt-4 gap-1'>
                   <nuxt-link
                     v-for='(item,i_idx) in user.interests'
                     :key="'interest'+i_idx"
@@ -182,7 +182,7 @@
           </div>
         </div>
         <div class='xl:col-span-8 col-span-12'>
-          <div class='bg-white px-4 xl:px-8 py-4 xl:py-8 rounded-2xl h-full'>
+          <div class='bg-white px-4 xl:px-7 py-4 xl:py-8 rounded-2xl h-full'>
             <profile-card />
           </div>
         </div>
