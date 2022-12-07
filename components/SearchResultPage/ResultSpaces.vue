@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div>
-    <p class="text-md text-gray-600 mb-2 mt-2">
+    <p class="text-base text-gray-600 mb-2 mt-2">
       228 yoga studio spaces near Paris, France
     </p>
     <div

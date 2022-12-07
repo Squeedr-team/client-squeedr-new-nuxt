@@ -12,13 +12,13 @@
               <div
                 class='mr-3 rounded-2xl flex flex-col justify-center items-center md:w-16 md:h-16 w-14 h-14 bg-primary-100'
               >
-                <p class='xl:text-2xl md:text-lg text-md text-primary-900 mb-0'>{{ $moment().format('DD')
+                <p class='xl:text-2xl md:text-lg text-base text-primary-900 mb-0'>{{ $moment().format('DD')
                   }}
                 </p>
               </div>
               <div>
-                <h4 class='lg:text-lg sm:text-md text-sm pb-2'><a >Cycling Routine</a></h4>
-                <div class='statusTxt lg:text-md sm:text-sm text-xs'>
+                <h4 class='lg:text-lg sm:text-base text-sm pb-2'><a >Cycling Routine</a></h4>
+                <div class='statusTxt lg:text-base sm:text-sm text-xs'>
         <span class='text-dustTxtColor capitalize'>
           20km target distances
         </span>

@@ -9,7 +9,7 @@
         <div class='flex bg-secondary-100 p-1 rounded-2xl sm:mr-5 mr-0 w-full sm:w-auto '>
           <button
             v-for='(item,idx) in sectionData.filterItems' :key='idx'
-            class='xl:px-5 px-3 xl:py-3 py-2 rounded-2xl xl:font-semibold text-sm xl:text-md'
+            class='xl:px-5 px-3 xl:py-3 py-2 rounded-2xl xl:font-semibold text-sm xl:text-base'
             :class="filter===item.value?'bg-white text-primary-900':'text-secondary'"
             @click='filter===item.value?filter="":filter=item.value'
           >

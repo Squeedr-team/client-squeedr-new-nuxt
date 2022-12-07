@@ -7,25 +7,25 @@
                  {name:"Profile",path:"/user/profile"},
                ]'
     />
-    <div class='sm:m-5 m-3 p-3 sm:p-5'>
+    <div class='sm:m-5 m-3 p-0 sm:p-5'>
       <div class='flex'>
-        <div class='lg:w-full bg-white px-4 py-4 rounded-2xl'>
-          <div class='profile-card'>
+        <div class='w-full bg-white px-4 py-4 rounded-2xl'>
+          <div class='profile-card relative'>
             <div class='cover-photo' :style='{backgroundImage:`url(${user.cover})`}'>
             </div>
-            <div class='py-4 px-5 flex'>
+            <div class='py-4 px-5 flex sm:flex-row flex-col items-center'>
               <div class='profile-photo'>
                 <img :src='user.profile' class='rounded-full shadow-md border' alt=''>
               </div>
-              <div class='flex flex-1'>
-                <div class='px-3 pt-2'>
+              <div class='flex flex-1 sm:flex-row flex-col'>
+                <div class='px-3 pt-2 text-center sm:text-left'>
                   <h4 class='text-primary mb-0 text-lg'>Mitchell C. Shay</h4>
                   <p class='text-secondary-600'>UX / UI Designer</p>
                 </div>
                 <div class='px-2 pt-2'>
                   <h4 class='text-lg mb-0'>info@example.com</h4>
                 </div>
-                <div class='ml-auto'>
+                <div class='ml-auto absolute top-3 right-3 sm:relative'>
                   <VDropdown
                     placement='bottom-end'
                     :delay='{ show: 300, hide: 100 }'
@@ -33,7 +33,7 @@
                     <button
                       class='rounded-full w-10 h-10 bg-primary-100 hover:bg-primary hover:text-white xl:rounded-2xl more-button'
                     >
-                      <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-md text-sm' />
+                      <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-base text-sm' />
                     </button>
 
                     <template #popper>
@@ -76,8 +76,8 @@
         </div>
       </div>
       <div class='grid grid-cols-12 gap-8 mt-5'>
-        <div class='col-span-4'>
-          <div class='bg-white px-4 xl:px-8 py-4 xl:py-8 rounded-2xl h-full'>
+        <div class='xl:col-span-4 col-span-12'>
+          <div class='bg-white px-4 lg:px-8 py-4 lg:py-8 rounded-2xl h-full'>
             <div class='grid grid-cols-3 text-center'>
               <div class='col-span-1'>
                 <h3 class='text-2xl'>150</h3>
@@ -92,11 +92,11 @@
             </div>
             <div class='mt-4 text-center'>
               <button
-                class='bg-primary hover:bg-primary-700 mb-1 mr-1 rounded-2xl py-2 xl:py-3 text-white px-5 text-sm xl:text-lg'>
+                class='bg-primary hover:bg-primary-700 mb-1 mr-1 rounded-2xl lg:px-6 px-4 lg:py-3 py-2 text-white text-sm xl:text-lg'>
                 Follow
               </button>
               <button
-                class='bg-primary hover:bg-primary-700 mb-1 mr-1 rounded-2xl py-2 xl:py-3 text-white px-5 text-sm xl:text-lg'
+                class='bg-primary hover:bg-primary-700 mb-1 mr-1 rounded-2xl lg:px-6 px-4 lg:py-3 py-2 text-white text-sm xl:text-lg'
                 @click='addModal=true'>
                 Send Message
               </button>
@@ -163,8 +163,10 @@
                   v-for='(item,n_idx) in user.news'
                   :key="'news'+n_idx"
                   class='flex pt-3 pb-3'>
-                  <img :src='item.image' alt='image' class='mr-3 rounded-2xl' width='75'>
-                  <div class='media-body'>
+                  <div>
+                    <img :src='item.image' alt='image' class='mr-3 rounded-2xl' width='75'>
+                  </div>
+                  <div class='flex-1'>
                     <h5>
                       <nuxt-link to='#' class='text-black text-lg mb-3'>
                         {{ item.title }}
@@ -179,9 +181,9 @@
             </div>
           </div>
         </div>
-        <div class='col-span-8'>
-          <div class='bg-white px-4 xl:px-8 py-4 xl:py-8 rounded-2xl'>
-            <profile-card/>
+        <div class='xl:col-span-8 col-span-12'>
+          <div class='bg-white px-4 xl:px-8 py-4 xl:py-8 rounded-2xl h-full'>
+            <profile-card />
           </div>
         </div>
       </div>
@@ -271,6 +273,10 @@ export default {
     z-index: 1;
     margin-top: -40px;
     margin-right: 10px;
+    @media (max-width: 640px) {
+      max-width: 80px;
+      margin-top: -60px;
+    }
   }
 }
 </style>

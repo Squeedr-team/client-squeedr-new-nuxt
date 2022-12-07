@@ -8,13 +8,13 @@
         class='mr-3 rounded-2xl flex flex-col justify-center items-center lg:w-20 lg:h-20 md:w-16 md:h-16 w-14 h-14'
         :class="workout.status==='finished'?'bg-primary-200':'bg-primary-100'"
       >
-        <p class='lg:text-2xl md:text-lg text-md text-primary-900 mb-0 font-semibold'>
+        <p class='lg:text-2xl md:text-lg text-base text-primary-900 mb-0 font-semibold'>
           {{ $moment(workout.date).format('DD') }}</p>
         <span class='md:text-sm text-xs text-primary-900 font-semibold'>{{ $moment(workout.date).format('ddd') }}</span>
       </div>
       <div class='flex-1 mb-2'>
-        <h4 class='lg:text-xl sm:text-md text-sm pb-2'><a class='font-semibold'>{{ workout.name }}</a></h4>
-        <div class='statusTxt lg:text-md sm:text-sm text-xs'>
+        <h4 class='lg:text-xl sm:text-base text-sm pb-2'><a class='font-semibold'>{{ workout.name }}</a></h4>
+        <div class='statusTxt lg:text-base sm:text-sm text-xs'>
         <span class='text-warning font-semibold capitalize lg:text-lg'>
           {{ workout.status }}
         </span>
@@ -60,7 +60,7 @@
         class='play-button xl:rounded-2xl rounded-2xl lg:px-5 lg:py-3 px-4 py-2 mr-3 flex items-center 2xl:ml-auto xl:ml-0 lg:ml-auto md:ml-0'>
         <font-awesome-icon
           icon='fa fa-caret-right' class='mr-3 xl:text-3xl text-xl'></font-awesome-icon>
-        <span class='text-sm lg:text-md 2xl:text-lg'>Start Workout</span>
+        <span class='text-sm lg:text-base 2xl:text-lg'>Start Workout</span>
       </button>
       <div :class='workout.status!=="finished"?"xl:ml-auto 2xl:ml-0 lg:ml-0 ml-auto":"ml-auto"'>
         <VDropdown

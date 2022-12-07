@@ -38,7 +38,7 @@
             <button
               class='rounded-full w-10 h-10 hover:bg-primary-100 xl:rounded-2xl more-button'
             >
-              <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-md text-sm' />
+              <font-awesome-icon icon='fa fa-ellipsis-h' class='xl:text-lg md:text-base text-sm' />
             </button>
 
             <template #popper>

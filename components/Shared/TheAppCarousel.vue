@@ -32,7 +32,7 @@
     <nuxt-link
       v-if="sectionData.cta"
       :to="sectionData.cta.href"
-      class="block mt-4 text-md text-lightPrimaryColor font-medium"
+      class="block mt-4 text-base text-lightPrimaryColor font-medium"
       >{{ sectionData.cta.text }}</nuxt-link
     >
   </section>

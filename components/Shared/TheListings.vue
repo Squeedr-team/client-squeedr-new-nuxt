@@ -8,7 +8,7 @@
     </ul>
     <nuxt-link
       to="#"
-      class="block mt-4 text-md text-lightPrimaryColor font-medium"
+      class="block mt-4 text-base text-lightPrimaryColor font-medium"
       >View all</nuxt-link
     >
   </section>

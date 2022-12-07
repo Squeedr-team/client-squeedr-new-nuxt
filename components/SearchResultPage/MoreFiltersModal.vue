@@ -95,7 +95,7 @@
                   :src="sheildIcon"
                   alt="shelid"
                 />
-                Enhanced &nbsp;<span class="text-md"> COVID-19 </span>&nbsp;
+                Enhanced &nbsp;<span class="text-base"> COVID-19 </span>&nbsp;
                 Measures
               </label>
             </div>

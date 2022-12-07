@@ -8,7 +8,7 @@
     </div>
     <div class='2xl:w-7/12 xl:w-full sm:w-7/12 w-full'>
       <NuxtLink to='/product/2'>
-        <h6 class='lg:text-lg text-md mb-2 font-semibold'>{{ info.name }}</h6>
+        <h6 class='lg:text-lg text-base mb-2 font-semibold'>{{ info.name }}</h6>
       </NuxtLink>
       <Rating :rating='info.review' />
       <div class='flex flex-col sm:flex-row justify-between'>

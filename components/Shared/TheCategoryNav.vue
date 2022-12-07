@@ -10,7 +10,7 @@
           :key="nav.id"
           class="
             text-sm
-            md:text-md
+            md:text-base
             px-2
             py-2
             lg:px-6 lg:py-2

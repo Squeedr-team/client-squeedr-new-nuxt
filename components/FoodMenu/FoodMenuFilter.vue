@@ -22,14 +22,14 @@
         <button
           class='lg:px-6 px-5 lg:py-4 py-3 rounded-2xl text-white bg-primary hover:bg-primary-700 flex items-center'>
           <font-awesome-icon icon='fa-solid fa-sliders' class='lg:text-xl'></font-awesome-icon>
-          <span class='ml-2 font-semibold text-sm lg:text-md'>Filter</span>
+          <span class='ml-2 font-semibold text-sm lg:text-base'>Filter</span>
         </button>
       </div>
     </div>
     <div class='flex flex-wrap gap-x-5 gap-y-2 mt-7'>
       <button
         v-for='(item,idx) in sectionData.filterItems' :key='idx'
-        class='lg:px-5 px-4 lg:py-4 py-3 rounded-2xl text-sm sm:text-md'
+        class='lg:px-5 px-4 lg:py-4 py-3 rounded-2xl text-sm sm:text-base'
         :class="filter.includes(item.value)?'bg-warning hover:bg-warning-700 text-black':'bg-warning-100 text-warning hover:bg-warning hover:text-white'"
         @click='filter.includes(item.value)?filter.splice(idx,1):filter.push(item.value)'
       >

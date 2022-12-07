@@ -11,14 +11,14 @@
               placeholder='Please type what you want....'>
             </tw-text-area>
             <div class='flex flex-wrap py-4 gap-1'>
-              <button class='bg-primary-100 hover:bg-primary hover:text-white p-4 rounded-2xl'>
+              <button class='bg-primary-100 hover:bg-primary hover:text-white lg:px-4 px-3 lg:py-4 py-2 rounded-2xl'>
                 <font-awesome-icon icon='fa fa-link'>
                 </font-awesome-icon>
               </button>
-              <button class='bg-primary-100 hover:bg-primary hover:text-white p-4 rounded-2xl'>
+              <button class='bg-primary-100 hover:bg-primary hover:text-white lg:px-4 px-3 lg:py-4 py-2 rounded-2xl'>
                 <font-awesome-icon icon='fa fa-camera'></font-awesome-icon>
               </button>
-              <button class='bg-primary hover:bg-primary-700 text-white py-4 px-7 rounded-2xl'>
+              <button class='bg-primary hover:bg-primary-700 text-white lg:px-7 px-4 lg:py-3 py-2 rounded-2xl'>
                 Post
               </button>
             </div>
@@ -40,12 +40,12 @@
               like these sweet morning
               of spare which enjoy whole heart.
             </p>
-            <button class='bg-primary hover:bg-primary-700 text-white py-4 px-7 rounded-2xl mr-2'>
+            <button class='bg-primary hover:bg-primary-700 text-white lg:py-4 lg:px-7 px-4 py-2 rounded-2xl mr-2 text-sm lg:text-base'>
               <font-awesome-icon icon='fa fa-heart' class='mr-2'></font-awesome-icon>
               Like
             </button>
             <button
-              class='bg-primary-900 hover:shadow-lg text-white py-4 px-7 rounded-2xl'
+              class='bg-primary-900 hover:shadow-lg text-white lg:py-4 lg:px-7 px-4 py-2 rounded-2xl text-sm lg:text-base'
               @click='addModal=true'>
               <font-awesome-icon icon='fa fa-reply' class='mr-2'></font-awesome-icon>
               Reply
@@ -260,11 +260,11 @@
       </div>
       <div class='flex justify-end border-t py-4 px-7'>
         <button
-          class='bg-danger-100 hover:bg-danger hover:text-white text-danger py-4 px-7 rounded-2xl mr-2'>
+          class='bg-danger-100 hover:bg-danger hover:text-white text-danger lg:py-4 lg:px-7 px-4 py-2 rounded-2xl mr-2'>
           Close
         </button>
         <button
-          class='bg-primary hover:bg-primary-700 text-white py-4 px-7 rounded-2xl'>
+          class='bg-primary hover:bg-primary-700 text-white lg:py-4 lg:px-7 px-4 py-2 rounded-2xl'>
           Reply
         </button>
       </div>

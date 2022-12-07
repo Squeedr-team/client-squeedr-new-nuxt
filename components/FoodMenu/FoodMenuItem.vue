@@ -10,7 +10,7 @@
         </nuxt-link>
       </div>
       <div class='lg:w-8/12 flex-1 mb-3 pl-4'>
-        <h6 class='text-md font-semibold'>{{ info.name }}</h6>
+        <h6 class='text-base font-semibold'>{{ info.name }}</h6>
         <p class='text-darkDust'>{{ info.description }}</p>
         <div v-if='info.author' class='flex items-center flex-wrap xl:gap-5 gap-3 mt-4'>
           <div class='flex items-center mr-auto'>

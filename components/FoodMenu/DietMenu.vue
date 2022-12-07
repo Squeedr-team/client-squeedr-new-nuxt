@@ -17,7 +17,7 @@
           class='rounded-xl bg-gray-200 w-20 h-20'
           alt='user'/>
         <div class="ml-2 mb-2">
-          <h6 class='text-md mb-2 font-semibold'>{{ sectionData.item.name }}</h6>
+          <h6 class='text-base mb-2 font-semibold'>{{ sectionData.item.name }}</h6>
           <div v-if="sectionData.item.author" class="text-sm text-dustTxtColor">by {{sectionData.item.author.name}}
           </div>
         </div>
