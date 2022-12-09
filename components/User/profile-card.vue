@@ -27,7 +27,7 @@
             <img
               :src='require("~/assets/images/profile/8.jpg")'
               alt=''
-              class='w-full'>
+              class='max-w-full'>
             <nuxt-link to='#'>
               <h3 class='text-black xl:text-xl text-lg mt-3'>
                 Collection of textile samples lay spread
