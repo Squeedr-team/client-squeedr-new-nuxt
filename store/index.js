@@ -1,22 +1,24 @@
-
-
 export const state = () => ({
   snackbar: {
     message: '',
-    type: ''
+    type: '',
   },
-  auth:{
-    user:{}
-  }
-});
+  auth: {
+    user: {},
+  },
+  order: null,
+})
 export const mutations = {
+  SET_ORDER(state, payload) {
+    state.order = payload
+  },
   SET_ALERT(state, data) {
-    state.snackbar.message = data.msg;
-    state.snackbar.type = data.type;
+    state.snackbar.message = data.msg
+    state.snackbar.type = data.type
   },
   RESET_ALERT(state) {
-    state.snackbar.message = '';
-    state.snackbar.type = '';
+    state.snackbar.message = ''
+    state.snackbar.type = ''
   },
 }
 export const getters = {
@@ -28,16 +30,14 @@ export const getters = {
   },
 }
 export const actions = {
- set_alert({commit}, payload) {
-    commit('RESET_ALERT');
-    commit('SET_ALERT', payload);
+  set_alert({ commit }, payload) {
+    commit('RESET_ALERT')
+    commit('SET_ALERT', payload)
     if (!payload.dismiss) {
       setTimeout(() => {
         commit('RESET_ALERT')
       }, 3500)
     }
   },
-
 }
-export const modules = {
-}
+export const modules = {}

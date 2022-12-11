@@ -5,31 +5,32 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
-
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  css: ['~/assets/styles/main.scss','@fortawesome/fontawesome-svg-core/styles.css'],
+  css: [
+    '~/assets/styles/main.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ],
   plugins: [
     { src: '~/plugins/GMaps.js', ssr: true },
     { src: '~/plugins/scrollbar.js', ssr: true },
     { src: '~/plugins/popover.js', ssr: false },
     { src: '~/plugins/qr.js', ssr: false },
-    { src: '~/plugins/fontawesome.js'},
-    { src: '~/plugins/veeValidate.js'},
-
+    { src: '~/plugins/fontawesome.js' },
+    { src: '~/plugins/veeValidate.js' },
+    { src: '~/plugins/vuex-persist', ssr: false },
   ],
   components: [
     {
       path: '~/components',
-      pathPrefix: false
+      pathPrefix: false,
     },
     {
       path: '~/layouts',
-      pathPrefix: false
-    }
+      pathPrefix: false,
+    },
   ],
   buildModules: [
     '@nuxtjs/moment',
@@ -41,14 +42,14 @@ export default {
       {
         locales: ['es', 'fr'],
         defaultLocale: 'en-US',
-        format: 'yyyy-MM-dd'
-      }
-    ]
+        format: 'yyyy-MM-dd',
+      },
+    ],
   ],
   image: {
     cloudinary: {
-      baseURL: 'https://res.cloudinary.com/toravl/image/upload'
-    }
+      baseURL: 'https://res.cloudinary.com/toravl/image/upload',
+    },
   },
 
   modules: [
@@ -56,33 +57,41 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/strapi',
     'nuxt-webfontloader',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    'nuxt-stripe-module',
   ],
+  stripe: {
+    publishableKey: 'pk_test_NFbVfAWG12W1L1Qi5CbhzsVm00IYLV1Cfn',
+    cookie: {
+      secure: true,
+      sameSite: 'lax',
+    },
+  },
   webfontloader: {
     google: {
       // Loads Open Sans font with weights 300 and 400 + display font as swap
-      families: ['Poppins:300,400,700,900&display=swap']
-    }
+      families: ['Poppins:300,400,700,900&display=swap'],
+    },
   },
   markdownit: {
     preset: 'default',
     linkify: true,
-    breaks: true
+    breaks: true,
   },
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337'
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
   },
   axios: {
-    baseURL: '/'
+    baseURL: '/',
   },
 
   pwa: {
     manifest: {
-      lang: 'en'
-    }
+      lang: 'en',
+    },
   },
 
   build: {
-    transpile: [/^vue2-google-maps($|\/)/,"vee-validate/dist/rules"]
+    transpile: [/^vue2-google-maps($|\/)/, 'vee-validate/dist/rules'],
   },
 }

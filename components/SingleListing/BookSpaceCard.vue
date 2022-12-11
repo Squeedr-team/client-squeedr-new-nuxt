@@ -7,25 +7,16 @@
     <div class="book-space-form border border-t-0 p-5">
       <label class="font-bold" for="data-time">Date & Time</label>
       <div v-for="(bookingForm, index) in bookingDays" :key="index">
-        <date-picker
-          v-model="bookingForm.start_date"
-          :default-value="bookingForm.start_date"
-          placeholder="start date"
-          input-class="book-space-calendar-input"
-        ></date-picker>
+        <date-picker v-model="bookingForm.start_date" :default-value="bookingForm.start_date" placeholder="start date"
+          input-class="book-space-calendar-input"></date-picker>
         <div class="flex items-center mt-2 w-full">
-          <select
-            v-model="bookingForm.start_time"
-            value=""
-            class="text-gray-400 bg-white px-3 py-3 rounded rounded-r-none border border-gray-300 outline-none border-r-0 w-full"
-          >
+          <select v-model="bookingForm.start_time" value=""
+            class="text-gray-400 bg-white px-3 py-3 rounded rounded-r-none border border-gray-300 outline-none border-r-0 w-full">
             <option value="">start time</option>
             <option value="09:00 am">9:00 AM</option>
           </select>
-          <select
-            v-model="bookingForm.end_time"
-            class="text-gray-400 bg-white px-3 py-3 rounded rounded-l-none border border-gray-300 outline-none w-full"
-          >
+          <select v-model="bookingForm.end_time"
+            class="text-gray-400 bg-white px-3 py-3 rounded rounded-l-none border border-gray-300 outline-none w-full">
             <option value="">end time</option>
             <option value="05:00 pm">5:00 PM</option>
           </select>
@@ -35,11 +26,7 @@
         <button class="text-sm text-green-400 mt-3" @click="addMoreBookingDay">
           Extend a day
         </button>
-        <button
-          v-if="bookingDays.length > 1"
-          class="text-sm text-green-400 mt-3"
-          @click="removeLastDay"
-        >
+        <button v-if="bookingDays.length > 1" class="text-sm text-green-400 mt-3" @click="removeLastDay">
           Remove
         </button>
       </div>
@@ -59,28 +46,19 @@
           <span>€38.48</span>
         </p>
         <hr class="my-3" />
-        <p
-          class="text-lg font-semibold flex items-center justify-between w-full -mt-1"
-        >
+        <p class="text-lg font-semibold flex items-center justify-between w-full -mt-1">
           <span>Total</span>
           <span> €443.48 </span>
         </p>
       </div>
-      <button
-        :disabled="!showBill"
+      <button :disabled="!showBill"
         class="mt-3 w-full bg-red-500 hover:bg-red-600 p-3 rounded-md text-white disabled:bg-red-400 disabled:cursor-not-allowed"
-      >
+        @click="bookspace">
         Book Now
       </button>
       <div>
         <p class="mt-4 flex items-center font-bold">
-          <img
-            width="12px"
-            height="12px"
-            class="mr-2"
-            :src="lightIcon"
-            alt="shelid"
-          />
+          <img width="12px" height="12px" class="mr-2" :src="lightIcon" alt="shelid" />
           Instant Book
         </p>
         <p class="text-sm text-gray-500 mt-2">
@@ -147,6 +125,39 @@ export default {
     removeLastDay() {
       this.bookingDays.pop()
     },
+    async bookspace() {
+      try {
+        const count = await this.$strapi.$http.$get('orders/count')
+        console.log('count', count)
+        const data = {
+          order_number: `order-sq-${count + 1}`,
+          date: '10/12/2022',
+          start_time: '12:00',
+          end_time: '17:00',
+          amount: 443.48,
+          status: 'pending', // pending, paid,cancelled,declined,refunded,disputed
+          type: 'space', // space,event,appointment,inventory
+          type_reference: '6370249df1c0390016f7a897',
+          details: {
+            duration: '5 hours',
+            price: 375,
+            cleaningFee: 30,
+            processingFee: 34.48
+
+          },
+          provider: '6293b95e175ce70016d14cf7',
+
+        }
+        console.log('data,', data)
+        const order = await this.$strapi.create('orders', data)
+        // update store with order data for later use and save in the local storage incase of refresh
+        this.$store.commit('SET_ORDER', order)
+        this.$router.push('/checkout')
+        console.log('order', order)
+      } catch (error) {
+        console.log('error', error)
+      }
+    }
   },
 }
 </script>
@@ -155,6 +166,7 @@ export default {
 .book-space-form .mx-datepicker {
   width: 100%;
 }
+
 .book-space-form .book-space-calendar-input {
   margin-top: 15px;
   padding: 10px;
