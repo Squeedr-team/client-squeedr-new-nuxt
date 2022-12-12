@@ -148,7 +148,11 @@ export default {
           provider: '6293b95e175ce70016d14cf7',
           payout: {
             destination: 'acct_1MBkI4RipgvW3Pnk' // this is coming dynamicly from the provider data 
-          }
+          },
+          changes: [{
+            text: 'order created',
+            date: new Date()
+          }]
         }
         console.log('data,', data)
         const order = await this.$strapi.create('orders', data)
