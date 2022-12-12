@@ -88,16 +88,15 @@ export default {
                     // update order with status and charge id
                     const chargeId = await paymentIntents.charges.data[0].id;
                     const payout = {
+                        ...this.order.payout,
                         charge_id: chargeId,
-                        destination: this.order.provider.payout_account_id
                     }
                     console.log('payout', payout)
                     const updateprofile = await this.$strapi.update(`orders/${this.order.id}`, {
-                        status: 'paid',
+                        payment_status: 'paid',
                         payout
                     })
                     console.log('updateprofile', updateprofile)
-
                 } catch (error) {
                     console.log(error)
                 }

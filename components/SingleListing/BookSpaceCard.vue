@@ -135,18 +135,20 @@ export default {
           start_time: '12:00',
           end_time: '17:00',
           amount: 443.48,
-          status: 'pending', // pending, paid,cancelled,declined,refunded,disputed
+          payment_status: 'pending', // pending, paid,cancelled,declined,refunded,disputed
+          booking_status: 'pending', // pending, confirmed, declined, cancelled
           type: 'space', // space,event,appointment,inventory
-          type_reference: '6370249df1c0390016f7a897',
+          space: '6370249df1c0390016f7a897', // space id
           details: {
             duration: '5 hours',
             price: 375,
             cleaningFee: 30,
             processingFee: 34.48
-
           },
           provider: '6293b95e175ce70016d14cf7',
-
+          payout: {
+            destination: 'acct_1MBkI4RipgvW3Pnk' // this is coming dynamicly from the provider data 
+          }
         }
         console.log('data,', data)
         const order = await this.$strapi.create('orders', data)
