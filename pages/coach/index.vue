@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="profile in profilesData" :key="profile.id">
-        <nuxt-link :to="'/coach/' + profile.slug">{{ profile.id }}</nuxt-link>
+        <nuxt-link :to="'/coach/' + profile.slug">{{ profile }}</nuxt-link>
       </li>
     </ul>
   </div>
