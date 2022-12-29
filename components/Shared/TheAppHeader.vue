@@ -1,5 +1,5 @@
 <template>
-  <header class="filter drop-shadow-sm w-full z-10 py-4 bg-white">
+  <header class="filter drop-shadow-sm w-full z-10 py-4 fixed top-0 left-0 bg-black/20 text-white">
     <nav class="container flex justify-between items-center">
       <nuxt-link to="/">
         <img class="w-[30px]" src="/squeedr.0d46a4f6.svg" alt="" />

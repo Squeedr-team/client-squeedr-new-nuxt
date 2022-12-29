@@ -1,18 +1,31 @@
 <template>
-  <div class="bg-white rounded-2xl p-5 lg:p-8 shadow-md">
+  <div class="bg-white rounded-lg p-5 lg:p-8 ">
+    <div class="add-class absolute bottom-8 lg:bottom-8 right-6 lg:right-12">
+      <button
+        class="text-base bg-primary text-white rounded-full w-[50px] h-[50px] hover:bg-gray-100 hover:text-primary"
+      >
+        <font-awesome-icon
+          icon="fa-solid fa-plus"
+          class="text-3xl"
+        ></font-awesome-icon>
+      </button>
+    </div>
     <div class="flex items-center mb-3 flex-wrap gap-5 justify-between">
-      <div>
-        <h6 class="text-lg mb-2 font-semibold">{{ sectionData.title }}</h6>
-        <p class="text-sm text-darkDust">{{ sectionData.description }}</p>
-      </div>
       <div class="flex items-center flex-wrap gap-y-2 w-full sm:w-auto">
         <div
-          class="flex bg-secondary-100 p-1 rounded-2xl sm:mr-5 mr-0 w-full sm:w-auto"
+          class="flex items-center bg-secondary-100 space-x-4 px-4 py-2 rounded-xl"
         >
+          <button class="rounded-2xl text-primary flex items-center">
+            <font-awesome-icon
+              icon="fa-solid fa-sliders"
+              class="md:text-xl"
+            ></font-awesome-icon>
+            <span class="ml-2 font-semibold">Filter</span>
+          </button>
           <button
             v-for="(item, idx) in sectionData.filterItems"
             :key="idx"
-            class="xl:px-5 px-3 xl:py-3 py-2 rounded-2xl xl:font-semibold text-sm xl:text-base"
+            class="rounded-full xl:font-semibold text-sm xl:text-base px-4 py-2"
             :class="
               filter === item.value
                 ? 'bg-white text-primary-900'
@@ -25,15 +38,6 @@
             {{ item.name }}
           </button>
         </div>
-        <button
-          class="xl:px-5 px-4 xl:py-4 py-3 rounded-2xl text-white bg-primary hover:bg-primary-700 flex items-center"
-        >
-          <font-awesome-icon
-            icon="fa-solid fa-sliders"
-            class="md:text-xl"
-          ></font-awesome-icon>
-          <span class="ml-2 font-semibold">Filter</span>
-        </button>
       </div>
     </div>
     <div>
