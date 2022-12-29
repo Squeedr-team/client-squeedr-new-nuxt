@@ -84,7 +84,7 @@ export default {
         'border focus:border-primary focus:outline-none':
           this.bordered === true,
         'border bg-gray-200 focus:bg-white': this.bordered === false,
-        'rounded-2xl': this.rounded,
+        'rounded-xl': this.rounded,
         'rounded-lg': this.rounded === false,
       }
     }

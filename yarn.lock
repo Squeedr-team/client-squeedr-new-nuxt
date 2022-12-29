@@ -3977,6 +3977,11 @@ dotenv@^9.0.2:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-9.0.2.tgz#dacc20160935a37dea6364aa1bef819fb9b6ab05"
   integrity sha512-I9OvvrHp4pIARv4+x9iuewrWycX6CcZtoAu1XrzPxc5UygMJXJZYmBsynku8IkrJwgypE5DGNjDPmPRhDCptUg==
 
+dropzone@^5.5.1:
+  version "5.9.3"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.9.3.tgz#b3070ae090fa48cbc04c17535635537ca72d70d6"
+  integrity sha512-Azk8kD/2/nJIuVPK+zQ9sjKMRIpRvNyqn9XwbBHNq+iNuSccbJS6hwm1Woy0pMST0erSo0u4j+KJaodndDk4vA==
+
 duplexer@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
@@ -6930,6 +6935,13 @@ num2fraction@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha512-Y1wZESM7VUThYY+4W+X4ySH2maqcA+p7UR+w8VWNWVAd6lwuXXWz/w/Cz43J/dI2I+PS6wD5N+bJUF+gjWvIqg==
+
+nuxt-dropzone@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/nuxt-dropzone/-/nuxt-dropzone-1.0.4.tgz#ef10af35938f95bfe6a9ba3eb7b7de17db7cbb14"
+  integrity sha512-1QuthM3bDGBN2ugXE5HfcvBmekNy4YUYfMurTeuBrwIGId0JSF9HasspwndxsSNL42eGET83eezRcH4ekLGqeA==
+  dependencies:
+    vue2-dropzone "3.6.0"
 
 nuxt-stripe-module@^3.2.0:
   version "3.2.0"
@@ -10408,6 +10420,13 @@ vue2-datepicker@^3.11.0:
   integrity sha512-6PU/+pnp2mgZAfnSXmbdwj9516XsEvTiw61Q5SNrvvdy8W/FCxk1GAe9UZn/m9YfS5A47yK6XkcjMHbp7aFApA==
   dependencies:
     date-format-parse "^0.2.7"
+
+vue2-dropzone@3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/vue2-dropzone/-/vue2-dropzone-3.6.0.tgz#b4bb4b64de1cbbb3b88f04b24878e06780a51546"
+  integrity sha512-YXC1nCWIZvfa98e/i6h+EshZCkFSxFEh0Sxr9ODfThAPPDVhAzLLlz/4XIx0NGO1QeSy6htwSstte47R7vVhLQ==
+  dependencies:
+    dropzone "^5.5.1"
 
 vue2-google-maps@^0.10.7:
   version "0.10.7"

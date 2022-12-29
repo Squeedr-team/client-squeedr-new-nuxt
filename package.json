@@ -28,6 +28,7 @@
     "core-js": "^3.19.3",
     "floating-vue": "^1.0.0-beta.19",
     "nuxt": "^2.15.8",
+    "nuxt-dropzone": "^1.0.4",
     "nuxt-stripe-module": "^3.2.0",
     "nuxt-webfontloader": "^1.1.0",
     "vee-validate": "3",

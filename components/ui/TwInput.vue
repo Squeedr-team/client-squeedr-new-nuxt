@@ -105,7 +105,7 @@ export default {
         'border focus:border-primary focus:outline-none':
           this.bordered === true,
         'border bg-gray-200 focus:bg-white': this.bordered === false,
-        'rounded-2xl': this.rounded && !this.withIcon && !this.append,
+        'rounded-xl': this.rounded && !this.withIcon && !this.append,
         'rounded-lg': this.rounded === false,
         'rounded-tl-0 rounded-bl-0 rounded-tr-2xl rounded-br-2xl':  this.rounded && this.withIcon,
         'rounded-tr-0 rounded-br-0 rounded-tl-2xl rounded-bl-2xl':  this.rounded && this.append,

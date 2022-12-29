@@ -88,6 +88,10 @@ export default {
               name: 'Inbox',
               pathName: '/dashboard/inbox',
             },
+            {
+              name: 'Profile',
+              pathName: '/dashboard/profile',
+            },
           ],
         },
       ],
