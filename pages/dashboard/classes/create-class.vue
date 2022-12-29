@@ -5,6 +5,7 @@
       :routes="[
         { name: 'Dashboard', path: '/dashboard' },
         { name: 'Classes', path: '/dashboard/classes' },
+        { name: 'Create Classes', path: '/dashboard/classes/create-class' },
       ]"
     />
   </div>
@@ -12,7 +13,7 @@
 
 <script>
 export default {
-  name: 'DashboardClasses',
+  name: 'DashboardCreateClasses',
   layout: 'dashboardLayout',
 }
 </script>

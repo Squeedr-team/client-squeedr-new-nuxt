@@ -64,8 +64,8 @@
           </button>
         </p>
         <p class="text-sm text-secondary-500 pt-3">{{ info.description }}</p>
-        <div class="text-secondary text-sm font-semibold mt-3">Select Size</div>
-        <div class="my-2">
+        <!-- <div class="text-secondary text-sm font-semibold mt-3">Select Size</div> -->
+        <!-- <div class="my-2">
           <button-group v-model="size" mandatory>
             <button
               v-for="(siz, idx) in info.sizes"
@@ -78,12 +78,13 @@
               {{ siz }}
             </button>
           </button-group>
-        </div>
-        <div class="my-4">
+        </div> -->
+        <div class="my-4 w-[50px] text-center">
           <input
             v-model="count"
             type="number"
-            class="border border-secondary-100 focus:outline-none focus:border-primary p-2 md:p-4 rounded-2xl w-20 xl:w-32 text-sm text-secondary"
+            class="w-full text-center border border-secondary-100 focus:outline-none focus:border-primary hover:border-primary"
+            min="1"
           />
         </div>
         <button

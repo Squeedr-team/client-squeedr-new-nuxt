@@ -4,7 +4,7 @@
       class="sm:p-5 p-2"
       :routes="[
         { name: 'Dashboard', path: '/dashboard' },
-        { name: 'Orders', path: '/dashboard/orders' },
+        { name: 'Bookings', path: '/dashboard/orders' },
       ]"
     />
     <div class="bg-white rounded-2xl sm:m-5 m-3 p-3 sm:p-5">

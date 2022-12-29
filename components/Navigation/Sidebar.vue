@@ -48,7 +48,34 @@ export default {
             {
               name: 'Classes',
               pathName: '/dashboard/classes',
+              id: '1',
+              children: [
+                {
+                  name: 'All Classes',
+                  pathName: '/dashboard/classes',
+                },
+                {
+                  name: 'Create Class',
+                  pathName: '/dashboard/classes/create-class',
+                },
+              ],
             },
+            {
+              name: 'Products',
+              pathName: '/dashboard/products',
+              id: '2',
+              children: [
+                {
+                  name: 'All Products',
+                  pathName: '/dashboard/products',
+                },
+                {
+                  name: 'Create Product',
+                  pathName: '/dashboard/products/create-product',
+                },
+              ],
+            },
+
             {
               name: 'Bookings',
               pathName: '/dashboard/orders',

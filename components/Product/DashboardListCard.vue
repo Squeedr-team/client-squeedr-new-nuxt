@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="info"
-    class="rounded-xl overflow-hidden bg-white shadow-sm product-card sm:flex 2xl:flex-row xl:flex-col 2xl:flex 2xl:items-start 2xl:gap-7 sm:gap-7 xl:gap-0"
+    class="rounded-xl overflow-hidden bg-white shadow-sm product-card "
   >
     <div class="img-box w-full h-[200px] overflow-hidden">
       <img

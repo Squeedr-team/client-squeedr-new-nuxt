@@ -31,7 +31,7 @@
               v-show="opened === menu.id"
               :child-item="menu.children"
               :open="open"
-              :class="isMainMenu ? 'main-child' : ''"
+              :class="isMainMenu ? 'main-child' : 'ml-4'"
               :is-main-menu="false"
               :is-mobile="isMobile"
             />

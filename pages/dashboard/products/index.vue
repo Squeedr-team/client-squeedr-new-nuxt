@@ -1,81 +1,82 @@
 <template>
   <div>
-    <!-- <Breadcumb
+    <Breadcumb
       class="sm:p-5 p-2"
       :routes="[
-        { name: 'Dashboard', path: '/' },
-        { name: 'Product', path: '/product' },
-        { name: 'Product Detail', path: '/product/2' },
+        { name: 'Dashboard', path: '/dashboard' },
+        { name: 'Products', path: '/dashboard/products' },
       ]"
-    /> -->
-    <div class="container">
-      <product-list-detail-card :info="product"></product-list-detail-card>
+    />
+    <div class="grid xl:grid-cols-3 grid-cols-1 gap-5 2xl:gap-8 sm:p-5 p-2">
+      <template v-for="(product, idx) in products">
+        <dashboard-list-card :key="idx" :info="product" />
+      </template>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProductList',
-
+  name: 'DProductList',
+  layout: 'dashboardLayout',
   data() {
     return {
-      product: {
-        img: require('~/assets/images/product1.jpg'),
-        images: [
-          {
-            id: 1,
-            url: require('~/assets/images/product1.jpg'),
-          },
-          {
-            id: 2,
-            url: require('~/assets/images/product1.jpg'),
-          },
-          {
-            id: 3,
-            url: require('~/assets/images/product1.jpg'),
-          },
-          {
-            id: 4,
-            url: require('~/assets/images/product1.jpg'),
-          },
-        ],
-        thumbs: [
-          {
-            id: 1,
-            url: require('~/assets/images/tab1.jpg'),
-          },
-          {
-            id: 2,
-            url: require('~/assets/images/tab1.jpg'),
-          },
-          {
-            id: 3,
-            url: require('~/assets/images/tab1.jpg'),
-          },
-          {
-            id: 4,
-            url: require('~/assets/images/tab1.jpg'),
-          },
-        ],
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
-        name: 'Hearty Italian-Style White Bean Soup',
-        author: { name: 'Andrew', avatar: 'https://picsum.photos/80/8' },
-        cookTime: '4-6 mins',
-        schedule: 'Breakfast (Monday, Tuesday)',
-        ingredients_count: 8,
-        reviews_count: 568,
-        review: 3.2,
-        in_stock: true,
-        code: '0405689',
-        brand: 'Lee',
-        price: 320,
-        id: 1,
-        slug: 'abc-1',
-        tags: ['bags', 'clothes'],
-        sizes: ['XS', 'SM', 'MD', 'LG', 'XL'],
-      },
+      products: [
+        {
+          img: '/v1663308694/Video_shoot_tile_v2.jpg',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+          name: 'Hearty Italian-Style White Bean Soup',
+          author: { name: 'Andrew', avatar: 'https://picsum.photos/80/8' },
+          cookTime: '4-6 mins',
+          schedule: 'Breakfast (Monday, Tuesday)',
+          ingredients_count: 8,
+          reviews_count: 568,
+          review: 3.2,
+          in_stock: true,
+          code: '0405689',
+          brand: 'Lee',
+          price: 320,
+          id: 1,
+          slug: 'abc-1',
+        },
+        {
+          img: '/v1663308694/Video_shoot_tile_v2.jpg',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+          name: 'Hearty Italian-Style White Bean Soup',
+          author: { name: 'Andrew', avatar: 'https://picsum.photos/80/8' },
+          cookTime: '4-6 mins',
+          schedule: 'Breakfast (Monday, Tuesday)',
+          ingredients_count: 8,
+          reviews_count: 568,
+          review: 4.3,
+          in_stock: true,
+          code: '0405689',
+          brand: 'Lee',
+          price: 320,
+          id: 2,
+          slug: 'abc-2',
+        },
+        {
+          img: '/v1663308694/Video_shoot_tile_v2.jpg',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+          name: 'Hearty Italian-Style White Bean Soup',
+          author: { name: 'Andrew', avatar: 'https://picsum.photos/80/8' },
+          cookTime: '4-6 mins',
+          schedule: 'Breakfast (Monday, Tuesday)',
+          ingredients_count: 8,
+          reviews_count: 568,
+          review: 3.7,
+          in_stock: true,
+          code: '0405689',
+          brand: 'Lee',
+          price: 320,
+          id: 3,
+          slug: 'abc-3',
+        },
+      ],
       // pageData: [
       //     {
       //         id: 1,
