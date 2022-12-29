@@ -2,7 +2,6 @@
   <div>
     <div class='grid 2xl:grid-cols-4 xl:grid-cols-3 grid-cols-1 lg:gap-5 gap-y-5 grid-flow-row grid-flow-column sm:p-5 p-2'>
       <workout-filter :workouts='workouts' :section-data='sectionData' class='col-span-2 2xl:col-span-3'/>
-      <next-workout :section-data='sectionData' class='col-span-1'/>
     </div>
   </div>
 </template>
