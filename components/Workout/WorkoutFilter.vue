@@ -72,7 +72,7 @@ export default {
   computed: {
     filteredWorkout() {
       const arr = this.workouts
-      if (this.filter === 'finished' || this.filter === 'unfinished') {
+      if (this.filter === 'finished' || this.filter === 'upcoming') {
         return arr.filter((item) => item.status === this.filter)
       }
       return arr

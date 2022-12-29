@@ -41,7 +41,7 @@ export default {
         },
         {
           name: 'List your space',
-          href: 'https://provider.squdeer.com',
+          href: 'https://stingray-app-nu2yg.ondigitalocean.app/',
           blank: true,
         },
         {

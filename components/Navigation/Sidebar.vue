@@ -84,6 +84,10 @@ export default {
               name: 'Customers',
               pathName: '/dashboard/customers',
             },
+            {
+              name: 'Inbox',
+              pathName: '/dashboard/inbox',
+            },
           ],
         },
       ],

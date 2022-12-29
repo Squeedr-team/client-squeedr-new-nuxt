@@ -23,7 +23,7 @@ export default {
           id: 1,
           date: '1998-05-15',
           name: 'Routine Cardio Burn Workout',
-          status: 'unfinished',
+          status: 'upcoming',
           exercise: {
             img: 'https://picsum.photos/80/80',
             short_name: 'Cycling',
@@ -83,7 +83,7 @@ export default {
         filterItems: [
           { name: 'All', value: 'all' },
           { name: 'Finished', value: 'finished' },
-          { name: 'Unfinished', value: 'unfinished' },
+          { name: 'Upcoming', value: 'upcoming' },
         ],
       },
     }

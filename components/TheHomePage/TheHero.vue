@@ -1,9 +1,10 @@
 <template>
   <div
-    class="hero-section h-screen lg:h-[90vh] relative"
+    class="hero-section h-screen lg:h-screen relative"
     :style="{
       background: 'url(' + heroDaata.background_image + ')',
       'background-size': 'cover',
+      'background-attachment': 'fixed',
     }"
   >
     <div class="container h-full flex flex-col justify-center">
@@ -34,5 +35,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
