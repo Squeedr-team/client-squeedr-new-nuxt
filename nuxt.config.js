@@ -79,7 +79,7 @@ export default {
     breaks: true,
   },
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    url: process.env.STRAPI_URL || 'https://urchin-app-ai7fp.ondigitalocean.app/',
   },
   axios: {
     baseURL: '/',
