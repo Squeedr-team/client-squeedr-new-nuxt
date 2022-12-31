@@ -61,19 +61,44 @@
                 @change="uploadAvatar"
               />
             </form>
-            <div v-if="form.avatar" class="h-40 w-40 relative mt-8">
-              <img
-                :src="form.avatar.url"
-                alt="prifile image"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute top-[-1rem] right-[-1rem] z-10 cursor-pointer text-xl"
-                @click="removeAvatar"
-              >
-                <font-awesome-icon icon="fa-solid fa-times text-white ">
-                </font-awesome-icon>
+            <div v-if="!avatarError">
+              <div v-if="!avatarLoading">
+                <div v-if="form.avatar" class="h-40 w-40 relative mt-8">
+                  <img
+                    :src="form.avatar.url"
+                    alt="prifile image"
+                    class="w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute top-[-1rem] right-[-1rem] z-10 cursor-pointer text-xl"
+                    @click="removeAvatar"
+                  >
+                    <font-awesome-icon icon="fa-solid fa-times text-white ">
+                    </font-awesome-icon>
+                  </div>
+                </div>
               </div>
+              <div v-else class="data-table-loading my-4">
+                <svg
+                  role="status"
+                  class="inline mr-3 w-20 h-20 text-white animate-spin"
+                  viewBox="0 0 100 101"
+                  fill="#29bdef"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="#29bdef"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div v-else>
+              <p class="text-red-500 text-sm my-4">{{ avatarError }}</p>
             </div>
           </div>
         </div>
@@ -90,22 +115,54 @@
                 @change="uploadGalary"
               />
             </div>
-            <ul v-if="form.galary.length > 0" class="flex gap-8 my-8 flex-wrap">
-              <li
-                v-for="(g, gindex) in form.galary"
-                :key="g.id"
-                class="w-40 h-40 relative"
-              >
-                <img :src="g.url" :alt="g" class="w-full h-full object-cover" />
-                <div
-                  class="absolute top-[-1rem] right-[-1rem] z-10 cursor-pointer text-xl"
-                  @click="removImageFromGalary(gindex)"
+            <div v-if="!galaryError">
+              <div v-if="!galaryLoading">
+                <ul
+                  v-if="form.galary.length > 0"
+                  class="flex gap-8 my-8 flex-wrap"
                 >
-                  <font-awesome-icon icon="fa-solid fa-times text-white ">
-                  </font-awesome-icon>
-                </div>
-              </li>
-            </ul>
+                  <li
+                    v-for="(g, gindex) in form.galary"
+                    :key="g.id"
+                    class="w-40 h-40 relative"
+                  >
+                    <img
+                      :src="g.url"
+                      :alt="g"
+                      class="w-full h-full object-cover"
+                    />
+                    <div
+                      class="absolute top-[-1rem] right-[-1rem] z-10 cursor-pointer text-xl"
+                      @click="removImageFromGalary(gindex)"
+                    >
+                      <font-awesome-icon icon="fa-solid fa-times text-white ">
+                      </font-awesome-icon>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div v-else class="data-table-loading my-4">
+                <svg
+                  role="status"
+                  class="inline mr-3 w-20 h-20 text-white animate-spin"
+                  viewBox="0 0 100 101"
+                  fill="#29bdef"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="#29bdef"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div v-else>
+              <p class="text-red-500 text-sm my-4">{{ galaryError }}</p>
+            </div>
           </form>
         </div>
 
@@ -289,6 +346,10 @@ export default {
       skill: null,
       testimonials: [],
       single_testimonials: {},
+      galaryLoading: false,
+      galaryError: null,
+      avatarLoading: false,
+      avatarError: null,
     }
   },
   methods: {
@@ -311,6 +372,7 @@ export default {
       this.form.skills.splice(i, 1)
     },
     async uploadAvatar(e) {
+      this.avatarLoading = true
       const upFiles = e.target.files
       const formData = new FormData()
       formData.append('files', upFiles[0])
@@ -320,11 +382,14 @@ export default {
         this.form.avatar = url[0]
         console.log(this.form.avatar)
         this.$refs.avatarFrom.reset()
+        this.avatarLoading = false
       } catch (error) {
         console.log('error', error.response)
+        this.avatarError = 'somthing went wrong, please try gain ...'
       }
     },
     async uploadGalary(e) {
+      this.galaryLoading = true
       const upFiles = e.target.files
       const formData = new FormData()
       for (let index = 0; index < upFiles.length; index++) {
@@ -340,7 +405,9 @@ export default {
           this.form.galary = [...this.form.galary, ...url]
         }
         this.$refs.galaryForm.reset()
+        this.galaryLoading = false
       } catch (error) {
+        this.galaryError = 'somthing went wrong, please try gain ...'
         console.log('error', error.response)
       }
     },
